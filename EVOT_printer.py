@@ -13,9 +13,3 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-git init
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/oljar/EVOT_printer.git
-git push -u origin main

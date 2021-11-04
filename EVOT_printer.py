@@ -112,15 +112,31 @@ class Application (Frame):
 #heater
 #########################################################################################################################################
 
+
+
     def heater_choice(self):
 
             self.heater_var= IntVar()
-            self.electric_heater_ = Radiobutton(tab2,text = "Nagrzewnica elektryczna", variable = self.heater_var, value = 1).grid(row=1, column=1, padx=10, pady=3)
-            self.water_heater = Radiobutton(tab2,text = "Nagrzewnica wodna", variable = self.heater_var, value = 2).grid(row=1, column=4, padx=10, pady=3)
-            self.reverse_exchanger = Radiobutton(tab2, text="Wymiennik rewersyjny", variable=self.heater_var, value= 3).grid(row=1, column = 6, padx=10, pady=3)
-            self. lackoff_heater = Radiobutton(tab2, text="brak", variable=self.heater_var, value= 4).grid(row=1, column = 8, padx=10, pady=3)
 
+            self.electric_heater = ttk.Radiobutton(tab2,text = "nagrzewnica elektryczna", variable = self.heater_var, value = 1,command = self.electric_heater_function ).grid(row =0,column = 1, pady = (10,5))
+            self.water_heater = ttk.Radiobutton(tab2,text = "nagrzewnica wodna", variable = self.heater_var, value = 2, command = self.water_heater_function ).grid(row =5,column = 1,ipadx=0,pady = 5)
+            self.reverse_exchanger = ttk.Radiobutton(tab2, text="wymiennik rewersyjny", variable=self.heater_var, value= 3,command = self.reverse_exchanger_function ).grid(row = 10,column = 1 ,pady = 5)
+            self. lackoff_heater = ttk.Radiobutton(tab2, text="brak", variable=self.heater_var, value= 4, command = self.lackoff_heater_function ).grid (row = 15,column = 1, pady = 5)
 
+    def electric_heater_function(self):
+
+        self.lbl_supply_flow = ttk.Label(tab2, text="    N - wydatek powietrza [m3/h]" ).pack(anchor = W, padx = 10, pady = 5)
+        self.entry_supply_flow = ttk.Entry(tab2, text = 'ssdsds').pack(anchor = W, padx = 10, pady = 5)
+
+    def water_heater_function(self):
+        self.label = 0
+        pass
+
+    def reverse_exchanger_function(self):
+        pass
+
+    def lackoff_heater_function(self):
+        pass
 
         # selected_month = StringVar()
         #
@@ -143,11 +159,15 @@ window.geometry('600x400')
 tab_parent = ttk.Notebook(window)
 tab1 = ttk.Frame(tab_parent)
 tab2 = ttk.Frame(tab_parent)
+
 tab3 = ttk.Frame(tab_parent)
 tab4 = ttk.Frame(tab_parent)
 tab5 = ttk.Frame(tab_parent)
 tab6 = ttk.Frame(tab_parent)
 tab7 = ttk.Frame(tab_parent)
+
+
+
 
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')

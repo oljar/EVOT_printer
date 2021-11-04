@@ -33,24 +33,26 @@ class Application (Frame):
 
 
 
-
-
-
     def serial(self):
+        self.entry_serial_value = StringVar()
         self.lbl_serial=ttk.Label(tab1 ,text = "Nr seryjny").grid(row =1,column = 1,padx=10,pady=(10,3))
-        self.entry_serial=ttk.Entry(tab1).grid(row =1 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+        self.entry_serial=ttk.Entry(tab1,textvariable = self.entry_serial_value).grid(row =1 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
 
     def order(self):
+        self.entry_order_value = StringVar()
         self.lbl_order=ttk.Label(tab1,text = "Zlecenie").grid(row = 5,column = 1,padx=10,pady=3)
-        self.entry_order=ttk.Entry(tab1).grid(row =5,column = 2,padx=1,pady=3,ipadx=10 )
+        self.entry_order=ttk.Entry(tab1, textvariable = self.entry_order_value).grid(row =5,column = 2,padx=1,pady=3,ipadx=10 )
 
     def project(self):
+        self.entry_project_value = StringVar()
         self.lbl_project=ttk.Label(tab1 ,text = "Projekt").grid(row = 10,column = 1,padx=10,pady=3)
-        self.entry_project=ttk.Entry(tab1).grid(row =10,column = 2,padx=1,pady=3, ipadx=10 )
+        self.entry_project=ttk.Entry(tab1, textvariable = self.entry_project_value).grid(row =10,column = 2,padx=1,pady=3, ipadx=10 )
 
     def system(self):
+        self.entry_system_value = StringVar()
         self.lbl_system = ttk.Label(tab1, text="System").grid(row=15, column=1, padx=10, pady=3)
-        self.entry_system = ttk.Entry(tab1).grid(row=15, column=2, padx=1, pady=3, ipadx=10)
+        self.entry_system = ttk.Entry(tab1, textvariable = self.entry_system_value).grid(row=15, column=2, padx=1, pady=3, ipadx=10)
+
 
 
     def type(self):
@@ -125,12 +127,13 @@ class Application (Frame):
 
     def electric_heater_function(self):
 
-        self.lbl_symbol_electric_heater = ttk.Label(tab2, text="symbol" ).grid(row=5, column=0)
+        self.lbl_symbol_electric_heater = ttk.Label(tab2, text="symbol NE" ).grid(row=5, column=0)
         self.entry_symbol_electric_heater = ttk.Entry(tab2).grid(row=5, column=5, pady = 5)
 
     def water_heater_function(self):
-        self.label = 0
-        pass
+        self.lbl_symbol_water_heater = ttk.Label(tab2, text="symbol NW" ).grid(row=5, column=0)
+        self.entry_symbol_water_heater = ttk.Entry(tab2).grid(row=5, column=5, pady = 5)
+        self.label = ttk.Label(tab2,text= self.entry_serial_value.get()).grid(row=6, column=1, pady = 5)
 
     def reverse_exchanger_function(self):
         pass

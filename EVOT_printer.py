@@ -118,15 +118,15 @@ class Application (Frame):
 
             self.heater_var= IntVar()
 
-            self.electric_heater = ttk.Radiobutton(tab2,text = "nagrzewnica elektryczna", variable = self.heater_var, value = 1,command = self.electric_heater_function ).grid(row =0,column = 1, pady = (10,5))
-            self.water_heater = ttk.Radiobutton(tab2,text = "nagrzewnica wodna", variable = self.heater_var, value = 2, command = self.water_heater_function ).grid(row =5,column = 1,ipadx=0,pady = 5)
-            self.reverse_exchanger = ttk.Radiobutton(tab2, text="wymiennik rewersyjny", variable=self.heater_var, value= 3,command = self.reverse_exchanger_function ).grid(row = 10,column = 1 ,pady = 5)
-            self. lackoff_heater = ttk.Radiobutton(tab2, text="brak", variable=self.heater_var, value= 4, command = self.lackoff_heater_function ).grid (row = 15,column = 1, pady = 5)
+            self.electric_heater = ttk.Radiobutton(tab2,text = "nagrzewnica elektryczna", variable = self.heater_var, value = 1,command = self.electric_heater_function ).grid(row =0,column = 0,padx=10, pady = 5 )
+            self.water_heater = ttk.Radiobutton(tab2,text = "nagrzewnica wodna", variable = self.heater_var, value = 2, command = self.water_heater_function ).grid(row =0,column = 5,padx=10,pady = 5)
+            self.reverse_exchanger = ttk.Radiobutton(tab2, text="wymiennik rewersyjny", variable=self.heater_var, value= 3,command = self.reverse_exchanger_function ).grid(row = 0,column = 15 ,padx=10,pady = 5)
+            self. lackoff_heater = ttk.Radiobutton(tab2, text="brak", variable=self.heater_var, value= 4, command = self.lackoff_heater_function ).grid (row = 0,column = 10,padx=10, pady = 5)
 
     def electric_heater_function(self):
 
-        self.lbl_supply_flow = ttk.Label(tab2, text="    N - wydatek powietrza [m3/h]" ).pack(anchor = W, padx = 10, pady = 5)
-        self.entry_supply_flow = ttk.Entry(tab2, text = 'ssdsds').pack(anchor = W, padx = 10, pady = 5)
+        self.lbl_symbol_electric_heater = ttk.Label(tab2, text="symbol" ).grid(row=5, column=0)
+        self.entry_symbol_electric_heater = ttk.Entry(tab2).grid(row=5, column=5, pady = 5)
 
     def water_heater_function(self):
         self.label = 0

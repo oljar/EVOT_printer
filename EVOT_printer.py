@@ -7,6 +7,8 @@ class Application (Frame):
     def __init__(self,master):
 
        super(Application,self).__init__(master)
+
+    #  idetyty
        self.serial()
        self.order()
        self.project()
@@ -20,6 +22,18 @@ class Application (Frame):
        self.exhaust_execution()
        self.exhaust_flow()
        self.exhaust_pressure()
+
+    #  heater
+
+
+       self.heater_choice()
+
+
+
+
+
+
+
 
 
     def serial(self):
@@ -89,9 +103,22 @@ class Application (Frame):
             self.lbl_exhaust_flow = ttk.Label(tab1, text="    W - wydatek powietrza [m3/h]").grid(row=45, column=1, padx=10, pady=3)
             self.entry_exhaust_flow = ttk.Entry(tab1).grid(row=45, column=2, padx=1, pady=3, ipadx=10)
 
+
     def exhaust_pressure(self):
             self.lbl_exhaust_pressure = ttk.Label(tab1, text="   W - spręż dyspozycyjny [Pa]").grid(row=50, column=1, padx=10, pady=3)
             self.entry_exhaust_pressure = ttk.Entry(tab1).grid(row=50, column=2, padx=1, pady=3, ipadx=10)
+
+
+#heater
+#########################################################################################################################################
+
+    def heater_choice(self):
+
+            self.heater_var= IntVar()
+            self.electric_heater_ = Radiobutton(tab2,text = "Nagrzewnica elektryczna", variable = self.heater_var, value = 1).grid(row=1, column=1, padx=10, pady=3)
+            self.water_heater = Radiobutton(tab2,text = "Nagrzewnica wodna", variable = self.heater_var, value = 2).grid(row=1, column=4, padx=10, pady=3)
+            self.reverse_exchanger = Radiobutton(tab2, text="Wymiennik rewersyjny", variable=self.heater_var, value= 3).grid(row=1, column = 6, padx=10, pady=3)
+            self. lackoff_heater = Radiobutton(tab2, text="brak", variable=self.heater_var, value= 4).grid(row=1, column = 8, padx=10, pady=3)
 
 
 
@@ -111,7 +138,7 @@ class Application (Frame):
 
 window = Tk()
 window.title("EVOT_printer")
-window.geometry('450x400')
+window.geometry('600x400')
 
 tab_parent = ttk.Notebook(window)
 tab1 = ttk.Frame(tab_parent)
@@ -129,7 +156,6 @@ tab_parent.add(tab4,text = 'wentylatory')
 tab_parent.add(tab5,text = 'filtry')
 tab_parent.add(tab6,text = 'tłumiki')
 tab_parent.add(tab7,text = 'wymiennik')
-
 
 tab_parent.pack(expand =1, fill = 'both')
 

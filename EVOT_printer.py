@@ -130,30 +130,67 @@ class Application (Frame):
             self.reverse_exchanger = ttk.Radiobutton(tab2, text="wymiennik rewersyjny", variable = self.heater_choice_value, value= 3,command = self.reverse_exchanger_function ).grid(row = 0,column = 15 ,padx=10,pady = 5)
             self. lackoff_heater = ttk.Radiobutton(tab2, text="brak", variable = self.heater_choice_value , value= 4, command = self.lackoff_heater_function ).grid (row = 0,column = 20,padx=10, pady = 5)
 
+
+
     def electric_heater_function(self):
 
-            self.symbol_electric_heater_value = StringVar()
-            self.lbl_symbol_electric_heater = ttk.Label(tab2, text="symbol NE" ).grid(row=5, column=0, ipadx = 30)
-            self.entry_symbol_electric_heater = ttk.Entry(tab2, textvariable = self.symbol_electric_heater_value).grid(row=5, column=5, pady = 5)
+            try :
+
+                self.lframe.destroy()
+            except:
+                pass
+
+            finally:
+                self.lframe = ttk.LabelFrame(tab2)
+                self.lframe.grid( )
+                self.symbol_electric_heater_value = StringVar()
+                self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="symbol" ).grid(row=5, column=1,padx=3)
+                self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value).grid(row=5, column=5, padx = 3)
+
 
 
 
     def water_heater_function(self):
-            self.symbol_water_heater_value = StringVar()
-            self.lbl_symbol_water_heater = ttk.Label(tab2, text="symbol NW" ).grid(row=5, column=0, ipadx = 30)
-            self.entry_symbol_water_heater = ttk.Entry(tab2, textvariable = self.symbol_water_heater_value ).grid(row=5, column=5, pady = 5)
+
+            try :
+                self.lframe.destroy()
+            except:
+                pass
+            finally:
+
+                self.lframe = ttk.LabelFrame(tab2)
+                self.lframe.grid( )
+                self.symbol_water_heater_value = StringVar()
+                self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="symbol" ).grid(row=5, column=1,padx = 3)
+                self.entry_symbol_water_heater = ttk.Entry(self.lframe, textvariable = self.symbol_water_heater_value ).grid(row=5, column=5, padx = 3)
 
 
     def reverse_exchanger_function(self):
-            self.symbol_reverse_exchanger_value = StringVar()
-            self.lbl_reverse_exchanger = ttk.Label(tab2, text=" Wymiennik rewersyjny").grid(row=5, column=0)
-            self.entry_reverse_exchanger= ttk.Entry(tab2, textvariable=self.symbol_reverse_exchanger_value).grid(row=5, column=5,pady=5)
+
+            try :
+                self.lframe.destroy()
+            except:
+                pass
+            finally:
+                self.lframe = ttk.LabelFrame(tab2)
+                self.lframe.grid()
+                self.symbol_reverse_exchanger_value = StringVar()
+                self.lbl_reverse_exchanger = ttk.Label(self.lframe, text=" symbol").grid(row=5, column=1, padx =3)
+                self.entry_reverse_exchanger= ttk.Entry(self.lframe, textvariable=self.symbol_reverse_exchanger_value).grid(row=5, column=5,padx = 3)
 
 
     def lackoff_heater_function(self):
 
+        try :
+            self.lframe.destroy()
+        except :
+            pass
 
-            self.lbl_reverse_exchanger = ttk.Label(tab2, text=" Wymiennik rewersyjny")
+
+
+
+
+
 
 
 

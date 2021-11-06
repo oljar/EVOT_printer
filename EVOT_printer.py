@@ -152,11 +152,11 @@ class Application (Frame):
                 self.symbol_electric_heater_value = StringVar()
                 self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="symbol NE" ).grid(row=5, column=1,padx=1)
                 self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value, width = 30).grid(row=5, column=5, padx=2)
-                #
-                # # power of  heater
-                # self.symbol_electric_heater_value = StringVar()
-                # self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="symbol" ).grid(row=5, column=1,padx=1)
-                # self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value).grid(row=5, column=5, padx=2, ipadx=4 )
+
+                # heater data  for plate
+                self.electric_heater_plate_value = StringVar()
+                self.lbl_plate_electric_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
+                self.entry_plate_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value,width = 30).grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
                 #
 
     def water_heater_function(self):

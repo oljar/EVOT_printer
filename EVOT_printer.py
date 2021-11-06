@@ -118,17 +118,19 @@ class Application (Frame):
 
 
 #heater
-#########################################################################################################################################
 
+    #Heater choice
+    ############################################################################################################################
 
 
     def heater_choice(self):
-
+            self.lfradio = ttk.LabelFrame(tab2)
+            self.lfradio.pack( )
             self.heater_choice_value = IntVar()
-            self.electric_heater = ttk.Radiobutton(tab2,text = "nagrzewnica elektryczna", variable = self.heater_choice_value, value = 1,command = self.electric_heater_function ).grid(row =0,column = 0,padx=10, pady = 5 )
-            self.water_heater = ttk.Radiobutton(tab2,text = "nagrzewnica wodna", variable = self.heater_choice_value, value = 2, command = self.water_heater_function ).grid(row =0,column = 5,padx=10,pady = 5)
-            self.reverse_exchanger = ttk.Radiobutton(tab2, text="wymiennik rewersyjny", variable = self.heater_choice_value, value= 3,command = self.reverse_exchanger_function ).grid(row = 0,column = 15 ,padx=10,pady = 5)
-            self. lackoff_heater = ttk.Radiobutton(tab2, text="brak", variable = self.heater_choice_value , value= 4, command = self.lackoff_heater_function ).grid (row = 0,column = 20,padx=10, pady = 5)
+            self.electric_heater = ttk.Radiobutton(self.lfradio,text = "nagrzewnica elektryczna", variable = self.heater_choice_value, value = 1,command = self.electric_heater_function ).grid(row =0,column = 0,padx=20, pady = 5 )
+            self.water_heater = ttk.Radiobutton(self.lfradio,text = "nagrzewnica wodna", variable = self.heater_choice_value, value = 2, command = self.water_heater_function ).grid(row =0,column = 5,padx=20,pady = 5)
+            self.reverse_exchanger = ttk.Radiobutton(self.lfradio, text="wymiennik rewersyjny", variable = self.heater_choice_value, value= 3,command = self.reverse_exchanger_function ).grid(row = 0,column = 15 ,padx=20,pady = 5)
+            self. lackoff_heater = ttk.Radiobutton(self.lfradio, text="brak", variable = self.heater_choice_value , value= 4, command = self.lackoff_heater_function ).grid (row = 0,column = 20,padx=20, pady = 5)
 
 
 
@@ -141,14 +143,21 @@ class Application (Frame):
                 pass
 
             finally:
+
+
                 self.lframe = ttk.LabelFrame(tab2)
-                self.lframe.grid( )
+                self.lframe.pack( anchor = W)
+
+                #symbol electric heater
                 self.symbol_electric_heater_value = StringVar()
-                self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="symbol" ).grid(row=5, column=1,padx=3)
-                self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value).grid(row=5, column=5, padx = 3)
-
-
-
+                self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="symbol NE" ).grid(row=5, column=1,padx=1)
+                self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value, width = 30).grid(row=5, column=5, padx=2)
+                #
+                # # power of  heater
+                # self.symbol_electric_heater_value = StringVar()
+                # self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="symbol" ).grid(row=5, column=1,padx=1)
+                # self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value).grid(row=5, column=5, padx=2, ipadx=4 )
+                #
 
     def water_heater_function(self):
 
@@ -158,11 +167,13 @@ class Application (Frame):
                 pass
             finally:
 
+                #water heater symbol
                 self.lframe = ttk.LabelFrame(tab2)
-                self.lframe.grid( )
+                self.lframe.pack( anchor = W)
                 self.symbol_water_heater_value = StringVar()
-                self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="symbol" ).grid(row=5, column=1,padx = 3)
-                self.entry_symbol_water_heater = ttk.Entry(self.lframe, textvariable = self.symbol_water_heater_value ).grid(row=5, column=5, padx = 3)
+                self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="symbol WE" ).grid(row=5, column=1,padx = 3)
+                self.entry_symbol_water_heater = ttk.Entry(self.lframe, textvariable = self.symbol_water_heater_value,width = 30 ).grid(row=5, column=5, padx = 3)
+
 
 
     def reverse_exchanger_function(self):
@@ -173,10 +184,10 @@ class Application (Frame):
                 pass
             finally:
                 self.lframe = ttk.LabelFrame(tab2)
-                self.lframe.grid()
+                self.lframe.pack( anchor = W)
                 self.symbol_reverse_exchanger_value = StringVar()
-                self.lbl_reverse_exchanger = ttk.Label(self.lframe, text=" symbol").grid(row=5, column=1, padx =3)
-                self.entry_reverse_exchanger= ttk.Entry(self.lframe, textvariable=self.symbol_reverse_exchanger_value).grid(row=5, column=5,padx = 3)
+                self.lbl_reverse_exchanger = ttk.Label(self.lframe, text=" symbol RE").grid(row=5, column=1, padx =3)
+                self.entry_reverse_exchanger= ttk.Entry(self.lframe, textvariable=self.symbol_reverse_exchanger_value,width = 30).grid(row=5, column=5,padx = 3)
 
 
     def lackoff_heater_function(self):
@@ -210,7 +221,7 @@ class Application (Frame):
 
 window = Tk()
 window.title("EVOT_printer")
-window.geometry('600x400')
+window.geometry('650x400')
 
 tab_parent = ttk.Notebook(window)
 tab1 = ttk.Frame(tab_parent)

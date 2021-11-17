@@ -220,8 +220,10 @@ class Application (Frame):
                 self.lbl_plate_reverse_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
                 self.entry_plate_reverse_heater = ttk.Entry(self.lframe, textvariable = self.reverse_heater_plate_value,width = 30).grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
 
+
                 #explanation
                 self.explanation = ttk.Label(self.lframe, text="moc lato [KW] / czynnik " ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
+
 
 
 

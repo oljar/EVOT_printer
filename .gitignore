@@ -3,6 +3,9 @@
 venv
 venv/
 .pdf
-
+data
+data/
+result
+result/
 .bat
 

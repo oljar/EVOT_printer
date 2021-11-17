@@ -6,28 +6,29 @@ import time
 class Application (Frame):
     def __init__(self,master):
 
-       super(Application,self).__init__(master)
+        super(Application,self).__init__(master)
 
     #  idetyty
-       self.serial()
-       self.order()
-       self.project()
-       self.system()
-       self.type()
-       self.supply()
-       self.supply_execution()
-       self.supply_flow()
-       self.supply_pressure()
-       self.exhaust()
-       self.exhaust_execution()
-       self.exhaust_flow()
-       self.exhaust_pressure()
+        self.serial()
+        self.order()
+        self.project()
+        self.system()
+        self.type()
+        self.supply()
+        self.supply_execution()
+        self.supply_flow()
+        self.supply_pressure()
+        self.exhaust()
+        self.exhaust_execution()
+        self.exhaust_flow()
+        self.exhaust_pressure()
 
     #  heater
 
 
-       self.heater_choice()
-       self.cooler_choice()
+        self.heater_choice()
+        self.cooler_choice()
+        self.fan_choice()
 
 
 
@@ -119,8 +120,6 @@ class Application (Frame):
 
 
 #heater
-
-    #Heater choice
     ############################################################################################################################
 
 
@@ -181,7 +180,7 @@ class Application (Frame):
                 self.lframe.pack( anchor = W, padx=7)
 
                 self.symbol_water_heater_value = StringVar()
-                self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="symbol WE" ).grid(row=5, column=1,padx = 3)
+                self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="symbol WN" ).grid(row=5, column=1,padx = 3)
                 self.entry_symbol_water_heater = ttk.Entry(self.lframe, textvariable = self.symbol_water_heater_value,width = 30 ).grid(row=5, column=5, padx = 3)
 
 
@@ -255,6 +254,8 @@ class Application (Frame):
         #
         # def self.clicked()
         #      print(selected_month.get())
+
+#cooler
 #######################################################################################################################
 
     def cooler_choice(self):
@@ -287,7 +288,7 @@ class Application (Frame):
             self.lframe.pack( anchor = W, padx=7)
 
             self.symbol_water_cooler_value = StringVar()
-            self.lbl_symbol_water_cooler= ttk.Label(self.lframe, text="chłodnica wodna" ).grid(row=5, column=1,padx = 3)
+            self.lbl_symbol_water_cooler= ttk.Label(self.lframe, text="symbol CHW" ).grid(row=5, column=1,padx = 3)
             self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
 
 
@@ -320,7 +321,7 @@ class Application (Frame):
             self.lframe.pack( anchor = W, padx=7)
 
             self.symbol_water_cooler_value = StringVar()
-            self.lbl_symbol_water_cooler = ttk.Label(self.lframe, text="symbol WE" ).grid(row=5, column=1,padx = 3)
+            self.lbl_symbol_water_cooler = ttk.Label(self.lframe, text="symbol CHF" ).grid(row=5, column=1,padx = 3)
             self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
 
 
@@ -341,9 +342,26 @@ class Application (Frame):
             pass
 
 
+#Fans
+#######################################################################################################################
+
+    def fan_choice(self):
+        self.lfradio = ttk.LabelFrame(tab4)
+        self.lfradio.pack( )
+        self.fan_choice_value = IntVar()
+        self.EC_fan = ttk.Radiobutton(self.lfradio,text = "EC wentylator", variable = self.fan_choice_value, value = 1,command = self.EC_fan_choice_function).grid(row =0,column = 0,padx=20, pady = 5 )
+        self.AC_fan = ttk.Radiobutton(self.lfradio,text = "AC wentylator", variable = self.fan_choice_value, value = 2, command = self.AC_fan_choice_function ).grid(row =0,column = 5,padx=20,pady = 5)
+        self.lackoff_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.fan_choice_value , value= 4, command = self.lackoff_fan_choice_function ).grid (row = 0,column = 20,padx=20, pady = 5)
 
 
 
+    def EC_fan_choice_function(self):
+        pass
+
+    def AC_fan_choice_function(self):
+        pass
+    def lackoff_fan_choice_function(self) :
+        pass
 
 
 
@@ -371,9 +389,6 @@ tab4 = ttk.Frame(tab_parent)
 tab5 = ttk.Frame(tab_parent)
 tab6 = ttk.Frame(tab_parent)
 tab7 = ttk.Frame(tab_parent)
-print('jjj')
-
-
 
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')

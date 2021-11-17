@@ -151,7 +151,7 @@ class Application (Frame):
 
                 #symbol electric heater
                 self.symbol_electric_heater_value = StringVar()
-                self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="symbol NE" ).grid(row=5, column=1,padx=1)
+                self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="typ NE" ).grid(row=5, column=1,padx=1)
                 self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value, width = 30).grid(row=5, column=5, padx=2)
 
                 # heater data  for plate
@@ -180,7 +180,7 @@ class Application (Frame):
                 self.lframe.pack( anchor = W, padx=7)
 
                 self.symbol_water_heater_value = StringVar()
-                self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="symbol WN" ).grid(row=5, column=1,padx = 3)
+                self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="typ WN" ).grid(row=5, column=1,padx = 3)
                 self.entry_symbol_water_heater = ttk.Entry(self.lframe, textvariable = self.symbol_water_heater_value,width = 30 ).grid(row=5, column=5, padx = 3)
 
 
@@ -211,7 +211,7 @@ class Application (Frame):
                 self.lframe.pack( anchor = W, padx=7)
 
                 self.symbol_reverse_exchanger_value = StringVar()
-                self.lbl_reverse_exchanger = ttk.Label(self.lframe, text=" symbol RE").grid(row=5, column=1, padx =3)
+                self.lbl_reverse_exchanger = ttk.Label(self.lframe, text=" typ RE").grid(row=5, column=1, padx =3)
                 self.entry_reverse_exchanger= ttk.Entry(self.lframe, textvariable=self.symbol_reverse_exchanger_value,width = 30).grid(row=5, column=5,padx = 3)
 
                 # reverse heater data  for plate
@@ -288,7 +288,7 @@ class Application (Frame):
             self.lframe.pack( anchor = W, padx=7)
 
             self.symbol_water_cooler_value = StringVar()
-            self.lbl_symbol_water_cooler= ttk.Label(self.lframe, text="symbol CHW" ).grid(row=5, column=1,padx = 3)
+            self.lbl_symbol_water_cooler= ttk.Label(self.lframe, text="typ CHW" ).grid(row=5, column=1,padx = 3)
             self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
 
 
@@ -321,7 +321,7 @@ class Application (Frame):
             self.lframe.pack( anchor = W, padx=7)
 
             self.symbol_water_cooler_value = StringVar()
-            self.lbl_symbol_water_cooler = ttk.Label(self.lframe, text="symbol CHF" ).grid(row=5, column=1,padx = 3)
+            self.lbl_symbol_water_cooler = ttk.Label(self.lframe, text="typ CHF" ).grid(row=5, column=1,padx = 3)
             self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
 
 
@@ -349,19 +349,49 @@ class Application (Frame):
         self.lfradio = ttk.LabelFrame(tab4)
         self.lfradio.pack( )
         self.fan_choice_value = IntVar()
-        self.EC_fan = ttk.Radiobutton(self.lfradio,text = "EC wentylator", variable = self.fan_choice_value, value = 1,command = self.EC_fan_choice_function).grid(row =0,column = 0,padx=20, pady = 5 )
-        self.AC_fan = ttk.Radiobutton(self.lfradio,text = "AC wentylator", variable = self.fan_choice_value, value = 2, command = self.AC_fan_choice_function ).grid(row =0,column = 5,padx=20,pady = 5)
-        self.lackoff_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.fan_choice_value , value= 4, command = self.lackoff_fan_choice_function ).grid (row = 0,column = 20,padx=20, pady = 5)
+        self.EC_fan = ttk.Radiobutton(self.lfradio,text = "EC wentylator", variable = self.fan_choice_value, value = 1,command = self.EC_fan_function).grid(row =0,column = 0,padx=20, pady = 5 )
+        self.AC_fan = ttk.Radiobutton(self.lfradio,text = "AC wentylator", variable = self.fan_choice_value, value = 2, command = self.AC_fan_function ).grid(row =0,column = 5,padx=20,pady = 5)
+        self.lackoff_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.fan_choice_value , value= 4, command = self.lackoff_fan_function ).grid (row = 0,column = 20,padx=20, pady = 5)
 
 
 
-    def EC_fan_choice_function(self):
+
+
+    def AC_fan_function(self):
+        pass
+    def lackoff_fan_function(self) :
         pass
 
-    def AC_fan_choice_function(self):
-        pass
-    def lackoff_fan_choice_function(self) :
-        pass
+
+
+    def EC_fan_function(self):
+
+        try :
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            #water cooler symbol
+            self.lframe = ttk.LabelFrame(tab4)
+
+            self.lframe.pack( anchor = W)
+
+            self.lframe.pack( anchor = W, padx=7)
+
+            self.symbol_water_cooler_value = StringVar()
+            self.lbl_symbol_water_cooler= ttk.Label(self.lframe, text="typ CHW" ).grid(row=5, column=1,padx = 3)
+            self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
+
+
+
+            # water cooler data  for plate
+            self.water_cooler_plate_value = StringVar()
+            self.lbl_plate_water_cooler= ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
+            self.entry_plate_water_cooler = ttk.Entry(self.lframe, textvariable=self.water_cooler_plate_value, width=30).grid(row=10, column=5, padx=2, ipadx=4, pady=10)
+
+            #explanation
+            self.explanation = ttk.Label(self.lframe, text="[zasilanie - powrót [stC] / moc lato [kW]/ spadek ciśnienia [kPa]" ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
 
 
 

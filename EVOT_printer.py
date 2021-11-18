@@ -448,15 +448,19 @@ class Application (Frame):
             # fan symbol
             self.lframe = ttk.LabelFrame(tab5)
             self.lframe.pack(anchor=W)
-            self.lframe.pack(anchor=W, padx=7)
-
+            self.lframe.pack(anchor=W, padx=15)
             self.symbol_G4_filter_value = StringVar()
             self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=5, column=5, padx=1)
+            self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.lbl_G4_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_G4_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
 
 
 
     def M5_filter_function(self):
+
 
         try:
             self.lframe.destroy()
@@ -467,18 +471,60 @@ class Application (Frame):
             # fan symbol
             self.lframe = ttk.LabelFrame(tab5)
             self.lframe.pack(anchor=W)
-            self.lframe.pack(anchor=W, padx=7)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_M5_filter_value = StringVar()
+            self.lbl_symbol_M5_filter = ttk.Label(self.lframe, text="wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_M5_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.lbl_M5_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_M5_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
 
-            self.symbol_G4_filter_value = StringVar()
-            self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=5, column=5, padx=1)
+
 
 
     def F7_filter_function(self):
-        pass
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # fan symbol
+            self.lframe = ttk.LabelFrame(tab5)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_F7_filter_value = StringVar()
+            self.lbl_symbol_F7_filter = ttk.Label(self.lframe, text="wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F7_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.lbl_F7_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_F7_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+
 
     def F9_filter_function(self):
-        pass
+
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # fan symbol
+            self.lframe = ttk.LabelFrame(tab5)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_F9_filter_value = StringVar()
+            self.lbl_symbol_F9_filter = ttk.Label(self.lframe, text="wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F9_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.lbl_F9_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_F9_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+
 
     def lackoff_filter_function(self) :
         try:

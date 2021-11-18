@@ -29,6 +29,7 @@ class Application (Frame):
         self.heater_choice()
         self.cooler_choice()
         self.fan_choice()
+        self.filter_choice()
 
 
 
@@ -354,10 +355,6 @@ class Application (Frame):
         self.lackoff_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.fan_choice_value , value= 4, command = self.lackoff_fan_function ).grid (row = 0,column = 20,padx=20, pady = 5)
 
 
-
-
-
-
     def EC_fan_function(self):
 
         try :
@@ -428,6 +425,66 @@ class Application (Frame):
             pass
 
 
+    def filter_choice(self):
+        self.lfradio = ttk.LabelFrame(tab5)
+        self.lfradio.pack( )
+        self.filter_choice_value = IntVar()
+        self.G4_filter = ttk.Radiobutton(self.lfradio,text = "G4", variable = self.filter_choice_value, value = 1,command = self.G4_filter_function).grid(row =0,column = 0,padx=20, pady = 5 )
+        self.M5_filter = ttk.Radiobutton(self.lfradio,text = "M5", variable = self.filter_choice_value, value = 2, command = self.M5_filter_function).grid(row =0,column = 5,padx=20,pady = 5)
+        self.F7_filter = ttk.Radiobutton(self.lfradio,text = "F7", variable = self.filter_choice_value, value = 3, command = self.F7_filter_function ).grid(row =0,column = 10,padx=20,pady = 5)
+        self.F9_filter = ttk.Radiobutton(self.lfradio,text = "F9", variable = self.filter_choice_value, value = 4, command = self.F9_filter_function ).grid(row =0,column = 15,padx=20,pady = 5)
+        self.lackoff_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.filter_choice_value , value= 5, command = self.lackoff_filter_function ).grid (row = 0,column = 20,padx=20, pady = 5)
+
+
+
+    def G4_filter_function(self):
+
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # fan symbol
+            self.lframe = ttk.LabelFrame(tab5)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=7)
+
+            self.symbol_G4_filter_value = StringVar()
+            self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=5, column=5, padx=1)
+
+
+
+    def M5_filter_function(self):
+
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # fan symbol
+            self.lframe = ttk.LabelFrame(tab5)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=7)
+
+            self.symbol_G4_filter_value = StringVar()
+            self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=5, column=5, padx=1)
+
+
+    def F7_filter_function(self):
+        pass
+
+    def F9_filter_function(self):
+        pass
+
+    def lackoff_filter_function(self) :
+        try:
+            self.lframe.destroy()
+        except:
+            pass
 
 
 

@@ -411,18 +411,15 @@ class Application (Frame):
             # Power - AC_fan
             self.power_AC_fan_value = StringVar()
             self.lbl_power_plate_AC_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=1, padx=1, pady=10)
-            self.entry_power_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_fan_value, width=10).grid(row=10, column=5,
-                                                                                                                        padx=(0, 100))
+            self.entry_power_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_fan_value, width=10).grid(row=10, column=5, padx=(0, 100))
 
             self.voltage_AC_fan_value = StringVar()
             self.lbl_voltage_plate_AC_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=1, padx=1, pady=10)
-            self.entry_voltage_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_fan_value, width=10).grid(row=15, column=5,
-                                                                                                                            padx=(0, 100))
+            self.entry_voltage_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_fan_value, width=10).grid(row=15, column=5, padx=(0, 100))
 
             self.frequency_AC_fan_value = StringVar()
             self.lbl_frequency_plate_AC_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1, padx=1, pady=10)
-            self.entry_frequency_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_fan_value, width=10).grid(row=20, column=5,
-                                                                                                                                padx=(0, 100))
+            self.entry_frequency_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
 
     def lackoff_fan_function(self) :
         try:

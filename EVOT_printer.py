@@ -28,7 +28,7 @@ class Application (Frame):
 
         self.heater_choice()
         self.cooler_choice()
-        self.fan_choice()
+        self.supply_fan_choice()
         self.filter_choice()
 
 
@@ -346,16 +346,16 @@ class Application (Frame):
 #Fans
 #######################################################################################################################
 
-    def fan_choice(self):
+    def supply_fan_choice(self):
         self.lfradio = ttk.LabelFrame(tab4)
         self.lfradio.pack( )
-        self.fan_choice_value = IntVar()
-        self.EC_fan = ttk.Radiobutton(self.lfradio,text = "EC wentylator", variable = self.fan_choice_value, value = 1,command = self.EC_fan_function).grid(row =0,column = 0,padx=20, pady = 5 )
-        self.AC_fan = ttk.Radiobutton(self.lfradio,text = "AC wentylator", variable = self.fan_choice_value, value = 2, command = self.AC_fan_function ).grid(row =0,column = 5,padx=20,pady = 5)
-        self.lackoff_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.fan_choice_value , value= 4, command = self.lackoff_fan_function ).grid (row = 0,column = 20,padx=20, pady = 5)
+        self.supply_fan_choice_value = IntVar()
+        self.EC_supply_fan = ttk.Radiobutton(self.lfradio,text = "EC wentylator - nawiew", variable = self.supply_fan_choice_value, value = 1,command = self.EC_supply_fan_function).grid(row =0,column = 0,padx=20, pady = 5 )
+        self.AC_supply_fan = ttk.Radiobutton(self.lfradio,text = "AC wentylator - wywiew", variable = self.supply_fan_choice_value, value = 2, command = self.AC_supply_fan_function ).grid(row =0,column = 5,padx=20,pady = 5)
+        self.lackoff_supply_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.supply_fan_choice_value , value= 4, command = self.lackoff_supply_fan_function ).grid (row = 0,column = 20,padx=20, pady = 5)
 
 
-    def EC_fan_function(self):
+    def EC_supply_fan_function(self):
 
         try :
             self.lframe.destroy()
@@ -363,32 +363,32 @@ class Application (Frame):
             pass
         finally:
 
-            #fan symbol
+            #supply_fan symbol
             self.lframe = ttk.LabelFrame(tab4)
             self.lframe.pack( anchor = W)
             self.lframe.pack( anchor = W, padx=7)
 
-            self.symbol_EC_fan_value = StringVar()
-            self.lbl_symbol_EC_fan= ttk.Label(self.lframe, text="typ wentylatora EC" ).grid(row=5, column=1,padx = 3,pady = 10)
-            self.entry_symbol_EC_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_fan_value,width = 30 ).grid(row=5, column=5, padx = 1)
+            self.symbol_EC_supply_fan_value = StringVar()
+            self.lbl_symbol_EC_supply_fan= ttk.Label(self.lframe, text="typ wentylatora EC" ).grid(row=5, column=1,padx = 3,pady = 10)
+            self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_supply_fan_value,width = 30 ).grid(row=5, column=5, padx = 1)
 
 
-            # Power - EC_fan
-            self.power_EC_fan_value = StringVar()
-            self.lbl_power_plate_EC_fan = ttk.Label(self.lframe, text="moc [kW]" ).grid(row=10, column=1,padx=1,pady = 10)
-            self.entry_power_plate_EC_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_fan_value, width=10).grid(row=10, column=5, padx=(0,100))
+            # Power - EC_supply_fan
+            self.power_EC_supply_fan_value = StringVar()
+            self.lbl_power_plate_EC_supply_fan = ttk.Label(self.lframe, text="moc [kW]" ).grid(row=10, column=1,padx=1,pady = 10)
+            self.entry_power_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_supply_fan_value, width=10).grid(row=10, column=5, padx=(0,100))
 
 
-            self.voltage_EC_fan_value = StringVar()
-            self.lbl_voltage_plate_EC_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]" ).grid(row=15, column=1,padx=1,pady = 10)
-            self.entry_voltage_plate_EC_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_fan_value, width=10).grid(row=15, column=5, padx=(0,100))
+            self.voltage_EC_supply_fan_value = StringVar()
+            self.lbl_voltage_plate_EC_supply_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]" ).grid(row=15, column=1,padx=1,pady = 10)
+            self.entry_voltage_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_supply_fan_value, width=10).grid(row=15, column=5, padx=(0,100))
 
-            self.frequency_EC_fan_value = StringVar()
-            self.lbl_frequency_plate_EC_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1,padx=1, pady=10)
-            self.entry_frequency_plate_EC_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
+            self.frequency_EC_supply_fan_value = StringVar()
+            self.lbl_frequency_plate_EC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1,padx=1, pady=10)
+            self.entry_frequency_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_supply_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
 
 
-    def AC_fan_function(self):
+    def AC_supply_fan_function(self):
 
         try:
             self.lframe.destroy()
@@ -396,33 +396,41 @@ class Application (Frame):
             pass
         finally:
 
-            # fan symbol
+            # supply_fan symbol
             self.lframe = ttk.LabelFrame(tab4)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=7)
 
-            self.symbol_AC_fan_value = StringVar()
-            self.lbl_symbol_AC_fan = ttk.Label(self.lframe, text="typ wentylatora AC").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_AC_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_fan_value, width=30).grid(row=5, column=5, padx=1)
+            self.symbol_AC_supply_fan_value = StringVar()
+            self.lbl_symbol_AC_supply_fan = ttk.Label(self.lframe, text="typ wentylatora AC").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_supply_fan_value, width=30).grid(row=5, column=5, padx=1)
 
-            # Power - AC_fan
-            self.power_AC_fan_value = StringVar()
-            self.lbl_power_plate_AC_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=1, padx=1, pady=10)
-            self.entry_power_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_fan_value, width=10).grid(row=10, column=5, padx=(0, 100))
+            # Power - AC_supply_fan
+            self.power_AC_supply_fan_value = StringVar()
+            self.lbl_power_plate_AC_supply_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=1, padx=1, pady=10)
+            self.entry_power_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_supply_fan_value, width=10).grid(row=10, column=5, padx=(0, 100))
 
-            self.voltage_AC_fan_value = StringVar()
-            self.lbl_voltage_plate_AC_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=1, padx=1, pady=10)
-            self.entry_voltage_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_fan_value, width=10).grid(row=15, column=5, padx=(0, 100))
+            self.voltage_AC_supply_fan_value = StringVar()
+            self.lbl_voltage_plate_AC_supply_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=1, padx=1, pady=10)
+            self.entry_voltage_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_supply_fan_value, width=10).grid(row=15, column=5, padx=(0, 100))
 
-            self.frequency_AC_fan_value = StringVar()
-            self.lbl_frequency_plate_AC_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1, padx=1, pady=10)
-            self.entry_frequency_plate_AC_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
+            self.frequency_AC_supply_fan_value = StringVar()
+            self.lbl_frequency_plate_AC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1, padx=1, pady=10)
+            self.entry_frequency_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_supply_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
 
-    def lackoff_fan_function(self) :
+    def lackoff_supply_fan_function(self) :
         try:
             self.lframe.destroy()
         except:
             pass
+
+####################################################################################################################################
+
+
+
+
+
+###################################################################################################################################
 
 
     def filter_choice(self):
@@ -549,14 +557,22 @@ tab4 = ttk.Frame(tab_parent)
 tab5 = ttk.Frame(tab_parent)
 tab6 = ttk.Frame(tab_parent)
 tab7 = ttk.Frame(tab_parent)
+tab8 = ttk.Frame(tab_parent)
+tab9 = ttk.Frame(tab_parent)
+tab10 = ttk.Frame(tab_parent)
+
+
 
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')
 tab_parent.add(tab3,text = 'chłodnica')
-tab_parent.add(tab4,text = 'wentylatory')
-tab_parent.add(tab5,text = 'filtry')
-tab_parent.add(tab6,text = 'tłumiki')
-tab_parent.add(tab7,text = 'wymiennik')
+tab_parent.add(tab4,text = 'wentylator - nawiew')
+tab_parent.add(tab5,text = 'wentylator - wywiew')
+tab_parent.add(tab6,text = 'filtry - nawiew')
+tab_parent.add(tab7,text = 'filtry - wywiew')
+tab_parent.add(tab8,text = 'filtry')
+tab_parent.add(tab9,text = 'tłumiki')
+tab_parent.add(tab10,text = 'wymiennik')
 
 tab_parent.pack(expand =1, fill = 'both')
 

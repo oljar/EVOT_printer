@@ -28,8 +28,9 @@ class Application (Frame):
 
         self.heater_choice()
         self.cooler_choice()
-        self.supply_fan_choice()
-        self.filter_choice()
+        self.fan_choice()
+        self.supply_filter_choice()
+        self.exhaust_filter_choice()
 
 
 
@@ -68,7 +69,7 @@ class Application (Frame):
     def supply(self):
 
             self.selected_supply_value = StringVar()
-            self.lbl_supply = ttk.Label(tab1, text="Nawiew - wykonanie").grid(row=25, column=1, padx=10, pady=3)
+            self.lbl_supply = ttk.Label(tab1, text="nawiew - wykonanie").grid(row=25, column=1, padx=10, pady=3)
             self.version_supply = ('a','b','c')
             self.combobox_suplly = ttk.Combobox(tab1, values=self.version_supply, textvariable=self.selected_supply_value).grid(row=25, column=2)
 
@@ -96,7 +97,7 @@ class Application (Frame):
 
     def exhaust(self):
             self.selected_exhaust_value = StringVar()
-            self.lbl_exhaust = ttk.Label(tab1, text="Wywiew - wykonanie").grid(row=40, column=1, padx=10, pady=3)
+            self.lbl_exhaust = ttk.Label(tab1, text="wywiew - wykonanie").grid(row=40, column=1, padx=10, pady=3)
             self.version_exhaust = ('a', 'b', 'c')
             self.combobox_exhaust = ttk.Combobox(tab1, values=self.version_exhaust, textvariable=self.selected_exhaust_value).grid(row=40, column=2)
 
@@ -346,16 +347,16 @@ class Application (Frame):
 #Fans
 #######################################################################################################################
 
-    def supply_fan_choice(self):
+    def fan_choice(self):
         self.lfradio = ttk.LabelFrame(tab4)
         self.lfradio.pack( )
-        self.supply_fan_choice_value = IntVar()
-        self.EC_supply_fan = ttk.Radiobutton(self.lfradio,text = "EC wentylator - nawiew", variable = self.supply_fan_choice_value, value = 1,command = self.EC_supply_fan_function).grid(row =0,column = 0,padx=20, pady = 5 )
-        self.AC_supply_fan = ttk.Radiobutton(self.lfradio,text = "AC wentylator - wywiew", variable = self.supply_fan_choice_value, value = 2, command = self.AC_supply_fan_function ).grid(row =0,column = 5,padx=20,pady = 5)
-        self.lackoff_supply_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.supply_fan_choice_value , value= 4, command = self.lackoff_supply_fan_function ).grid (row = 0,column = 20,padx=20, pady = 5)
+        self.fan_choice_value = IntVar()
+        self.EC_fan = ttk.Radiobutton(self.lfradio, text ="EC wentylator ", variable = self.fan_choice_value, value = 1, command = self.EC_fan_function).grid(row =0, column = 0, padx=20, pady = 5)
+        self.AC_fan = ttk.Radiobutton(self.lfradio, text ="AC wentylator ", variable = self.fan_choice_value, value = 2, command = self.AC_fan_function).grid(row =0, column = 5, padx=20, pady = 5)
+        self.lackoff_supply_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.fan_choice_value, value= 4, command = self.lackoff_fan_function).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
-    def EC_supply_fan_function(self):
+    def EC_fan_function(self):
 
         try :
             self.lframe.destroy()
@@ -364,12 +365,11 @@ class Application (Frame):
         finally:
 
             #supply_fan symbol
-            self.lframe = ttk.LabelFrame(tab4)
-            self.lframe.pack( anchor = W)
-            self.lframe.pack( anchor = W, padx=7)
+            self.lframe = ttk.LabelFrame(tab4, text= "EC - wentylator")
+            self.lframe.pack( anchor = W, padx=7 )
 
             self.symbol_EC_supply_fan_value = StringVar()
-            self.lbl_symbol_EC_supply_fan= ttk.Label(self.lframe, text="typ wentylatora EC" ).grid(row=5, column=1,padx = 3,pady = 10)
+            self.lbl_symbol_EC_supply_fan= ttk.Label(self.lframe, text="nawiew-typ-EC" ).grid(row=5, column=1,padx = 3,pady = 10)
             self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_supply_fan_value,width = 30 ).grid(row=5, column=5, padx = 1)
 
 
@@ -387,38 +387,108 @@ class Application (Frame):
             self.lbl_frequency_plate_EC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1,padx=1, pady=10)
             self.entry_frequency_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_supply_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
 
+            self.quantity_EC_supply_fan_value = StringVar()
+            self.lbl_quantity_EC_supply_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=1, padx=1, pady=10)
+            self.entry_quantity_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.quantity_EC_supply_fan_value, width=10).grid(row=25, column=5, padx=(0, 100))
 
-    def AC_supply_fan_function(self):
 
-        try:
-            self.lframe.destroy()
-        except:
-            pass
-        finally:
 
-            # supply_fan symbol
-            self.lframe = ttk.LabelFrame(tab4)
-            self.lframe.pack(anchor=W)
-            self.lframe.pack(anchor=W, padx=7)
+            self.symbol_EC_exhaust_fan_value = StringVar()
+            self.lbl_symbol_EC_exhaust_fan= ttk.Label(self.lframe, text="wywiew-typ-EC" ).grid(row=5, column=10,padx = 3,pady = 10)
+            self.entry_symbol_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_exhaust_fan_value,width = 30 ).grid(row=5, column=15, padx = 1)
 
-            self.symbol_AC_supply_fan_value = StringVar()
-            self.lbl_symbol_AC_supply_fan = ttk.Label(self.lframe, text="typ wentylatora AC").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_supply_fan_value, width=30).grid(row=5, column=5, padx=1)
 
-            # Power - AC_supply_fan
-            self.power_AC_supply_fan_value = StringVar()
-            self.lbl_power_plate_AC_supply_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=1, padx=1, pady=10)
-            self.entry_power_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_supply_fan_value, width=10).grid(row=10, column=5, padx=(0, 100))
+            # Power - EC_exhaust_fan
+            self.power_EC_exhaust_fan_value = StringVar()
+            self.lbl_power_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="moc [kW]" ).grid(row=10, column=10,padx=1,pady = 10)
+            self.entry_power_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_exhaust_fan_value, width=10).grid(row=10, column=15, padx=(0,100))
 
-            self.voltage_AC_supply_fan_value = StringVar()
-            self.lbl_voltage_plate_AC_supply_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=1, padx=1, pady=10)
-            self.entry_voltage_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_supply_fan_value, width=10).grid(row=15, column=5, padx=(0, 100))
 
-            self.frequency_AC_supply_fan_value = StringVar()
-            self.lbl_frequency_plate_AC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1, padx=1, pady=10)
-            self.entry_frequency_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_supply_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
+            self.voltage_EC_exhaust_fan_value = StringVar()
+            self.lbl_voltage_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]" ).grid(row=15, column=10,padx=1,pady = 10)
+            self.entry_voltage_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_exhaust_fan_value, width=10).grid(row=15, column=15, padx=(0,100))
 
-    def lackoff_supply_fan_function(self) :
+            self.frequency_EC_exhaust_fan_value = StringVar()
+            self.lbl_frequency_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=10,padx=1, pady=10)
+            self.entry_frequency_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_exhaust_fan_value, width=10).grid(row=20, column=15, padx=(0, 100))
+
+            self.quantity_EC_exhaust_fan_value = StringVar()
+            self.lbl_quantity_EC_exhaust_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=10, padx=1, pady=10)
+            self.entry_quantity_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.quantity_EC_exhaust_fan_value, width=10).grid(row=25, column=15, padx=(0, 100))
+
+
+
+
+    def AC_fan_function(self):
+
+            try:
+                self.lframe.destroy()
+            except:
+                pass
+            finally:
+
+                # AC supply
+                self.lframe = ttk.LabelFrame(tab4, text = "AC - wentylator")
+                self.lframe.pack(anchor=W)
+                self.lframe.pack(anchor=W, padx=7)
+
+                self.symbol_AC_supply_fan_value = StringVar()
+                self.lbl_symbol_AC_supply_fan = ttk.Label(self.lframe, text="nawiew-typ-AC").grid(row=5, column=1, padx=3, pady=10)
+                self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_supply_fan_value, width=30).grid(row=5, column=5, padx=1)
+
+                # Power - AC_supply_fan
+                self.power_AC_supply_fan_value = StringVar()
+                self.lbl_power_plate_AC_supply_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=1, padx=1, pady=10)
+                self.entry_power_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_supply_fan_value, width=10).grid(row=10, column=5, padx=(0, 100))
+
+                self.voltage_AC_supply_fan_value = StringVar()
+                self.lbl_voltage_plate_AC_supply_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=1, padx=1, pady=10)
+                self.entry_voltage_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_supply_fan_value, width=10).grid(row=15, column=5, padx=(0, 100))
+
+                self.frequency_AC_supply_fan_value = StringVar()
+                self.lbl_frequency_plate_AC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1, padx=1, pady=10)
+                self.entry_frequency_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_supply_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
+
+                self.quantity_AC_supply_fan_value = StringVar()
+                self.lbl_quantity_AC_supply_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=1, padx=1, pady=10)
+                self.entry_quantity_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.quantity_AC_supply_fan_value, width=10).grid(row=25, column=5, padx=(0, 100))
+
+
+
+
+
+                # AC exhaust
+                self.symbol_AC_exhaust_fan_value = StringVar()
+                self.lbl_symbol_AC_exhaust_fan = ttk.Label(self.lframe, text="wywiew-typ-AC").grid(row=5, column=10, padx=3, pady=10)
+                self.entry_symbol_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_exhaust_fan_value, width=30).grid(row=5, column=15, padx=1)
+
+
+                # Power - AC_exhaust_fan
+                self.power_AC_exhaust_fan_value = StringVar()
+                self.lbl_power_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=10, padx=1, pady=10)
+                self.entry_power_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_exhaust_fan_value, width=10).grid(row=10, column=15, padx=(0, 100))
+
+                self.voltage_AC_exhaust_fan_value = StringVar()
+                self.lbl_voltage_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=10, padx=1, pady=10)
+                self.entry_voltage_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_exhaust_fan_value, width=10).grid(row=15, column=15, padx=(0, 100))
+
+                self.frequency_AC_exhaust_fan_value = StringVar()
+                self.lbl_frequency_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=10, padx=1, pady=10)
+                self.entry_frequency_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_exhaust_fan_value, width=10).grid(row=20, column=15, padx=(0, 100))
+
+                self.quantity_AC_exhaust_fan_value = StringVar()
+                self.lbl_quantity_AC_exhaust_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=10, padx=1, pady=10)
+                self.entry_quantity_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.quantity_AC_exhaust_fan_value, width=10).grid(row=25, column=15, padx=(0, 100))
+
+
+
+
+
+
+
+
+
+    def lackoff_fan_function(self) :
         try:
             self.lframe.destroy()
         except:
@@ -433,19 +503,19 @@ class Application (Frame):
 ###################################################################################################################################
 
 
-    def filter_choice(self):
+    def supply_filter_choice(self):
         self.lfradio = ttk.LabelFrame(tab5)
         self.lfradio.pack( )
         self.filter_choice_value = IntVar()
-        self.G4_filter = ttk.Radiobutton(self.lfradio,text = "G4", variable = self.filter_choice_value, value = 1,command = self.G4_filter_function).grid(row =0,column = 0,padx=20, pady = 5 )
-        self.M5_filter = ttk.Radiobutton(self.lfradio,text = "M5", variable = self.filter_choice_value, value = 2, command = self.M5_filter_function).grid(row =0,column = 5,padx=20,pady = 5)
-        self.F7_filter = ttk.Radiobutton(self.lfradio,text = "F7", variable = self.filter_choice_value, value = 3, command = self.F7_filter_function ).grid(row =0,column = 10,padx=20,pady = 5)
-        self.F9_filter = ttk.Radiobutton(self.lfradio,text = "F9", variable = self.filter_choice_value, value = 4, command = self.F9_filter_function ).grid(row =0,column = 15,padx=20,pady = 5)
-        self.lackoff_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.filter_choice_value , value= 5, command = self.lackoff_filter_function ).grid (row = 0,column = 20,padx=20, pady = 5)
+        self.G4_filter = ttk.Radiobutton(self.lfradio, text = "G4", variable = self.filter_choice_value, value = 1, command = self.G4_supply_filter_function).grid(row =0, column = 0, padx=20, pady = 5)
+        self.M5_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.filter_choice_value, value = 2, command = self.M5_supply_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
+        self.F7_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.filter_choice_value, value = 3, command = self.F7_supply_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
+        self.F9_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.filter_choice_value, value = 4, command = self.F9_supply_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
+        self.lackoff_supply_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.filter_choice_value, value= 5, command = self.lackoff_supply_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
 
-    def G4_filter_function(self):
+    def G4_supply_filter_function(self):
 
         try:
             self.lframe.destroy()
@@ -458,7 +528,7 @@ class Application (Frame):
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
             self.symbol_G4_filter_value = StringVar()
-            self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
+            self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=10, column=1, padx=1)
             self.lbl_G4_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
             self.entry_G4_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=10).grid(row=10, column=5, padx=1)
@@ -467,7 +537,7 @@ class Application (Frame):
 
 
 
-    def M5_filter_function(self):
+    def M5_supply_filter_function(self):
 
 
         try:
@@ -481,7 +551,7 @@ class Application (Frame):
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
             self.symbol_M5_filter_value = StringVar()
-            self.lbl_symbol_M5_filter = ttk.Label(self.lframe, text="wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
+            self.lbl_symbol_M5_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_M5_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=30).grid(row=10, column=1, padx=1)
             self.lbl_M5_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
             self.entry_M5_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=10).grid(row=10, column=5, padx=1)
@@ -491,7 +561,7 @@ class Application (Frame):
 
 
 
-    def F7_filter_function(self):
+    def F7_supply_filter_function(self):
         try:
             self.lframe.destroy()
         except:
@@ -503,7 +573,7 @@ class Application (Frame):
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
             self.symbol_F7_filter_value = StringVar()
-            self.lbl_symbol_F7_filter = ttk.Label(self.lframe, text="wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
+            self.lbl_symbol_F7_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_F7_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=30).grid(row=10, column=1, padx=1)
             self.lbl_F7_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
             self.entry_F7_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=10).grid(row=10, column=5, padx=1)
@@ -512,7 +582,7 @@ class Application (Frame):
 
 
 
-    def F9_filter_function(self):
+    def F9_supply_filter_function(self):
 
         try:
             self.lframe.destroy()
@@ -525,7 +595,7 @@ class Application (Frame):
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
             self.symbol_F9_filter_value = StringVar()
-            self.lbl_symbol_F9_filter = ttk.Label(self.lframe, text="wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
+            self.lbl_symbol_F9_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_F9_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=30).grid(row=10, column=1, padx=1)
             self.lbl_F9_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
             self.entry_F9_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=10).grid(row=10, column=5, padx=1)
@@ -534,7 +604,119 @@ class Application (Frame):
 
 
 
-    def lackoff_filter_function(self) :
+    def lackoff_supply_filter_function(self) :
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+
+
+
+##############################################################################################################################################
+
+
+    def exhaust_filter_choice(self):
+        self.lfradio = ttk.LabelFrame(tab6)
+        self.lfradio.pack( )
+        self.filter_choice_value = IntVar()
+        self.G4_filter = ttk.Radiobutton(self.lfradio, text = "G4", variable = self.filter_choice_value, value = 1, command = self.G4_exhaust_filter_function).grid(row =0, column = 0, padx=20, pady = 5)
+        self.M5_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.filter_choice_value, value = 2, command = self.M5_exhaust_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
+        self.F7_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.filter_choice_value, value = 3, command = self.F7_exhaust_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
+        self.F9_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.filter_choice_value, value = 4, command = self.F9_exhaust_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
+        self.lackoff_exhaust_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.filter_choice_value, value= 5, command = self.lackoff_exhaust_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
+
+
+
+    def G4_exhaust_filter_function(self):
+
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # fan symbol
+            self.lframe = ttk.LabelFrame(tab6)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_G4_filter_value = StringVar()
+            self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.lbl_G4_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_G4_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+
+
+    def M5_exhaust_filter_function(self):
+
+
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # fan symbol
+            self.lframe = ttk.LabelFrame(tab6)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_M5_filter_value = StringVar()
+            self.lbl_symbol_M5_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_M5_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.lbl_M5_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_M5_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+
+
+
+    def F7_exhaust_filter_function(self):
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # fan symbol
+            self.lframe = ttk.LabelFrame(tab6)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_F7_filter_value = StringVar()
+            self.lbl_symbol_F7_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F7_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.lbl_F7_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_F7_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+
+
+    def F9_exhaust_filter_function(self):
+
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # fan symbol
+            self.lframe = ttk.LabelFrame(tab6)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_F9_filter_value = StringVar()
+            self.lbl_symbol_F9_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F9_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.lbl_F9_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_F9_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+
+
+    def lackoff_exhaust_filter_function(self) :
         try:
             self.lframe.destroy()
         except:
@@ -543,6 +725,7 @@ class Application (Frame):
 
 
 
+########################################################################################################################
 
 window = Tk()
 window.title("EVOT_printer")
@@ -566,10 +749,10 @@ tab10 = ttk.Frame(tab_parent)
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')
 tab_parent.add(tab3,text = 'chłodnica')
-tab_parent.add(tab4,text = 'wentylator - nawiew')
-tab_parent.add(tab5,text = 'wentylator - wywiew')
-tab_parent.add(tab6,text = 'filtry - nawiew')
-tab_parent.add(tab7,text = 'filtry - wywiew')
+tab_parent.add(tab4,text = 'wentylatory')
+tab_parent.add(tab5,text = 'filtry - nawiew')
+tab_parent.add(tab6,text = 'filtry - wywiew')
+tab_parent.add(tab7,text = '')
 tab_parent.add(tab8,text = 'filtry')
 tab_parent.add(tab9,text = 'tłumiki')
 tab_parent.add(tab10,text = 'wymiennik')

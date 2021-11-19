@@ -743,19 +743,21 @@ tab7 = ttk.Frame(tab_parent)
 tab8 = ttk.Frame(tab_parent)
 tab9 = ttk.Frame(tab_parent)
 tab10 = ttk.Frame(tab_parent)
-
+tab11 = ttk.Frame(tab_parent)
 
 
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')
 tab_parent.add(tab3,text = 'chłodnica')
 tab_parent.add(tab4,text = 'wentylatory')
-tab_parent.add(tab5,text = 'filtry - nawiew')
-tab_parent.add(tab6,text = 'filtry - wywiew')
-tab_parent.add(tab7,text = '')
-tab_parent.add(tab8,text = 'filtry')
-tab_parent.add(tab9,text = 'tłumiki')
-tab_parent.add(tab10,text = 'wymiennik')
+tab_parent.add(tab5,text = 'flt-nawiew')
+tab_parent.add(tab6,text = 'flt-wywiew')
+tab_parent.add(tab7,text = 'tłumik')
+tab_parent.add(tab8,text = 'odzysk')
+tab_parent.add(tab9,text = 'wyp_dod')
+tab_parent.add(tab10,text = 's&p')
+tab_parent.add(tab11,text = 'inne')
+
 
 tab_parent.pack(expand =1, fill = 'both')
 

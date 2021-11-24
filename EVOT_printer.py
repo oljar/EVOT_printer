@@ -31,6 +31,8 @@ class Application (Frame):
         self.fan_choice()
         self.supply_filter_choice()
         self.exhaust_filter_choice()
+        self.damper()
+        self.heat_exchanger()
 
 
 
@@ -722,6 +724,26 @@ class Application (Frame):
         except:
             pass
 
+
+
+
+    def damper(self):
+
+        self.damper_frame = ttk.LabelFrame(tab7)
+
+        self.damper_frame.pack(anchor=W, padx=15)
+        self.symbol_damper_value = StringVar()
+        self.lbl_symbol_damper = ttk.Label(self.damper_frame, text="tłumik - typ").grid(row=5, column=10, padx=3, pady=10)
+        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_damper_value , width=30).grid(row=5, column=15, padx=1)
+
+
+    def heat_exchanger(self):
+
+        self.heat_exchanger_frame = ttk.LabelFrame(tab8)
+        self.heat_exchanger_frame.pack(anchor=W, padx=15)
+        self.symbol_heat_exchanger_value = StringVar()
+        self.lbl_symbol_heat_exchanger = ttk.Label(self.heat_exchanger_frame, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
+        self.entry_heat_exchanger = ttk.Entry(self.heat_exchanger_frame, textvariable=self.symbol_heat_exchanger_value , width=30).grid(row=5, column=15, padx=1)
 
 
 

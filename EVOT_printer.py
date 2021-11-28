@@ -34,6 +34,8 @@ class Application (Frame):
         self.damper()
         self.heat_exchanger()
         self.additional_exuipment()
+        self.s_and_p()
+        self.settings()
 
 
 
@@ -123,9 +125,19 @@ class Application (Frame):
             self.entry_exhaust_pressure = ttk.Entry(tab1, textvariable = self.entry_exhaust_pressure_value ).grid(row=50, column=2, padx=1, pady=3, ipadx=10)
 
 
+
+    def settings(self):
+
+        self.s_and_p_frame = ttk.LabelFrame(tab0)
+        self.s_and_p_frame.pack(anchor=W, padx=15)
+        aaa= 'ssaddasda'
+        self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text="sprawdzenie i próby").grid(row=5, column=10, padx=3, pady=10)
+        self.txt_s_and_p = Text(self.s_and_p_frame , width=50, height = 20)
+        self.txt_s_and_p.insert("1.0", aaa)
+        self.txt_s_and_p.grid(row=5, column=15, padx=1)
+
 #heater
     ############################################################################################################################
-
 
     def heater_choice(self):
             self.lfradio = ttk.LabelFrame(tab2)
@@ -768,6 +780,22 @@ class Application (Frame):
 
 
 
+    def s_and_p(self):
+
+        self.s_and_p_frame = ttk.LabelFrame(tab10)
+        self.s_and_p_frame.pack(anchor=W, padx=15)
+        aaa= 'ssaddasda'
+        self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text="sprawdzenie i próby").grid(row=5, column=10, padx=3, pady=10)
+        self.txt_s_and_p = Text(self.s_and_p_frame , width=50, height = 20)
+        self.txt_s_and_p.insert("1.0", aaa)
+        self.txt_s_and_p.grid(row=5, column=15, padx=1)
+
+
+
+
+
+
+
 
 
 ########################################################################################################################
@@ -777,9 +805,10 @@ window.title("EVOT_printer")
 window.geometry('650x400')
 
 tab_parent = ttk.Notebook(window)
+
+tab0 = ttk.Frame(tab_parent)
 tab1 = ttk.Frame(tab_parent)
 tab2 = ttk.Frame(tab_parent)
-
 tab3 = ttk.Frame(tab_parent)
 tab4 = ttk.Frame(tab_parent)
 tab5 = ttk.Frame(tab_parent)
@@ -788,9 +817,9 @@ tab7 = ttk.Frame(tab_parent)
 tab8 = ttk.Frame(tab_parent)
 tab9 = ttk.Frame(tab_parent)
 tab10 = ttk.Frame(tab_parent)
-tab11 = ttk.Frame(tab_parent)
 
 
+tab_parent.add(tab0,text = 'ustaw')
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')
 tab_parent.add(tab3,text = 'chłodnica')
@@ -801,9 +830,6 @@ tab_parent.add(tab7,text = 'tłumik')
 tab_parent.add(tab8,text = 'odzysk')
 tab_parent.add(tab9,text = 'wyp_dod')
 tab_parent.add(tab10,text = 's&p')
-tab_parent.add(tab11,text = 'inne')
-
-
 tab_parent.pack(expand =1, fill = 'both')
 
 

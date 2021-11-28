@@ -1,31 +1,21 @@
 from tkinter import *
 from tkinter import ttk
-import time
+import datetime
+from modul import *
+
 
 
 class Application (Frame):
     def __init__(self,master):
 
+
         super(Application,self).__init__(master)
 
-    #  idetyty
-        self.serial()
-        self.order()
-        self.project()
-        self.system()
-        self.type()
-        self.supply()
-        self.supply_execution()
-        self.supply_flow()
-        self.supply_pressure()
-        self.exhaust()
-        self.exhaust_execution()
-        self.exhaust_flow()
-        self.exhaust_pressure()
 
     #  heater
 
-
+        self.settings()
+        self.identity()
         self.heater_choice()
         self.cooler_choice()
         self.fan_choice()
@@ -35,106 +25,134 @@ class Application (Frame):
         self.heat_exchanger()
         self.additional_exuipment()
         self.s_and_p()
-        self.settings()
 
 
-
-
-
-    def serial(self):
-        self.entry_serial_value = StringVar()
-        self.lbl_serial=ttk.Label(tab1 ,text = "Nr seryjny").grid(row =1,column = 1,padx=10,pady=(10,3))
-        self.entry_serial=ttk.Entry(tab1,textvariable = self.entry_serial_value).grid(row =1 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
-
-    def order(self):
-        self.entry_order_value = StringVar()
-        self.lbl_order=ttk.Label(tab1,text = "Zlecenie").grid(row = 5,column = 1,padx=10,pady=3)
-        self.entry_order=ttk.Entry(tab1, textvariable = self.entry_order_value).grid(row =5,column = 2,padx=1,pady=3,ipadx=10 )
-
-    def project(self):
-        self.entry_project_value = StringVar()
-        self.lbl_project=ttk.Label(tab1 ,text = "Projekt").grid(row = 10,column = 1,padx=10,pady=3)
-        self.entry_project=ttk.Entry(tab1, textvariable = self.entry_project_value).grid(row =10,column = 2,padx=1,pady=3, ipadx=10 )
-
-    def system(self):
-        self.entry_system_value = StringVar()
-        self.lbl_system = ttk.Label(tab1, text="System").grid(row=15, column=1, padx=10, pady=3)
-        self.entry_system = ttk.Entry(tab1, textvariable = self.entry_system_value).grid(row=15, column=2, padx=1, pady=3, ipadx=10)
-
-
-
-    def type(self):
-            self.selected_type_value = StringVar()
-            self.lbl_type = ttk.Label(tab1, text="Typ").grid(row=20, column=1, padx=10, pady=3)
-            self.version_type = ('a','b','c')
-            self.combobox_type = ttk.Combobox(tab1, values=self.version_type, textvariable=self.selected_type_value).grid(row=20, column=2)
-
-
-    def supply(self):
-
-            self.selected_supply_value = StringVar()
-            self.lbl_supply = ttk.Label(tab1, text="nawiew - wykonanie").grid(row=25, column=1, padx=10, pady=3)
-            self.version_supply = ('a','b','c')
-            self.combobox_suplly = ttk.Combobox(tab1, values=self.version_supply, textvariable=self.selected_supply_value).grid(row=25, column=2)
-
-
-    def supply_execution(self):
-            self.selected_supply_execution_value = StringVar()
-            self.version_supply_execution = ('a', 'b', 'c')
-            self.combobox_suplly_execution = ttk.Combobox(tab1, values=self.version_supply_execution, textvariable=self.selected_supply_execution_value,width = 5 ).grid(row=25, column=10)
-
-
-    def supply_flow(self):
-
-           self.selected_supply_flow_value = StringVar()
-           self.lbl_supply_flow = ttk.Label(tab1, text="    N - wydatek powietrza [m3/h]").grid(row=30, column=1, padx=10, pady=3)
-           self.entry_supply_flow = ttk.Entry(tab1, textvariable = self.selected_supply_flow_value ).grid(row=30, column=2, padx=1, pady=3, ipadx=10)
-
-
-    def supply_pressure(self):
-
-            self.entry_supply_pressure_value = StringVar()
-            self.lbl_supply_pressure = ttk.Label(tab1, text="   N - spręż dyspozycyjny [Pa]").grid(row=35, column=1, padx=10, pady=3)
-            self.entry_supply_pressure = ttk.Entry(tab1, textvariable = self.entry_supply_pressure_value ).grid(row=35, column=2, padx=1, pady=3, ipadx=10)
-
-
-
-    def exhaust(self):
-            self.selected_exhaust_value = StringVar()
-            self.lbl_exhaust = ttk.Label(tab1, text="wywiew - wykonanie").grid(row=40, column=1, padx=10, pady=3)
-            self.version_exhaust = ('a', 'b', 'c')
-            self.combobox_exhaust = ttk.Combobox(tab1, values=self.version_exhaust, textvariable=self.selected_exhaust_value).grid(row=40, column=2)
-
-
-
-    def exhaust_execution(self):
-            self.selected_exhaust_execution_value = StringVar()
-            self.version_exhaust_execution = ('a', 'b', 'c')
-            self.combobox_exhaust_execution = ttk.Combobox(tab1, values=self.version_exhaust_execution, textvariable=self.selected_exhaust_execution_value, width = 5 ).grid(row=40, column=10)
-
-
-    def exhaust_flow(self):
-            self.entry_exhaust_flow_value  = StringVar()
-            self.lbl_exhaust_flow = ttk.Label(tab1, text="    W - wydatek powietrza [m3/h]").grid(row=45, column=1, padx=10, pady=3)
-            self.entry_exhaust_flow = ttk.Entry(tab1, textvariable = self.entry_exhaust_flow_value ).grid(row=45, column=2, padx=1, pady=3, ipadx=10)
-
-
-    def exhaust_pressure(self):
-            self.entry_exhaust_pressure_value = StringVar()
-            self.lbl_exhaust_pressure = ttk.Label(tab1, text="   W - spręż dyspozycyjny [Pa]").grid(row=50, column=1, padx=10, pady=3)
-            self.entry_exhaust_pressure = ttk.Entry(tab1, textvariable = self.entry_exhaust_pressure_value ).grid(row=50, column=2, padx=1, pady=3, ipadx=10)
 
 
 
     def settings(self):
 
-        self.s_and_p_frame = ttk.LabelFrame(tab0)
-        self.s_and_p_frame.pack(anchor=W, padx=15)
-        aaa= 'ssaddasda'
-        self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text="sprawdzenie i próby").grid(row=5, column=10, padx=3, pady=10)
-        self.txt_s_and_p = Text(self.s_and_p_frame , width=50, height = 20)
-        self.txt_s_and_p.insert("1.0", aaa)
-        self.txt_s_and_p.grid(row=5, column=15, padx=1)
+        self.settings_frame = ttk.LabelFrame(tab0)
+        self.settings_frame.pack(anchor=W, padx=15)
+
+        self.inspector_name_value = StringVar()
+        self.lbl_inspector_name = ttk.Label(self.settings_frame, text="konrtoler KJ").grid(row=1, column=1, padx=10, pady=3)
+        self.inspector_name = ('a','b','c')
+        self.combobox_suplly = ttk.Combobox(self.settings_frame, values=self.inspector_name, textvariable=self.inspector_name_value).grid(row=1, column=2)
+
+
+
+        self.mass_value = StringVar()
+        self.mass=ttk.Label(self.settings_frame ,text = "masa urządzenia [kg]").grid(row =5,column = 1,padx=10,pady=(10,3))
+        self.entry_mass=ttk.Entry(self.settings_frame,textvariable = self.mass_value)
+        self.entry_mass.insert(END,mass_val)
+        self.entry_mass.grid(row =5 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+
+        self.data_value = StringVar()
+        self.data_act = datetime.date.today()
+
+        self.data=ttk.Label(self.settings_frame ,text = "data").grid(row =10,column = 1,padx=10,pady=(10,3))
+        self.entry_data=ttk.Entry(self.settings_frame,textvariable = self.data_value)
+
+        def fill_data():
+            self.entry_data.insert(END,self.data_act)
+
+        self.data_button=ttk.Button(self.settings_frame,text = "data",command = fill_data).grid(row = 10, column = 20, padx=10 , pady=(10,3) )
+
+
+
+        self.entry_data.grid(row =10 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+
+    def identity(self):
+
+        self.identity_frame = ttk.LabelFrame(tab1)
+        self.identity_frame.pack(anchor=W, padx=15)
+
+   #   serial
+        self.entry_serial_value = StringVar()
+        self.lbl_serial=ttk.Label(self.identity_frame ,text = "Nr seryjny").grid(row =1,column = 1,padx=10,pady=(10,3))
+        self.entry_serial=ttk.Entry(self.identity_frame,textvariable = self.entry_serial_value).grid(row =1 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+
+    # order
+        self.entry_order_value = StringVar()
+        self.lbl_order=ttk.Label(self.identity_frame,text = "Zlecenie").grid(row = 5,column = 1,padx=10,pady=3)
+        self.entry_order=ttk.Entry(self.identity_frame, textvariable = self.entry_order_value).grid(row =5,column = 2,padx=1,pady=3,ipadx=10 )
+
+    # project
+        self.entry_project_value = StringVar()
+        self.lbl_project=ttk.Label(self.identity_frame ,text = "Projekt").grid(row = 10,column = 1,padx=10,pady=3)
+        self.entry_project=ttk.Entry(self.identity_frame, textvariable = self.entry_project_value).grid(row =10,column = 2,padx=1,pady=3, ipadx=10 )
+
+   #  system
+        self.entry_system_value = StringVar()
+        self.lbl_system = ttk.Label(self.identity_frame, text="System").grid(row=15, column=1, padx=10, pady=3)
+        self.entry_system = ttk.Entry(self.identity_frame, textvariable = self.entry_system_value).grid(row=15, column=2, padx=1, pady=3, ipadx=10)
+
+
+
+   #   type
+        self.selected_type_value = StringVar()
+        self.lbl_type = ttk.Label(self.identity_frame, text="Typ").grid(row=20, column=1, padx=10, pady=3)
+        self.version_type = ('a','b','c')
+        self.combobox_type = ttk.Combobox(self.identity_frame, values=self.version_type, textvariable=self.selected_type_value).grid(row=20, column=2)
+
+
+    # supply
+
+        self.selected_supply_value = StringVar()
+        self.lbl_supply = ttk.Label(self.identity_frame, text="nawiew - wykonanie").grid(row=25, column=1, padx=10, pady=3)
+        self.version_supply = ('a','b','c')
+        self.combobox_suplly = ttk.Combobox(self.identity_frame, values=self.version_supply, textvariable=self.selected_supply_value).grid(row=25, column=2)
+
+
+    # supply_execution
+        self.selected_supply_execution_value = StringVar()
+        self.version_supply_execution = ('a', 'b', 'c')
+        self.combobox_suplly_execution = ttk.Combobox(self.identity_frame, values=self.version_supply_execution, textvariable=self.selected_supply_execution_value,width = 5 ).grid(row=25, column=10)
+
+
+    #supply_flow
+
+        self.selected_supply_flow_value = StringVar()
+        self.lbl_supply_flow = ttk.Label(self.identity_frame, text="    N - wydatek powietrza [m3/h]").grid(row=30, column=1, padx=10, pady=3)
+        self.entry_supply_flow = ttk.Entry(self.identity_frame, textvariable = self.selected_supply_flow_value ).grid(row=30, column=2, padx=1, pady=3, ipadx=10)
+
+
+    # supply_pressure
+
+        self.entry_supply_pressure_value = StringVar()
+        self.lbl_supply_pressure = ttk.Label(self.identity_frame, text="   N - spręż dyspozycyjny [Pa]").grid(row=35, column=1, padx=10, pady=3)
+        self.entry_supply_pressure = ttk.Entry(self.identity_frame, textvariable = self.entry_supply_pressure_value ).grid(row=35, column=2, padx=1, pady=3, ipadx=10)
+
+
+
+    #exhaust
+        self.selected_exhaust_value = StringVar()
+        self.lbl_exhaust = ttk.Label(self.identity_frame, text="wywiew - wykonanie").grid(row=40, column=1, padx=10, pady=3)
+        self.version_exhaust = ('a', 'b', 'c')
+        self.combobox_exhaust = ttk.Combobox(self.identity_frame, values=self.version_exhaust, textvariable=self.selected_exhaust_value).grid(row=40, column=2)
+
+
+
+    # exhaust_execution
+        self.selected_exhaust_execution_value = StringVar()
+        self.version_exhaust_execution = ('a', 'b', 'c')
+        self.combobox_exhaust_execution = ttk.Combobox(self.identity_frame, values=self.version_exhaust_execution, textvariable=self.selected_exhaust_execution_value, width = 5 ).grid(row=40, column=10)
+
+
+    # exhaust_flow
+        self.entry_exhaust_flow_value  = StringVar()
+        self.lbl_exhaust_flow = ttk.Label(self.identity_frame, text="    W - wydatek powietrza [m3/h]").grid(row=45, column=1, padx=10, pady=3)
+        self.entry_exhaust_flow = ttk.Entry(self.identity_frame, textvariable = self.entry_exhaust_flow_value ).grid(row=45, column=2, padx=1, pady=3, ipadx=10)
+
+
+    # exhaust_pressure
+        self.entry_exhaust_pressure_value = StringVar()
+        self.lbl_exhaust_pressure = ttk.Label(self.identity_frame, text="   W - spręż dyspozycyjny [Pa]").grid(row=50, column=1, padx=10, pady=3)
+        self.entry_exhaust_pressure = ttk.Entry(self.identity_frame, textvariable = self.entry_exhaust_pressure_value ).grid(row=50, column=2, padx=1, pady=3, ipadx=10)
+
+
+
 
 #heater
     ############################################################################################################################

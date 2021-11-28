@@ -732,9 +732,16 @@ class Application (Frame):
         self.damper_frame = ttk.LabelFrame(tab7)
 
         self.damper_frame.pack(anchor=W, padx=15)
-        self.symbol_damper_value = StringVar()
-        self.lbl_symbol_damper = ttk.Label(self.damper_frame, text="tłumik - typ").grid(row=5, column=10, padx=3, pady=10)
-        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_damper_value , width=30).grid(row=5, column=15, padx=1)
+        self.symbol_supply_damper_value = StringVar()
+
+        self.lbl_supply_symbol_damper = ttk.Label(self.damper_frame, text="tłumik nawiew - typ").grid(row=5, column=10, padx=3, pady=10)
+        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_supply_damper_value , width=30).grid(row=5, column=15, padx=1)
+
+        self.symbol_exaust_damper_value = StringVar()
+        self.lbl_symbol_exhaust_damper = ttk.Label(self.damper_frame, text="tłumik wywiew - typ").grid(row=10, column=10, padx=3, pady=10)
+        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_exaust_damper_value , width=30).grid(row=10, column=15, padx=1)
+
+
 
 
     def heat_exchanger(self):

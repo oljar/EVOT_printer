@@ -33,7 +33,7 @@ class Application (Frame):
         self.exhaust_filter_choice()
         self.damper()
         self.heat_exchanger()
-
+        self.additional_exuipment()
 
 
 
@@ -751,6 +751,22 @@ class Application (Frame):
         self.symbol_heat_exchanger_value = StringVar()
         self.lbl_symbol_heat_exchanger = ttk.Label(self.heat_exchanger_frame, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
         self.entry_heat_exchanger = ttk.Entry(self.heat_exchanger_frame, textvariable=self.symbol_heat_exchanger_value , width=30).grid(row=5, column=15, padx=1)
+
+
+
+
+    def additional_exuipment(self):
+
+        self.additional_exuipment_frame = ttk.LabelFrame(tab9)
+        self.additional_exuipment_frame.pack(anchor=W, padx=15)
+        aaa= 'ssaddasda'
+        self.lbl_additional_equipment= ttk.Label(self.additional_exuipment_frame, text="wyposażenie dodatkowe").grid(row=5, column=10, padx=3, pady=10)
+        self.txt_additional_equipment = Text(self.additional_exuipment_frame , width=50, height = 20)
+        self.txt_additional_equipment.insert("1.0", aaa)
+        self.txt_additional_equipment.grid(row=5, column=15, padx=1)
+
+
+
 
 
 

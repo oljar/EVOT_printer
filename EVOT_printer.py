@@ -45,7 +45,7 @@ class Application (Frame):
         self.mass_value = StringVar()
         self.mass=ttk.Label(self.settings_frame ,text = "masa urządzenia [kg]").grid(row =5,column = 1,padx=10,pady=(10,3))
         self.entry_mass=ttk.Entry(self.settings_frame,textvariable = self.mass_value)
-        self.entry_mass.insert(END,mass_val)
+        self.entry_mass.insert(END,mass_value)
         self.entry_mass.grid(row =5 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
 
         self.data_value = StringVar()
@@ -354,16 +354,16 @@ class Application (Frame):
 
             self.lframe.pack( anchor = W, padx=7)
 
-            self.symbol_water_cooler_value = StringVar()
-            self.lbl_symbol_water_cooler = ttk.Label(self.lframe, text="typ CHF" ).grid(row=5, column=1,padx = 3)
-            self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
+            self.symbol_refrageration_cooler_value = StringVar()
+            self.lbl_symbol_refrageration_cooler = ttk.Label(self.lframe, text="typ CHF" ).grid(row=5, column=1,padx = 3)
+            self.entry_symbol_refrageration_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_refrageration_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
 
 
 
             # water cooler data  for plate
-            self.water_cooler_plate_value = StringVar()
-            self.lbl_plate_water_cooler = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
-            self.entry_plate_water_cooler = ttk.Entry(self.lframe, textvariable=self.water_cooler_plate_value, width=30).grid(row=10, column=5, padx=2, ipadx=4, pady=10)
+            self.refrageration_cooler_plate_value = StringVar()
+            self.lbl_plate_refrageration_cooler = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
+            self.entry_plate_refrageration_cooler = ttk.Entry(self.lframe, textvariable=self.refrageration_cooler_plate_value, width=30).grid(row=10, column=5, padx=2, ipadx=4, pady=10)
 
             #explanation
             self.explanation = ttk.Label(self.lframe, text=" moc lato [kW]/ czynnik" ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
@@ -539,10 +539,10 @@ class Application (Frame):
         self.lfradio = ttk.LabelFrame(tab5)
         self.lfradio.pack( )
         self.filter_choice_value = IntVar()
-        self.G4_filter = ttk.Radiobutton(self.lfradio, text = "G4", variable = self.filter_choice_value, value = 1, command = self.G4_supply_filter_function).grid(row =0, column = 0, padx=20, pady = 5)
-        self.M5_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.filter_choice_value, value = 2, command = self.M5_supply_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
-        self.F7_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.filter_choice_value, value = 3, command = self.F7_supply_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
-        self.F9_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.filter_choice_value, value = 4, command = self.F9_supply_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
+        self.G4_supply_filter = ttk.Radiobutton(self.lfradio, text = "G4", variable = self.filter_choice_value, value = 1, command = self.G4_supply_filter_function).grid(row =0, column = 0, padx=20, pady = 5)
+        self.M5_supply_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.filter_choice_value, value = 2, command = self.M5_supply_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
+        self.F7_supply_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.filter_choice_value, value = 3, command = self.F7_supply_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
+        self.F9_supply_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.filter_choice_value, value = 4, command = self.F9_supply_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
         self.lackoff_supply_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.filter_choice_value, value= 5, command = self.lackoff_supply_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
@@ -555,15 +555,18 @@ class Application (Frame):
             pass
         finally:
 
-            # fan symbol
+            # supply filter G4  symbol
             self.lframe = ttk.LabelFrame(tab5)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
-            self.symbol_G4_filter_value = StringVar()
-            self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.symbol_G4_supply_filter_value = StringVar()
+            self.lbl_symbol_G4_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
+
+            #  supply filter G4 quantity
+            self.quantity_G4_supply_filter = StringVar()
             self.lbl_G4_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_G4_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_G4_quantity = ttk.Entry(self.lframe, textvariable=self.quantity_G4_supply_filter, width=10).grid(row=10, column=5, padx=1)
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
 
@@ -578,15 +581,19 @@ class Application (Frame):
             pass
         finally:
 
-            # fan symbol
+            # supply filter M5  symbol
             self.lframe = ttk.LabelFrame(tab5)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
-            self.symbol_M5_filter_value = StringVar()
-            self.lbl_symbol_M5_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_M5_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.symbol_M5_supply_filter_value = StringVar()
+            self.lbl_symbol_M5_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
+
+            #  supply filter M5 quantity
+
+            self.quantity_M5_supply_filter = StringVar()
             self.lbl_M5_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_M5_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_M5_quantity = ttk.Entry(self.lframe, textvariable = self.quantity_M5_supply_filter, width=10).grid(row=10, column=5, padx=1)
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
 
@@ -600,15 +607,19 @@ class Application (Frame):
             pass
         finally:
 
-            # fan symbol
+            # supply filter F7  symbol
             self.lframe = ttk.LabelFrame(tab5)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
-            self.symbol_F7_filter_value = StringVar()
-            self.lbl_symbol_F7_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_F7_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.symbol_F7_supply_filter_value = StringVar()
+            self.lbl_symbol_F7_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F7_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
+
+            #supply filter F7 quantity
+
+            self.quantity_F7_supply_filter = StringVar()
             self.lbl_F7_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_F7_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_F7_quantity = ttk.Entry(self.lframe, textvariable=self.quantity_F7_supply_filter, width=10).grid(row=10, column=5, padx=1)
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
 
@@ -622,15 +633,18 @@ class Application (Frame):
             pass
         finally:
 
-            # fan symbol
+            # supply filter F7  symbol
             self.lframe = ttk.LabelFrame(tab5)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
-            self.symbol_F9_filter_value = StringVar()
-            self.lbl_symbol_F9_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_F9_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.symbol_F9_supply_filter_value = StringVar()
+            self.lbl_symbol_F9_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F9_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
+
+            #supply filter F7 quantity
+            self.quantity_F9_supply_filter = StringVar()
             self.lbl_F9_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_F9_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_F9_quantity = ttk.Entry(self.lframe, textvariable=self.quantity_F9_supply_filter, width=10).grid(row=10, column=5, padx=1)
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
 

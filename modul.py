@@ -1,1 +1,1 @@
-mass_val=10
+mass_value=10

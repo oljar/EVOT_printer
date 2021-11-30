@@ -129,6 +129,7 @@ CREATE TABLE "items" (
 --S_and_p
    "s_and_p_value"                     TEXT,
    
+   
 );
 """
 

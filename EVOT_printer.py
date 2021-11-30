@@ -564,17 +564,15 @@ class Application (Frame):
             self.entry_symbol_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
 
             #  supply filter G4 quantity
-            self.quantity_G4_supply_filter = StringVar()
-            self.lbl_G4_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_G4_quantity = ttk.Entry(self.lframe, textvariable=self.quantity_G4_supply_filter, width=10).grid(row=10, column=5, padx=1)
+            self.quantity_G4_supply_filter_value = StringVar()
+            self.lbl_quantity_G4_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_G4_supply_filter_value, width=10).grid(row=10, column=5, padx=1)
+
+            #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
 
-
-
     def M5_supply_filter_function(self):
-
-
         try:
             self.lframe.destroy()
         except:
@@ -590,15 +588,13 @@ class Application (Frame):
             self.entry_symbol_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
 
             #  supply filter M5 quantity
+            self.quantity_M5_supply_filter_value = StringVar()
+            self.lbl_quantity_M5_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_M5_supply_filter_value, width=10).grid(row=10, column=5, padx=1)
 
-            self.quantity_M5_supply_filter = StringVar()
-            self.lbl_M5_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_M5_quantity = ttk.Entry(self.lframe, textvariable = self.quantity_M5_supply_filter, width=10).grid(row=10, column=5, padx=1)
+            #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
-
-
-
 
     def F7_supply_filter_function(self):
         try:
@@ -615,25 +611,24 @@ class Application (Frame):
             self.lbl_symbol_F7_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_F7_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
 
-            #supply filter F7 quantity
+            #  supply filter F7 quantity
+            self.quantity_F7_supply_filter_value = StringVar()
+            self.lbl_quantity_F7_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_F7_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F7_supply_filter_value, width=10).grid(row=10, column=5, padx=1)
 
-            self.quantity_F7_supply_filter = StringVar()
-            self.lbl_F7_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_F7_quantity = ttk.Entry(self.lframe, textvariable=self.quantity_F7_supply_filter, width=10).grid(row=10, column=5, padx=1)
+            #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
 
 
-
     def F9_supply_filter_function(self):
-
         try:
             self.lframe.destroy()
         except:
             pass
         finally:
 
-            # supply filter F7  symbol
+            # supply filter F9  symbol
             self.lframe = ttk.LabelFrame(tab5)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
@@ -641,14 +636,14 @@ class Application (Frame):
             self.lbl_symbol_F9_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_F9_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
 
-            #supply filter F7 quantity
-            self.quantity_F9_supply_filter = StringVar()
-            self.lbl_F9_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_F9_quantity = ttk.Entry(self.lframe, textvariable=self.quantity_F9_supply_filter, width=10).grid(row=10, column=5, padx=1)
+            #  supply filter F9 quantity
+            self.quantity_F9_supply_filter_value = StringVar()
+            self.lbl_quantity_F9_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_F9_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F9_supply_filter_value, width=10).grid(row=10, column=5, padx=1)
+
+            #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
-
-
 
     def lackoff_supply_filter_function(self) :
         try:
@@ -674,91 +669,107 @@ class Application (Frame):
 
 
     def G4_exhaust_filter_function(self):
-
         try:
             self.lframe.destroy()
         except:
             pass
         finally:
 
-            # fan symbol
+            # exhaust filter G4  symbol
             self.lframe = ttk.LabelFrame(tab6)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
-            self.symbol_G4_filter_value = StringVar()
-            self.lbl_symbol_G4_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_G4_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=30).grid(row=10, column=1, padx=1)
-            self.lbl_G4_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_G4_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_G4_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.symbol_G4_exhaust_filter_value = StringVar()
+            self.lbl_symbol_G4_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_G4_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_exhaust_filter_value, width=30).grid(row=10, column=1, padx=1)
+
+            #  exhaust filter G4 quantity
+            self.quantity_G4_exhaust_filter_value = StringVar()
+            self.lbl_quantity_G4_exhaust_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_G4_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_G4_exhaust_filter_value, width=10).grid(row=10, column=5, padx=1)
+
+            #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+
 
 
 
     def M5_exhaust_filter_function(self):
-
-
         try:
             self.lframe.destroy()
         except:
             pass
         finally:
 
-            # fan symbol
+            # exhaust filter M5  symbol
             self.lframe = ttk.LabelFrame(tab6)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
-            self.symbol_M5_filter_value = StringVar()
-            self.lbl_symbol_M5_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_M5_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=30).grid(row=10, column=1, padx=1)
-            self.lbl_M5_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_M5_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_M5_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.symbol_M5_exhaust_filter_value = StringVar()
+            self.lbl_symbol_M5_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_M5_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_exhaust_filter_value, width=30).grid(row=10, column=1, padx=1)
+
+            #  exhaust filter M5 quantity
+            self.quantity_M5_exhaust_filter_value = StringVar()
+            self.lbl_quantity_M5_exhaust_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_M5_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_M5_exhaust_filter_value, width=10).grid(row=10, column=5, padx=1)
+
+            #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
-
-
 
 
     def F7_exhaust_filter_function(self):
+
         try:
             self.lframe.destroy()
         except:
             pass
         finally:
 
-            # fan symbol
+            # exhaust filter F7  symbol
             self.lframe = ttk.LabelFrame(tab6)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
-            self.symbol_F7_filter_value = StringVar()
-            self.lbl_symbol_F7_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_F7_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=30).grid(row=10, column=1, padx=1)
-            self.lbl_F7_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_F7_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F7_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.symbol_F7_exhaust_filter_value = StringVar()
+            self.lbl_symbol_F7_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F7_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_exhaust_filter_value, width=30).grid(row=10, column=1, padx=1)
+
+            #  exhaust filter F7 quantity
+            self.quantity_F7_exhaust_filter_value = StringVar()
+            self.lbl_quantity_F7_exhaust_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_F7_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F7_exhaust_filter_value, width=10).grid(row=10, column=5, padx=1)
+
+            #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
-
-
 
     def F9_exhaust_filter_function(self):
-
         try:
             self.lframe.destroy()
         except:
             pass
         finally:
 
-            # fan symbol
+            # exhaust filter F9  symbol
             self.lframe = ttk.LabelFrame(tab6)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
-            self.symbol_F9_filter_value = StringVar()
-            self.lbl_symbol_F9_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_F9_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=30).grid(row=10, column=1, padx=1)
-            self.lbl_F9_quantity = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_F9_quantity = ttk.Entry(self.lframe, textvariable=self.symbol_F9_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.symbol_F9_exhaust_filter_value = StringVar()
+            self.lbl_symbol_F9_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F9_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_exhaust_filter_value, width=30).grid(row=10, column=1, padx=1)
+
+            #  exhaust filter F9 quantity
+            self.quantity_F9_exhaust_filter_value = StringVar()
+            self.lbl_quantity_F9_exhaust_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_F9_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F9_exhaust_filter_value, width=10).grid(row=10, column=5, padx=1)
+
+            #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
             self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
 
 
 

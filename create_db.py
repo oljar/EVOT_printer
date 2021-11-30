@@ -57,8 +57,8 @@ CREATE TABLE "items" (
     "water_cooler_plate_value"          TEXT,       
 
 --refrgeration cooler        
-    "symbol_refrage_cooler_value"       TEXT,              
-    "water_cooler_plate_value"          TEXT,
+    "symbol_refrageration_cooler_value"       TEXT,              
+    "refrageration_cooler_plate_value "          TEXT,
     
 --supply EC fan   
     "symbol_EC_supply_fan_value"        TEXT, 
@@ -91,37 +91,32 @@ CREATE TABLE "items" (
     "quantity_AC_exhaust_fan_value"     INTEGER,
     
 --filter supply   
-    
-    "symbol_G4_supply_filter_value"     TEXT,  
-    "quantity_G4_supply_filter"         INTEGER,
-    
-    "symbol_M5_filter_supply_value"     TEXT, 
-    "quantity_M5_supply_filter"         INTEGER,    
-    
-    "symbol_F7_filter_supply_value"     TEXT,
-    "quantity_F7_supply_filter"         INTEGER,
-    
-    "quantity_F9_supply_filter"         TEXT,
-    "symbol_F9_filter_supply_value"     INTEGER, 
-    
+
+
+    "symbol_G4_supply_filter_value"    TEXT,
+    "quantity_G4_supply_filter_value"  TEXT,
+    "symbol_M5_supply_filter_value"    TEXT,
+    "quantity_M5_supply_filter_value"  TEXT,
+    "symbol_F7_supply_filter_value"    TEXT,
+    "quantity_F7_supply_filter_value"  TEXT,
+    "symbol_F9_supply_filter_value"    TEXT,
+    "quantity_F9_supply_filter_value"  TEXT,
+   
 --filter exhaust
     
-    symbol_G4_filter_supply_value 
-    symbol_M5_filter_supply_value 
-    symbol_F7_filter_value 
-    symbol_F9_filter_value 
-    symbol_supply_damper_value 
-    self.quantity_F9_supply_filter
+   "symbol_G4_exhaust_filter_value"     TEXT,
+   "quantity_G4_exhaust_filter_value"   TEXT,
+   "symbol_M5_exhaust_filter_value"     TEXT,
+   "quantity_M5_exhaust_filter_value"   TEXT,
+   "symbol_F7_exhaust_filter_value"     TEXT,
+   "quantity_F7_exhaust_filter_value"   TEXT,
+   "symbol_F9_exhaust_filter_value"     TEXT,
+   "quantity_F9_exhaust_filter_value"   TEXT,
     
     
-    
-    symbol_exaust_damper_value 
-    symbol_heat_exchanger_value 
+-- damper
 
 
-
-    
-    
     
 );
 """

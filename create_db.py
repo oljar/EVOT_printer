@@ -112,12 +112,23 @@ CREATE TABLE "items" (
    "quantity_F7_exhaust_filter_value"   TEXT,
    "symbol_F9_exhaust_filter_value"     TEXT,
    "quantity_F9_exhaust_filter_value"   TEXT,
+
     
     
 -- damper
 
+   "symbol_supply_damper_value"        TEXT,
+-- heat exchanger
 
-    
+   "symbol_exaust_damper_value"        TEXT,
+--heat_exchanger
+  
+   "symbol_heat_exchanger_value"       TEXT,
+--additional_equipment
+   "additional_equipment_value"        TEXT,
+--S_and_p
+   "s_and_p_value"                     TEXT,
+   
 );
 """
 

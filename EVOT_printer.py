@@ -814,10 +814,10 @@ class Application (Frame):
 
         self.additional_exuipment_frame = ttk.LabelFrame(tab9)
         self.additional_exuipment_frame.pack(anchor=W, padx=15)
-        aaa= 'ssaddasda'
+        self.additional_exuipment_value = 'ssaddasda'
         self.lbl_additional_equipment= ttk.Label(self.additional_exuipment_frame, text="wyposażenie dodatkowe").grid(row=5, column=10, padx=3, pady=10)
         self.txt_additional_equipment = Text(self.additional_exuipment_frame , width=50, height = 20)
-        self.txt_additional_equipment.insert("1.0", aaa)
+        self.txt_additional_equipment.insert("1.0", self.additional_exuipment_value)
         self.txt_additional_equipment.grid(row=5, column=15, padx=1)
 
 
@@ -827,10 +827,10 @@ class Application (Frame):
 
         self.s_and_p_frame = ttk.LabelFrame(tab10)
         self.s_and_p_frame.pack(anchor=W, padx=15)
-        aaa= 'ssaddasda'
-        self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text="sprawdzenie i próby").grid(row=5, column=10, padx=3, pady=10)
+        self.s_and_p_value = 'ssaddasda'
+        self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text=self.s_and_p_value ).grid(row=5, column=10, padx=3, pady=10)
         self.txt_s_and_p = Text(self.s_and_p_frame , width=50, height = 20)
-        self.txt_s_and_p.insert("1.0", aaa)
+        self.txt_s_and_p.insert("1.0", self.s_and_p_value)
         self.txt_s_and_p.grid(row=5, column=15, padx=1)
 
 

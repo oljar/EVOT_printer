@@ -96,7 +96,7 @@ class Application (Frame):
 
 
         self.lbl_type = ttk.Label(self.identity_frame, text="typ EVO-T").grid(row=20, column=1, padx=10, pady=3)
-        self.selected_type_value='dfdf'
+        self.selected_type_value = selected_type_value
         self.entry_type = ttk.Entry(self.identity_frame, textvariable=self.selected_type_value )
         self.entry_type.insert(END,self.selected_type_value)
         self.entry_type.config(state=DISABLED)

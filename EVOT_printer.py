@@ -36,32 +36,33 @@ class Application (Frame):
         self.settings_frame.pack(anchor=W, padx=15)
 
         self.inspector_name_value = StringVar()
-        self.lbl_inspector_name = ttk.Label(self.settings_frame, text="konrtoler KJ").grid(row=1, column=1, padx=10, pady=3)
+        self.lbl_inspector_name = ttk.Label(self.settings_frame, text="konrtoler KJ").grid(row=1, column=1, padx=10, pady=(10,3))
         self.inspector_name = ('a','b','c')
-        self.combobox_suplly = ttk.Combobox(self.settings_frame, values=self.inspector_name, textvariable=self.inspector_name_value).grid(row=1, column=2)
+        self.combobox_suplly = ttk.Combobox(self.settings_frame, values=self.inspector_name, textvariable=self.inspector_name_value).grid(row=1, column=2,  padx=10, pady=(10,3))
 
 
+        #   type
+        self.selected_type_value = StringVar()
+        self.lbl_type = ttk.Label(self.settings_frame, text="typ EVO-T").grid(row=5, column=1, padx=10, pady=3)
+        self.version_type = ('a','b','c')
+        self.combobox_type = ttk.Combobox(self.settings_frame, values=self.version_type, textvariable=self.selected_type_value).grid(row=5, column=2,padx=10, pady=(10,3))
 
-        self.mass_value = StringVar()
-        self.mass=ttk.Label(self.settings_frame ,text = "masa urządzenia [kg]").grid(row =5,column = 1,padx=10,pady=(10,3))
-        self.entry_mass=ttk.Entry(self.settings_frame,textvariable = self.mass_value)
-        self.entry_mass.insert(END,mass_value)
-        self.entry_mass.grid(row =5 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+
 
         self.data_value = StringVar()
         self.data_act = datetime.date.today()
 
-        self.data=ttk.Label(self.settings_frame ,text = "data").grid(row =10,column = 1,padx=10,pady=(10,3))
+        self.data=ttk.Label(self.settings_frame ,text = "data").grid(row =15,column = 1,padx=10,pady=(10,3))
         self.entry_data=ttk.Entry(self.settings_frame,textvariable = self.data_value)
 
         def fill_data():
             self.entry_data.insert(END,self.data_act)
 
-        self.data_button=ttk.Button(self.settings_frame,text = "data",command = fill_data).grid(row = 10, column = 20, padx=10 , pady=(10,3) )
+        self.data_button=ttk.Button(self.settings_frame,text = "data",command = fill_data).grid(row = 15, column = 20, padx=10 , pady=(10,3) )
 
 
 
-        self.entry_data.grid(row =10 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+        self.entry_data.grid(row =15 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
 
     def identity(self):
 
@@ -92,10 +93,14 @@ class Application (Frame):
 
    #   type
         self.selected_type_value = StringVar()
-        self.lbl_type = ttk.Label(self.identity_frame, text="Typ").grid(row=20, column=1, padx=10, pady=3)
-        self.version_type = ('a','b','c')
-        self.combobox_type = ttk.Combobox(self.identity_frame, values=self.version_type, textvariable=self.selected_type_value).grid(row=20, column=2)
 
+
+        self.lbl_type = ttk.Label(self.identity_frame, text="typ EVO-T").grid(row=20, column=1, padx=10, pady=3)
+        self.selected_type_value='dfdf'
+        self.entry_type = ttk.Entry(self.identity_frame, textvariable=self.selected_type_value )
+        self.entry_type.insert(END,self.selected_type_value)
+        self.entry_type.config(state=DISABLED)
+        self.entry_type.grid(row=20, column=2, padx=10, pady=3,ipadx=10)
 
     # supply
 
@@ -152,6 +157,14 @@ class Application (Frame):
         self.entry_exhaust_pressure = ttk.Entry(self.identity_frame, textvariable = self.entry_exhaust_pressure_value ).grid(row=50, column=2, padx=1, pady=3, ipadx=10)
 
 
+
+
+
+        self.mass_value = StringVar()
+        self.mass=ttk.Label(self.identity_frame ,text = "masa urządzenia [kg]").grid(row = 55,column = 1,padx=10,pady=3)
+        self.entry_mass=ttk.Entry(self.identity_frame,textvariable = self.mass_value)
+        self.entry_mass.insert(END,mass_value)
+        self.entry_mass.grid(row = 55 ,column = 2,padx=1,pady=3, ipadx=10 )
 
 
 #heater

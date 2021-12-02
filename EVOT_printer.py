@@ -784,14 +784,25 @@ class Application (Frame):
             self.lframe = ttk.LabelFrame(tab6)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
+
             self.symbol_G4_exhaust_filter_value = StringVar()
             self.lbl_symbol_G4_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_G4_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_exhaust_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.entry_symbol_G4_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_exhaust_filter_value, width=30)
+            self.entry_symbol_G4_exhaust_filter.insert(END, symbol_G4_exhaust_filter_value )
+            self.entry_symbol_G4_exhaust_filter .grid(row=10, column=1, padx=1)
+
+
+
 
             #  exhaust filter G4 quantity
             self.quantity_G4_exhaust_filter_value = StringVar()
             self.lbl_quantity_G4_exhaust_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_quantity_G4_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_G4_exhaust_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_quantity_G4_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_G4_exhaust_filter_value, width=10)
+            self.entry_quantity_G4_exhaust_filter.insert(END, quantity_G4_exhaust_filter_value)
+            self.entry_quantity_G4_exhaust_filter.grid(row=10, column=5, padx=1)
+
+
+
 
             #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
@@ -814,12 +825,21 @@ class Application (Frame):
             self.lframe.pack(anchor=W, padx=15)
             self.symbol_M5_exhaust_filter_value = StringVar()
             self.lbl_symbol_M5_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_M5_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_exhaust_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.entry_symbol_M5_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_exhaust_filter_value, width=30)
+            self.entry_symbol_M5_exhaust_filter.insert(END, symbol_M5_exhaust_filter_value )
+            self.entry_symbol_M5_exhaust_filter.grid(row=10, column=1, padx=1)
+
+
+
 
             #  exhaust filter M5 quantity
             self.quantity_M5_exhaust_filter_value = StringVar()
             self.lbl_quantity_M5_exhaust_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_quantity_M5_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_M5_exhaust_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_quantity_M5_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_M5_exhaust_filter_value, width=10)
+            self.entry_quantity_M5_exhaust_filter.insert(END, quantity_M5_exhaust_filter_value )
+            self.entry_quantity_M5_exhaust_filter.grid(row=10, column=5, padx=1)
+
+
 
             #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
@@ -838,14 +858,22 @@ class Application (Frame):
             self.lframe = ttk.LabelFrame(tab6)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
+
             self.symbol_F7_exhaust_filter_value = StringVar()
             self.lbl_symbol_F7_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_F7_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_exhaust_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.entry_symbol_F7_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_exhaust_filter_value, width=30)
+            self.entry_symbol_F7_exhaust_filter.insert(END, symbol_F7_exhaust_filter_value )
+            self.entry_symbol_F7_exhaust_filter.grid(row=10, column=1, padx=1)
+
+
 
             #  exhaust filter F7 quantity
             self.quantity_F7_exhaust_filter_value = StringVar()
             self.lbl_quantity_F7_exhaust_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_quantity_F7_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F7_exhaust_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_quantity_F7_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F7_exhaust_filter_value, width=10)
+            self.entry_quantity_F7_exhaust_filter.insert(END, quantity_F7_exhaust_filter_value)
+            self.entry_quantity_F7_exhaust_filter.grid(row=10, column=5, padx=1)
+
 
             #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
@@ -862,14 +890,25 @@ class Application (Frame):
             self.lframe = ttk.LabelFrame(tab6)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
+
+
             self.symbol_F9_exhaust_filter_value = StringVar()
             self.lbl_symbol_F9_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_F9_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_exhaust_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.entry_symbol_F9_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_exhaust_filter_value, width=30)
+            self.entry_symbol_F9_exhaust_filter.insert(END, symbol_F9_exhaust_filter_value)
+            self.entry_symbol_F9_exhaust_filter.grid(row=10, column=1, padx=1)
+
+
 
             #  exhaust filter F9 quantity
             self.quantity_F9_exhaust_filter_value = StringVar()
             self.lbl_quantity_F9_exhaust_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_quantity_F9_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F9_exhaust_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_quantity_F9_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F9_exhaust_filter_value, width=10)
+            self.entry_quantity_F9_exhaust_filter.insert(END, quantity_F9_exhaust_filter_value)
+            self.entry_quantity_F9_exhaust_filter.grid(row=10, column=5, padx=1)
+
+
+
 
             #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
@@ -895,12 +934,17 @@ class Application (Frame):
         self.symbol_supply_damper_value = StringVar()
 
         self.lbl_supply_symbol_damper = ttk.Label(self.damper_frame, text="tłumik nawiew - typ").grid(row=5, column=10, padx=3, pady=10)
-        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_supply_damper_value , width=30).grid(row=5, column=15, padx=1)
+        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_supply_damper_value , width=30)
+
+        self.entry_damper.insert(END, symbol_supply_damper_value)
+        self.entry_damper.grid(row=5, column=15, padx=1)
+
 
         self.symbol_exaust_damper_value = StringVar()
         self.lbl_symbol_exhaust_damper = ttk.Label(self.damper_frame, text="tłumik wywiew - typ").grid(row=10, column=10, padx=3, pady=10)
-        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_exaust_damper_value , width=30).grid(row=10, column=15, padx=1)
-
+        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_exaust_damper_value , width=30)
+        self.entry_damper.insert(END, symbol_exaust_damper_value)
+        self.entry_damper.grid(row=10, column=15, padx=1)
 
 
 
@@ -910,7 +954,10 @@ class Application (Frame):
         self.heat_exchanger_frame.pack(anchor=W, padx=15)
         self.symbol_heat_exchanger_value = StringVar()
         self.lbl_symbol_heat_exchanger = ttk.Label(self.heat_exchanger_frame, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
-        self.entry_heat_exchanger = ttk.Entry(self.heat_exchanger_frame, textvariable=self.symbol_heat_exchanger_value , width=30).grid(row=5, column=15, padx=1)
+        self.entry_heat_exchanger = ttk.Entry(self.heat_exchanger_frame, textvariable=self.symbol_heat_exchanger_value , width=30)
+        self.entry_heat_exchanger.insert(END, symbol_heat_exchanger_value )
+        self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
+
 
 
 
@@ -919,10 +966,10 @@ class Application (Frame):
 
         self.additional_exuipment_frame = ttk.LabelFrame(tab9)
         self.additional_exuipment_frame.pack(anchor=W, padx=15)
-        self.additional_exuipment_value = 'ssaddasda'
+
         self.lbl_additional_equipment= ttk.Label(self.additional_exuipment_frame, text="wyposażenie dodatkowe").grid(row=5, column=10, padx=3, pady=10)
         self.txt_additional_equipment = Text(self.additional_exuipment_frame , width=50, height = 20)
-        self.txt_additional_equipment.insert("1.0", self.additional_exuipment_value)
+        self.txt_additional_equipment.insert("1.0", additional_exuipment_value)
         self.txt_additional_equipment.grid(row=5, column=15, padx=1)
 
 
@@ -932,10 +979,10 @@ class Application (Frame):
 
         self.s_and_p_frame = ttk.LabelFrame(tab10)
         self.s_and_p_frame.pack(anchor=W, padx=15)
-        self.s_and_p_value = 'ssaddasda'
+        self.s_and_p_value =  StringVar()
         self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text=self.s_and_p_value ).grid(row=5, column=10, padx=3, pady=10)
         self.txt_s_and_p = Text(self.s_and_p_frame , width=50, height = 20)
-        self.txt_s_and_p.insert("1.0", self.s_and_p_value)
+        self.txt_s_and_p.insert("1.0", s_and_p_value)
         self.txt_s_and_p.grid(row=5, column=15, padx=1)
 
 

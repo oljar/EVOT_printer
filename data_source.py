@@ -39,7 +39,16 @@ symbol_F7_supply_filter_value = "symbol_F7_supply_filter_value"
 quantity_F7_supply_filter_value = "quantity_F7_supply_filter_value"
 symbol_F9_supply_filter_value = "symbol_F9_supply_filter_value"
 quantity_F9_supply_filter_value = "quantity_F9_supply_filter_value"
-
-
-
-
+symbol_G4_exhaust_filter_value = "symbol_G4_exhaust_filter_value"
+quantity_G4_exhaust_filter_value = "quantity_G4_exhaust_filter_value)"
+symbol_M5_exhaust_filter_value = "symbol_M5_exhaust_filter_value"
+quantity_M5_exhaust_filter_value = "quantity_M5_exhaust_filter_value"
+symbol_F7_exhaust_filter_value = "symbol_F7_exhaust_filter_value "
+quantity_F7_exhaust_filter_value ="quantity_F7_exhaust_filter_value"
+symbol_F9_exhaust_filter_value  = "symbol_F9_exhaust_filter_value"
+quantity_F9_exhaust_filter_value = "quantity_F9_exhaust_filter_value"
+symbol_supply_damper_value = "symbol_supply_damper_value"
+symbol_exaust_damper_value = "symbol_exaust_damper_value"
+symbol_heat_exchanger_value = "symbol_heat_exchanger_value"
+additional_exuipment_value = "additional_exuipment_value_1"
+s_and_p_value = "s_and_p_value_1"

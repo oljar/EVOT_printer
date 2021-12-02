@@ -159,7 +159,7 @@ class Application (Frame):
 
 
 
-
+    # mass
         self.mass_value = StringVar()
         self.mass=ttk.Label(self.identity_frame ,text = "masa urządzenia [kg]").grid(row = 55,column = 1,padx=10,pady=3)
         self.entry_mass=ttk.Entry(self.identity_frame,textvariable = self.mass_value)
@@ -196,15 +196,25 @@ class Application (Frame):
                 self.lframe = ttk.LabelFrame(tab2)
                 self.lframe.pack( anchor = W, padx=7)
 
+
                 #symbol electric heater
                 self.symbol_electric_heater_value = StringVar()
                 self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="typ NE" ).grid(row=5, column=1,padx=1)
-                self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value, width = 30).grid(row=5, column=5, padx=2)
+                self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value, width = 30)
+                self.entry_symbol_electric_heater.insert(END,symbol_electric_heater_value )
+                self.entry_symbol_electric_heater.grid(row=5, column=5, padx=2)
+
+
 
                 # heater data  for plate
                 self.electric_heater_plate_value = StringVar()
                 self.lbl_plate_electric_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
-                self.entry_plate_electric_heater = ttk.Entry(self.lframe, textvariable = self.electric_heater_plate_value,width = 30).grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
+                self.entry_plate_electric_heater = ttk.Entry(self.lframe, textvariable = self.electric_heater_plate_value,width = 30)
+                self.entry_plate_electric_heater.insert(END,electric_heater_plate_value )
+                self.entry_plate_electric_heater.grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
+
+
+
                 #
                 #explanation
                 self.explanation = ttk.Label(self.lframe, text="moc zima [kW] / ilość sekcji x moc sekcji [i x kW]/ napięcie zasialania [V] " ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
@@ -228,14 +238,18 @@ class Application (Frame):
 
                 self.symbol_water_heater_value = StringVar()
                 self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="typ WN" ).grid(row=5, column=1,padx = 3)
-                self.entry_symbol_water_heater = ttk.Entry(self.lframe, textvariable = self.symbol_water_heater_value,width = 30 ).grid(row=5, column=5, padx = 3)
-
+                self.entry_symbol_water_heater = ttk.Entry(self.lframe, textvariable = self.symbol_water_heater_value,width = 30 )
+                self.entry_symbol_water_heater.insert(END, symbol_water_heater_value)
+                self.entry_symbol_water_heater.grid(row=5, column=5, padx = 3)
 
 
                 # water heater data  for plate
                 self.water_heater_plate_value = StringVar()
                 self.lbl_plate_water_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
-                self.entry_plate_water_heater = ttk.Entry(self.lframe, textvariable=self.water_heater_plate_value, width=30).grid(row=10, column=5, padx=2, ipadx=4, pady=10)
+                self.entry_plate_water_heater = ttk.Entry(self.lframe, textvariable=self.water_heater_plate_value, width=30)
+                self.entry_plate_water_heater.insert(END, water_heater_plate_value)
+                self.entry_plate_water_heater.grid(row=10, column=5, padx=2, ipadx=4, pady=10)
+
 
                 #explanation
                 self.explanation = ttk.Label(self.lframe, text="zasilanie-powrót [stC] / moc zima [kW]/ spadek ciśnienia [kPa]" ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
@@ -259,13 +273,18 @@ class Application (Frame):
 
                 self.symbol_reverse_exchanger_value = StringVar()
                 self.lbl_reverse_exchanger = ttk.Label(self.lframe, text=" typ RE").grid(row=5, column=1, padx =3)
-                self.entry_reverse_exchanger= ttk.Entry(self.lframe, textvariable=self.symbol_reverse_exchanger_value,width = 30).grid(row=5, column=5,padx = 3)
+                self.entry_reverse_exchanger = ttk.Entry(self.lframe, textvariable=self.symbol_reverse_exchanger_value,width = 30)
+                self.entry_reverse_exchanger.insert(END, symbol_reverse_exchanger_value)
+                self.entry_reverse_exchanger.grid(row=5, column=5,padx = 3)
+
+
 
                 # reverse heater data  for plate
                 self.reverse_heater_plate_value = StringVar()
                 self.lbl_plate_reverse_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
-                self.entry_plate_reverse_heater = ttk.Entry(self.lframe, textvariable = self.reverse_heater_plate_value,width = 30).grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
-
+                self.entry_plate_reverse_heater = ttk.Entry(self.lframe, textvariable = self.reverse_heater_plate_value,width = 30)
+                self.entry_plate_reverse_heater.insert(END, reverse_heater_plate_value)
+                self.entry_plate_reverse_heater.grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
 
                 #explanation
                 self.explanation = ttk.Label(self.lframe, text="moc lato [KW] / czynnik " ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
@@ -284,23 +303,6 @@ class Application (Frame):
 
 
 
-
-
-
-
-        #
-        # selected_month = StringVar()
-        #
-        # months = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-        #           'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
-        #
-        # month_cb = ttk.Combobox(window , values = months ,textvariable=selected_month ).grid(row=40,column = 4)
-        #
-        # print(selected_month.get())
-        #
-        #
-        # def self.clicked()
-        #      print(selected_month.get())
 
 #cooler
 #######################################################################################################################

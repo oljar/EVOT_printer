@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import datetime
-from modul import *
+from data_source import *
 
 
 
@@ -338,14 +338,18 @@ class Application (Frame):
 
             self.symbol_water_cooler_value = StringVar()
             self.lbl_symbol_water_cooler= ttk.Label(self.lframe, text="typ CHW" ).grid(row=5, column=1,padx = 3)
-            self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
-
+            self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 )
+            self.entry_symbol_water_cooler.insert(END, symbol_water_cooler_value)
+            self.entry_symbol_water_cooler.grid(row=5, column=5, padx = 3)
 
 
             # water cooler data  for plate
             self.water_cooler_plate_value = StringVar()
-            self.lbl_plate_water_cooler= ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
-            self.entry_plate_water_cooler = ttk.Entry(self.lframe, textvariable=self.water_cooler_plate_value, width=30).grid(row=10, column=5, padx=2, ipadx=4, pady=10)
+            self.lbl_plate_water_cooler = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1, padx=2, ipadx=4, pady=10)
+            self.entry_plate_water_cooler = ttk.Entry(self.lframe, textvariable=self.water_cooler_plate_value, width=30)
+            self.entry_plate_water_cooler.insert(END, water_cooler_plate_value)
+            self.entry_plate_water_cooler.grid(row=10, column=5, padx=2, ipadx=4, pady=10)
+
 
             #explanation
             self.explanation = ttk.Label(self.lframe, text="[zasilanie - powrót [stC] / moc lato [kW]/ spadek ciśnienia [kPa]" ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
@@ -371,14 +375,18 @@ class Application (Frame):
 
             self.symbol_refrageration_cooler_value = StringVar()
             self.lbl_symbol_refrageration_cooler = ttk.Label(self.lframe, text="typ CHF" ).grid(row=5, column=1,padx = 3)
-            self.entry_symbol_refrageration_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_refrageration_cooler_value,width = 30 ).grid(row=5, column=5, padx = 3)
+            self.entry_symbol_refrageration_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_refrageration_cooler_value,width = 30 )
+            self.entry_symbol_refrageration_cooler.insert(END, symbol_refrageration_cooler_value)
+            self.entry_symbol_refrageration_cooler.grid(row=5, column=5, padx = 3)
 
 
 
             # water cooler data  for plate
             self.refrageration_cooler_plate_value = StringVar()
             self.lbl_plate_refrageration_cooler = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
-            self.entry_plate_refrageration_cooler = ttk.Entry(self.lframe, textvariable=self.refrageration_cooler_plate_value, width=30).grid(row=10, column=5, padx=2, ipadx=4, pady=10)
+            self.entry_plate_refrageration_cooler = ttk.Entry(self.lframe, textvariable=self.refrageration_cooler_plate_value, width=30)
+            self.entry_plate_refrageration_cooler.insert(END, refrageration_cooler_plate_value )
+            self.entry_plate_refrageration_cooler.grid(row=10, column=5, padx=2, ipadx=4, pady=10)
 
             #explanation
             self.explanation = ttk.Label(self.lframe, text=" moc lato [kW]/ czynnik" ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
@@ -417,51 +425,76 @@ class Application (Frame):
 
             self.symbol_EC_supply_fan_value = StringVar()
             self.lbl_symbol_EC_supply_fan= ttk.Label(self.lframe, text="nawiew-typ-EC" ).grid(row=5, column=1,padx = 3,pady = 10)
-            self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_supply_fan_value,width = 30 ).grid(row=5, column=5, padx = 1)
+            self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_supply_fan_value,width = 30 )
+            self.entry_symbol_EC_supply_fan.insert(END, symbol_EC_supply_fan_value)
+            self.entry_symbol_EC_supply_fan.grid(row=5, column=5, padx = 1)
+
 
 
             # Power - EC_supply_fan
             self.power_EC_supply_fan_value = StringVar()
             self.lbl_power_plate_EC_supply_fan = ttk.Label(self.lframe, text="moc [kW]" ).grid(row=10, column=1,padx=1,pady = 10)
-            self.entry_power_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_supply_fan_value, width=10).grid(row=10, column=5, padx=(0,100))
+            self.entry_power_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_supply_fan_value , width=10)
+            self.entry_power_plate_EC_supply_fan.insert(END, power_EC_supply_fan_value )
+            self.entry_power_plate_EC_supply_fan.grid(row=10, column=5, padx=(0,100))
 
+            # Voltage - EC_supply_fan
 
             self.voltage_EC_supply_fan_value = StringVar()
             self.lbl_voltage_plate_EC_supply_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]" ).grid(row=15, column=1,padx=1,pady = 10)
-            self.entry_voltage_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_supply_fan_value, width=10).grid(row=15, column=5, padx=(0,100))
+            self.entry_voltage_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_supply_fan_value, width=10)
+            self.entry_voltage_plate_EC_supply_fan.insert(END, voltage_EC_supply_fan_value)
+            self.entry_voltage_plate_EC_supply_fan.grid(row=15, column=5, padx=(0,100))
+
+            # frequency - EC_supply_fan
 
             self.frequency_EC_supply_fan_value = StringVar()
             self.lbl_frequency_plate_EC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1,padx=1, pady=10)
-            self.entry_frequency_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_supply_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
+            self.entry_frequency_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_supply_fan_value, width=10)
+            self.entry_frequency_plate_EC_supply_fan.insert(END, frequency_EC_supply_fan_value )
+            self.entry_frequency_plate_EC_supply_fan.grid(row=20, column=5, padx=(0, 100))
+
+            # quantity - EC_supply_fan
 
             self.quantity_EC_supply_fan_value = StringVar()
             self.lbl_quantity_EC_supply_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=1, padx=1, pady=10)
-            self.entry_quantity_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.quantity_EC_supply_fan_value, width=10).grid(row=25, column=5, padx=(0, 100))
+            self.entry_quantity_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.quantity_EC_supply_fan_value, width=10)
+            self.entry_quantity_plate_EC_supply_fan.insert(END, quantity_EC_supply_fan_value)
+            self.entry_quantity_plate_EC_supply_fan.grid(row=25, column=5, padx=(0, 100))
 
-
+            # Symbol - EC_exhaust_fan
 
             self.symbol_EC_exhaust_fan_value = StringVar()
             self.lbl_symbol_EC_exhaust_fan= ttk.Label(self.lframe, text="wywiew-typ-EC" ).grid(row=5, column=10,padx = 3,pady = 10)
-            self.entry_symbol_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_exhaust_fan_value,width = 30 ).grid(row=5, column=15, padx = 1)
-
+            self.entry_symbol_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_exhaust_fan_value, width = 30 )
+            self.entry_symbol_EC_exhaust_fan.insert(END, symbol_EC_exhaust_fan_value)
+            self.entry_symbol_EC_exhaust_fan.grid(row=5, column=15, padx = 1)
 
             # Power - EC_exhaust_fan
             self.power_EC_exhaust_fan_value = StringVar()
             self.lbl_power_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="moc [kW]" ).grid(row=10, column=10,padx=1,pady = 10)
-            self.entry_power_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_exhaust_fan_value, width=10).grid(row=10, column=15, padx=(0,100))
-
+            self.entry_power_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_exhaust_fan_value, width=10)
+            self.entry_power_plate_EC_exhaust_fan.insert(END, power_EC_exhaust_fan_value)
+            self.entry_power_plate_EC_exhaust_fan.grid(row=10, column=15, padx=(0,100))
 
             self.voltage_EC_exhaust_fan_value = StringVar()
             self.lbl_voltage_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]" ).grid(row=15, column=10,padx=1,pady = 10)
-            self.entry_voltage_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_exhaust_fan_value, width=10).grid(row=15, column=15, padx=(0,100))
+            self.entry_voltage_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_exhaust_fan_value, width=10)
+            self.entry_voltage_plate_EC_exhaust_fan.insert(END, voltage_EC_exhaust_fan_value)
+            self.entry_voltage_plate_EC_exhaust_fan.grid(row=15, column=15, padx=(0,100))
 
             self.frequency_EC_exhaust_fan_value = StringVar()
             self.lbl_frequency_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=10,padx=1, pady=10)
-            self.entry_frequency_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_exhaust_fan_value, width=10).grid(row=20, column=15, padx=(0, 100))
+            self.entry_frequency_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_exhaust_fan_value, width=10)
+            self.entry_frequency_plate_EC_exhaust_fan .insert(END, frequency_EC_exhaust_fan_value)
+            self.entry_frequency_plate_EC_exhaust_fan .grid(row=20, column=15, padx=(0, 100))
+
 
             self.quantity_EC_exhaust_fan_value = StringVar()
             self.lbl_quantity_EC_exhaust_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=10, padx=1, pady=10)
-            self.entry_quantity_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.quantity_EC_exhaust_fan_value, width=10).grid(row=25, column=15, padx=(0, 100))
+            self.entry_quantity_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.quantity_EC_exhaust_fan_value, width=10)
+            self.entry_quantity_plate_EC_exhaust_fan.insert(END, quantity_EC_exhaust_fan_value)
+            self.entry_quantity_plate_EC_exhaust_fan.grid(row=25, column=15, padx=(0, 100))
 
 
 
@@ -479,26 +512,43 @@ class Application (Frame):
                 self.lframe.pack(anchor=W)
                 self.lframe.pack(anchor=W, padx=7)
 
+
                 self.symbol_AC_supply_fan_value = StringVar()
                 self.lbl_symbol_AC_supply_fan = ttk.Label(self.lframe, text="nawiew-typ-AC").grid(row=5, column=1, padx=3, pady=10)
-                self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_supply_fan_value, width=30).grid(row=5, column=5, padx=1)
+                self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_supply_fan_value, width=30)
+                self.entry_symbol_AC_supply_fan.insert(END, symbol_AC_supply_fan_value)
+                self.entry_symbol_AC_supply_fan.grid(row=5, column=5, padx=1)
 
                 # Power - AC_supply_fan
                 self.power_AC_supply_fan_value = StringVar()
                 self.lbl_power_plate_AC_supply_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=1, padx=1, pady=10)
-                self.entry_power_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_supply_fan_value, width=10).grid(row=10, column=5, padx=(0, 100))
+                self.entry_power_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_supply_fan_value, width=10)
+                self.entry_power_plate_AC_supply_fan.insert(END, power_AC_supply_fan_value)
+                self.entry_power_plate_AC_supply_fan.grid(row=10, column=5, padx=(0, 100))
+
+                #Voltage - AC_supply_fan
 
                 self.voltage_AC_supply_fan_value = StringVar()
                 self.lbl_voltage_plate_AC_supply_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=1, padx=1, pady=10)
-                self.entry_voltage_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_supply_fan_value, width=10).grid(row=15, column=5, padx=(0, 100))
+                self.entry_voltage_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_supply_fan_value, width=10)
+                self.entry_voltage_plate_AC_supply_fan.insert(END, voltage_AC_supply_fan_value)
+                self.entry_voltage_plate_AC_supply_fan.grid(row=15, column=5, padx=(0, 100))
+
+                # frequency- AC_supply_fan
 
                 self.frequency_AC_supply_fan_value = StringVar()
                 self.lbl_frequency_plate_AC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1, padx=1, pady=10)
-                self.entry_frequency_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_supply_fan_value, width=10).grid(row=20, column=5, padx=(0, 100))
+                self.entry_frequency_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_supply_fan_value, width=10)
+                self.entry_frequency_plate_AC_supply_fan.insert(END, frequency_AC_supply_fan_value)
+                self.entry_frequency_plate_AC_supply_fan.grid(row=20, column=5, padx=(0, 100))
+
+                # quantity- AC_supply_fan
 
                 self.quantity_AC_supply_fan_value = StringVar()
                 self.lbl_quantity_AC_supply_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=1, padx=1, pady=10)
-                self.entry_quantity_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.quantity_AC_supply_fan_value, width=10).grid(row=25, column=5, padx=(0, 100))
+                self.entry_quantity_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.quantity_AC_supply_fan_value, width=10)
+                self.entry_quantity_plate_AC_supply_fan.insert(END, quantity_AC_supply_fan_value)
+                self.entry_quantity_plate_AC_supply_fan.grid(row=25, column=5, padx=(0, 100))
 
 
 
@@ -507,26 +557,36 @@ class Application (Frame):
                 # AC exhaust
                 self.symbol_AC_exhaust_fan_value = StringVar()
                 self.lbl_symbol_AC_exhaust_fan = ttk.Label(self.lframe, text="wywiew-typ-AC").grid(row=5, column=10, padx=3, pady=10)
-                self.entry_symbol_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_exhaust_fan_value, width=30).grid(row=5, column=15, padx=1)
-
+                self.entry_symbol_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_exhaust_fan_value, width=30)
+                self.entry_symbol_AC_exhaust_fan.insert(END, symbol_AC_exhaust_fan_value)
+                self.entry_symbol_AC_exhaust_fan.grid(row=5, column=15, padx=1)
 
                 # Power - AC_exhaust_fan
                 self.power_AC_exhaust_fan_value = StringVar()
                 self.lbl_power_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=10, padx=1, pady=10)
-                self.entry_power_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_exhaust_fan_value, width=10).grid(row=10, column=15, padx=(0, 100))
+                self.entry_power_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_exhaust_fan_value, width=10)
+                self.entry_power_plate_AC_exhaust_fan.insert(END, power_AC_exhaust_fan_value)
+                self.entry_power_plate_AC_exhaust_fan.grid(row=10, column=15, padx=(0, 100))
 
                 self.voltage_AC_exhaust_fan_value = StringVar()
                 self.lbl_voltage_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=10, padx=1, pady=10)
-                self.entry_voltage_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_exhaust_fan_value, width=10).grid(row=15, column=15, padx=(0, 100))
+                self.entry_voltage_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_exhaust_fan_value, width=10)
+                self.entry_voltage_plate_AC_exhaust_fan.insert(END, voltage_AC_exhaust_fan_value)
+                self.entry_voltage_plate_AC_exhaust_fan.grid(row=15, column=15, padx=(0, 100))
+
 
                 self.frequency_AC_exhaust_fan_value = StringVar()
                 self.lbl_frequency_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=10, padx=1, pady=10)
-                self.entry_frequency_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_exhaust_fan_value, width=10).grid(row=20, column=15, padx=(0, 100))
+                self.entry_frequency_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_exhaust_fan_value, width=10)
+                self.entry_frequency_plate_AC_exhaust_fan.insert(END, frequency_AC_exhaust_fan_value)
+                self.entry_frequency_plate_AC_exhaust_fan.grid(row=20, column=15, padx=(0, 100))
+
 
                 self.quantity_AC_exhaust_fan_value = StringVar()
                 self.lbl_quantity_AC_exhaust_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=10, padx=1, pady=10)
-                self.entry_quantity_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.quantity_AC_exhaust_fan_value, width=10).grid(row=25, column=15, padx=(0, 100))
-
+                self.entry_quantity_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.quantity_AC_exhaust_fan_value, width=10)
+                self.entry_quantity_plate_AC_exhaust_fan.insert(END, quantity_AC_exhaust_fan_value)
+                self.entry_quantity_plate_AC_exhaust_fan.grid(row=25, column=15, padx=(0, 100))
 
 
 
@@ -576,12 +636,20 @@ class Application (Frame):
             self.lframe.pack(anchor=W, padx=15)
             self.symbol_G4_supply_filter_value = StringVar()
             self.lbl_symbol_G4_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.entry_symbol_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_supply_filter_value, width=30)
+            self.entry_symbol_G4_supply_filter.insert(END, symbol_G4_supply_filter_value)
+            self.entry_symbol_G4_supply_filter.grid(row=10, column=1, padx=1)
+
 
             #  supply filter G4 quantity
             self.quantity_G4_supply_filter_value = StringVar()
             self.lbl_quantity_G4_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_quantity_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_G4_supply_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_quantity_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_G4_supply_filter_value, width=10)
+            self.entry_quantity_G4_supply_filter.insert(END, quantity_G4_supply_filter_value)
+            self.entry_quantity_G4_supply_filter.grid(row=10, column=5, padx=1)
+
+
+
 
             #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
@@ -600,12 +668,19 @@ class Application (Frame):
             self.lframe.pack(anchor=W, padx=15)
             self.symbol_M5_supply_filter_value = StringVar()
             self.lbl_symbol_M5_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.entry_symbol_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_supply_filter_value, width=30)
+            self.entry_symbol_M5_supply_filter.insert(END, symbol_M5_supply_filter_value)
+            self.entry_symbol_M5_supply_filter.grid(row=10, column=1, padx=1)
+
+
 
             #  supply filter M5 quantity
             self.quantity_M5_supply_filter_value = StringVar()
             self.lbl_quantity_M5_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_quantity_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_M5_supply_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_quantity_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_M5_supply_filter_value, width=10)
+            self.entry_quantity_M5_supply_filter.insert(END, quantity_M5_supply_filter_value)
+            self.entry_quantity_M5_supply_filter.grid(row=10, column=5, padx=1)
+
 
             #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
@@ -624,12 +699,20 @@ class Application (Frame):
             self.lframe.pack(anchor=W, padx=15)
             self.symbol_F7_supply_filter_value = StringVar()
             self.lbl_symbol_F7_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_F7_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.entry_symbol_F7_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_supply_filter_value, width=30)
+            self.entry_symbol_F7_supply_filter.insert(END, symbol_F7_supply_filter_value)
+            self.entry_symbol_F7_supply_filter.grid(row=10, column=1, padx=1)
+
 
             #  supply filter F7 quantity
             self.quantity_F7_supply_filter_value = StringVar()
             self.lbl_quantity_F7_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_quantity_F7_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F7_supply_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_quantity_F7_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F7_supply_filter_value, width=10)
+            self.entry_quantity_F7_supply_filter.insert(END, quantity_F7_supply_filter_value)
+            self.entry_quantity_F7_supply_filter.grid(row=10, column=5, padx=1)
+
+
+
 
             #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
@@ -647,14 +730,21 @@ class Application (Frame):
             self.lframe = ttk.LabelFrame(tab5)
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
+
             self.symbol_F9_supply_filter_value = StringVar()
             self.lbl_symbol_F9_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
-            self.entry_symbol_F9_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_supply_filter_value, width=30).grid(row=10, column=1, padx=1)
+            self.entry_symbol_F9_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_supply_filter_value, width=30)
+            self.entry_symbol_F9_supply_filter.insert(END, symbol_F9_supply_filter_value )
+            self.entry_symbol_F9_supply_filter.grid(row=10, column=1, padx=1)
+
 
             #  supply filter F9 quantity
             self.quantity_F9_supply_filter_value = StringVar()
             self.lbl_quantity_F9_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
-            self.entry_quantity_F9_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F9_supply_filter_value, width=10).grid(row=10, column=5, padx=1)
+            self.entry_quantity_F9_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F9_supply_filter_value, width=10)
+            self.entry_quantity_F9_supply_filter.insert(END, quantity_F9_supply_filter_value )
+            self.entry_quantity_F9_supply_filter.grid(row=10, column=5, padx=1)
+
 
             #   explanation
             self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)

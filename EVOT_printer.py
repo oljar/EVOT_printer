@@ -980,7 +980,7 @@ class Application (Frame):
         self.s_and_p_frame = ttk.LabelFrame(tab10)
         self.s_and_p_frame.pack(anchor=W, padx=15)
         self.s_and_p_value =  StringVar()
-        self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text=self.s_and_p_value ).grid(row=5, column=10, padx=3, pady=10)
+        self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text="sprawdzenie i próby" ).grid(row=5, column=10, padx=3, pady=10)
         self.txt_s_and_p = Text(self.s_and_p_frame , width=50, height = 20)
         self.txt_s_and_p.insert("1.0", s_and_p_value)
         self.txt_s_and_p.grid(row=5, column=15, padx=1)

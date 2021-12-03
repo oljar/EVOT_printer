@@ -4,7 +4,6 @@ import datetime
 from data_source import *
 
 
-
 class Application (Frame):
     def __init__(self,master):
 
@@ -40,12 +39,18 @@ class Application (Frame):
         self.inspector_name = ('a','b','c')
         self.combobox_suplly = ttk.Combobox(self.settings_frame, values=self.inspector_name, textvariable=self.inspector_name_value).grid(row=1, column=2,  padx=10, pady=(10,3))
 
+        def fill_data():
+            print(self.selected_type_value_in.get())
 
         #   type
-        self.selected_type_value = StringVar()
+
+
+        self.selected_type_value_in = StringVar()
         self.lbl_type = ttk.Label(self.settings_frame, text="typ EVO-T").grid(row=5, column=1, padx=10, pady=3)
-        self.version_type = ('a','b','c')
-        self.combobox_type = ttk.Combobox(self.settings_frame, values=self.version_type, textvariable=self.selected_type_value).grid(row=5, column=2,padx=10, pady=(10,3))
+
+
+        self.combobox_type = ttk.Combobox(self.settings_frame, textvariable= self.selected_type_value_in, values=version_type ).grid(row=5, column=2,padx=10, pady=(10,3))
+
 
 
 
@@ -55,8 +60,8 @@ class Application (Frame):
         self.data=ttk.Label(self.settings_frame ,text = "data").grid(row =15,column = 1,padx=10,pady=(10,3))
         self.entry_data=ttk.Entry(self.settings_frame,textvariable = self.data_value)
 
-        def fill_data():
-            self.entry_data.insert(END,self.data_act)
+
+
 
         self.data_button=ttk.Button(self.settings_frame,text = "data",command = fill_data).grid(row = 15, column = 20, padx=10 , pady=(10,3) )
 
@@ -96,11 +101,13 @@ class Application (Frame):
 
 
         self.lbl_type = ttk.Label(self.identity_frame, text="typ EVO-T").grid(row=20, column=1, padx=10, pady=3)
-        self.selected_type_value = selected_type_value
-        self.entry_type = ttk.Entry(self.identity_frame, textvariable=self.selected_type_value )
-        self.entry_type.insert(END,self.selected_type_value)
+
+        self.entry_type = ttk.Entry(self.identity_frame, textvariable = self.selected_type_value )
+        self.entry_type.insert(END,self.selected_type_value_in.get())
         self.entry_type.config(state=DISABLED)
         self.entry_type.grid(row=20, column=2, padx=10, pady=3,ipadx=10)
+
+
 
     # supply
 
@@ -113,7 +120,7 @@ class Application (Frame):
     # supply_execution
         self.selected_supply_execution_value = StringVar()
         self.version_supply_execution = ('a', 'b', 'c')
-        self.combobox_suplly_execution = ttk.Combobox(self.identity_frame, values=self.version_supply_execution, textvariable=self.selected_supply_execution_value,width = 5 ).grid(row=25, column=10)
+        self.combobox_suplly_execution = ttk.Combobox(self.identity_frame, values=self.version_supply_execution,width = 5 ).grid(row=25, column=10)
 
 
     #supply_flow
@@ -210,7 +217,7 @@ class Application (Frame):
                 self.electric_heater_plate_value = StringVar()
                 self.lbl_plate_electric_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
                 self.entry_plate_electric_heater = ttk.Entry(self.lframe, textvariable = self.electric_heater_plate_value,width = 30)
-                self.entry_plate_electric_heater.insert(END,electric_heater_plate_value )
+                self.entry_plate_electric_heater.insert(END, electric_heater_plate_value_in)
                 self.entry_plate_electric_heater.grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
 
 

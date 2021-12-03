@@ -1,8 +1,8 @@
-selected_type_value = "selected_type_value"
+
 symbol_electric_heater_value = "symbol_electric_heater_value"
 mass_value="mass_value"
-
-electric_heater_plate_value = "entry_plate_electric_heater"
+version_type=('jhj','kjkjhk','ccccc')
+electric_heater_plate_value_in = "entry_plate_electric_heater"
 symbol_water_heater_value = "symbol_water_heater_value"
 water_heater_plate_value = "water_heater_plate_value"
 symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"

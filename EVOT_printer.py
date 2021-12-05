@@ -11,6 +11,8 @@ class Application (Frame):
         super(Application,self).__init__(master)
 
 
+
+
     #  heater
 
         self.settings()
@@ -39,18 +41,15 @@ class Application (Frame):
         self.inspector_name = ('a','b','c')
         self.combobox_suplly = ttk.Combobox(self.settings_frame, values=self.inspector_name, textvariable=self.inspector_name_value).grid(row=1, column=2,  padx=10, pady=(10,3))
 
-        def fill_data():
-            print(self.selected_type_value.get())
-
-        #   type
 
 
-        self.selected_type_full_value = StringVar()
-        self.selected_type_sign ="EVOT + "
-        self.selected_type_value = "5000"
+        self.selected_ahu_value = selected_ahu_value
+
+
+
         self.lbl_type = ttk.Label(self.settings_frame, text="typ EVO-T").grid(row=5, column=1, padx=10, pady=3)
-        self.entry_type = ttk.Entry(self.settings_frame, textvariable= self.selected_type_full_value)
-        self.entry_type.insert(END,self.selected_type_sign + self.selected_type_value)
+        self.entry_type = ttk.Entry(self.settings_frame, textvariable= self.selected_ahu_value)
+        self.entry_type.insert(END,self.selected_ahu_value)
         self.entry_type.grid(row=5, column=2,padx=10,ipadx=10, pady=(10,3))
 
         self.data_value = StringVar()
@@ -61,7 +60,7 @@ class Application (Frame):
 
 
 
-        self.data_button=ttk.Button(self.settings_frame,text = "data",command = fill_data).grid(row = 15, column = 20, padx=10 , pady=(10,3) )
+        self.data_button=ttk.Button(self.settings_frame,text = "data").grid(row = 15, column = 20, padx=10 , pady=(10,3) )
 
 
 
@@ -98,23 +97,20 @@ class Application (Frame):
 
         self.lbl_type = ttk.Label(self.identity_frame, text="typ EVO-T").grid(row=20, column=1, padx=10, pady=3)
 
-        self.entry_type = ttk.Entry(self.identity_frame, textvariable = self.selected_type_full_value )
+        self.entry_type = ttk.Entry(self.identity_frame, textvariable = self.selected_ahu_value )
         self.entry_type.config(state=DISABLED)
-        self.entry_type.insert(END,self.selected_type_sign)
+        self.entry_type.insert(END,self.selected_ahu_value)
         self.entry_type.grid(row=20, column=2, padx=10, pady=3,ipadx=10)
 
 
 
     # supply
-
-        self.selected_supply_value = StringVar()
+        self.selected_supply_value_in = StringVar
+        self.selected_supply_value = selected_supply_value
         self.lbl_supply = ttk.Label(self.identity_frame, text="nawiew - wykonanie").grid(row=25, column=1, padx=10, pady=3)
-        self.entry_type_supply = ttk.Entry(self.identity_frame, textvariable=self.selected_supply_value)
-        self.entry_type_supply.insert(END,self.selected_type_value)
+        self.entry_type_supply = ttk.Entry(self.identity_frame, textvariable=self.selected_supply_value_in)
+        self.entry_type_supply.insert(END,self.selected_supply_value)
         self.entry_type_supply.grid(row=25, column=2,  pady=3, ipadx=10)
-
-
-
 
 
 
@@ -142,10 +138,11 @@ class Application (Frame):
 
 
     #exhaust
-        self.selected_exhaust_value = StringVar
+        self.selected_exhaust_value_in = StringVar()
+        self.selected_exhaust_value = selected_exhaust_value
         self.lbl_exhaust = ttk.Label(self.identity_frame, text="wywiew - wykonanie").grid(row=40, column=1, padx=10, pady=3)
-        self.entry_type_exhaust = ttk.Entry(self.identity_frame, textvariable=self.selected_exhaust_value)
-        self.entry_type_exhaust.insert(END,self.selected_type_value)
+        self.entry_type_exhaust = ttk.Entry(self.identity_frame, textvariable= self.selected_exhaust_value_in)
+        self.entry_type_exhaust.insert(END,self.selected_exhaust_value)
         self.entry_type_exhaust.grid(row=40, column=2 ,  pady=3, ipadx=10)
 
 

@@ -1,5 +1,7 @@
 import fillpdf
 from fillpdf import fillpdfs
+import re
+
 
 a= fillpdfs.get_form_fields('blank.pdf')
 
@@ -8,12 +10,21 @@ fillpdfs.write_fillable_pdf('blank.pdf', 'new.pdf', data_dict)
 print(a)
 
 
+selected_ahu_value = "EVO-T"
 
 
+pos = re.search("R|L$", (data_dict['supply']))
+
+selected_supply_value = (data_dict['supply'])[:(pos.span())[0]]
+
+selected_exhaust_value = (data_dict['exhaust'])[:(pos.span())[0]]
+
+
+print (pos.span())
 
 
 symbol_electric_heater_value = "symbol_electric_heater_value"
-mass_value="mass_value"
+mass_value=data_dict['weight t'] +' '+ data_dict['weight u']
 version_type=('jhj','kjkjhk','ccccc')
 electric_heater_plate_value_in = "entry_plate_electric_heater"
 symbol_water_heater_value = "symbol_water_heater_value"

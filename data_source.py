@@ -13,15 +13,26 @@ print(data_cert)
 
 selected_ahu_value = "EVO-T"
 
+#
+
+
+
 
 pos = re.search("R|L$", (data_plate['supply']))
 
+
+
+
 selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
+
+ahu_range = re.findall(r'\d+',selected_supply_value)[0] # wielkość centrali
+
+
 
 selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
 
 
-ahu_range = re.findall(r'\d+',selected_supply_value)[0] # wielkość centrali
+
 
 
 symbol_electric_heater_value = data_cert['Pole tekstowe 8']
@@ -36,6 +47,7 @@ symbol_water_cooler_value = data_cert['Pole tekstowe 7']
 water_cooler_plate_value = data_plate['cooler s']
 symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
 refrageration_cooler_plate_value = data_plate['cooler s']
+
 symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
 power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
 voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]

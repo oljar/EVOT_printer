@@ -22,8 +22,8 @@ class Application (Frame):
         self.fan_choice()
         self.supply_filter_choice()
         self.exhaust_filter_choice()
-        self.damper()
         self.heat_exchanger()
+        self.damper()
         self.additional_exuipment()
         self.s_and_p()
 
@@ -938,6 +938,23 @@ class Application (Frame):
 
 
 
+    def heat_exchanger(self):
+
+        self.heat_exchanger_frame = ttk.LabelFrame(tab7)
+        self.heat_exchanger_frame.pack(anchor=W, padx=15)
+        self.symbol_heat_exchanger_value = StringVar()
+        self.lbl_symbol_heat_exchanger = ttk.Label(self.heat_exchanger_frame, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
+        self.entry_heat_exchanger = ttk.Entry(self.heat_exchanger_frame, textvariable=self.symbol_heat_exchanger_value , width=30)
+        self.entry_heat_exchanger.insert(END, symbol_heat_exchanger_value )
+        self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
+
+
+
+
+
+
+
+
 
 
 
@@ -946,7 +963,7 @@ class Application (Frame):
 
 
 
-        self.damper_frame = ttk.LabelFrame(tab7)
+        self.damper_frame = ttk.LabelFrame(tab8)
 
         self.damper_frame.pack(anchor=W, padx=15)
         self.symbol_supply_damper_value = StringVar()
@@ -965,16 +982,6 @@ class Application (Frame):
         self.entry_damper.grid(row=10, column=15, padx=1)
 
 
-
-    def heat_exchanger(self):
-
-        self.heat_exchanger_frame = ttk.LabelFrame(tab8)
-        self.heat_exchanger_frame.pack(anchor=W, padx=15)
-        self.symbol_heat_exchanger_value = StringVar()
-        self.lbl_symbol_heat_exchanger = ttk.Label(self.heat_exchanger_frame, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
-        self.entry_heat_exchanger = ttk.Entry(self.heat_exchanger_frame, textvariable=self.symbol_heat_exchanger_value , width=30)
-        self.entry_heat_exchanger.insert(END, symbol_heat_exchanger_value )
-        self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
 
 
 
@@ -1031,14 +1038,15 @@ tab10 = ttk.Frame(tab_parent)
 
 
 tab_parent.add(tab0,text = 'ustaw')
+
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')
 tab_parent.add(tab3,text = 'chłodnica')
 tab_parent.add(tab4,text = 'wentylatory')
 tab_parent.add(tab5,text = 'flt-nawiew')
 tab_parent.add(tab6,text = 'flt-wywiew')
-tab_parent.add(tab7,text = 'tłumik')
-tab_parent.add(tab8,text = 'odzysk')
+tab_parent.add(tab7,text = 'odzysk')
+tab_parent.add(tab8,text = 'tłumik')
 tab_parent.add(tab9,text = 'wyp_dod')
 tab_parent.add(tab10,text = 's&p')
 tab_parent.pack(expand =1, fill = 'both')

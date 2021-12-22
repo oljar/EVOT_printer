@@ -23,6 +23,7 @@ selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
 
 print (pos.span())
 
+print((data_cert['Pole tekstowe 27'].split())[1])
 
 
 symbol_electric_heater_value = data_cert['Pole tekstowe 8']
@@ -37,42 +38,47 @@ symbol_water_cooler_value = data_cert['Pole tekstowe 7']
 water_cooler_plate_value = data_plate['cooler s']
 symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
 refrageration_cooler_plate_value = data_plate['cooler s']
-symbol_EC_supply_fan_value = "symbol_EC_supply_fan_value"
-power_EC_supply_fan_value  = "power_EC_supply_fan_value "
-voltage_EC_supply_fan_value = "voltage_EC_supply_fan_value,"
-frequency_EC_supply_fan_value = "frequency_EC_supply_fan_value"
-quantity_EC_supply_fan_value = "quantity_EC_supply_fan_value"
-symbol_EC_exhaust_fan_value = "symbol_EC_exhaust_fan_value"
-power_EC_exhaust_fan_value = "power_EC_exhaust_fan_value"
-voltage_EC_exhaust_fan_value = "voltage_EC_exhaust_fan_value"
-frequency_EC_exhaust_fan_value = "frequency_EC_exhaust_fan_value"
-quantity_EC_exhaust_fan_value = "quantity_EC_exhaust_fan_value"
-power_AC_supply_fan_value = "power_AC_supply_fan_value"
-symbol_AC_supply_fan_value = "symbol_AC_supply_fan_value"
-voltage_AC_supply_fan_value = "voltage_AC_supply_fan_value"
-frequency_AC_supply_fan_value = "frequency_AC_supply_fan_value"
-quantity_AC_supply_fan_value = "quantity_AC_supply_fan_value"
-symbol_AC_exhaust_fan_value = "symbol_AC_exhaust_fan_value"
-power_AC_exhaust_fan_value = "power_AC_exhaust_fan_value"
-voltage_AC_exhaust_fan_value = "voltage_AC_exhaust_fan_value"
-frequency_AC_exhaust_fan_value = "frequency_AC_exhaust_fan_value"
-quantity_AC_exhaust_fan_value = "quantity_AC_exhaust_fan_value"
-symbol_G4_supply_filter_value = "symbol_G4_supply_filter_value"
-quantity_G4_supply_filter_value = "quantity_G4_supply_filter_value"
-symbol_M5_supply_filter_value = "symbol_M5_supply_filter_value"
-quantity_M5_supply_filter_value = "quantity_M5_supply_filter_value"
-symbol_F7_supply_filter_value = "symbol_F7_supply_filter_value"
-quantity_F7_supply_filter_value = "quantity_F7_supply_filter_value"
-symbol_F9_supply_filter_value = "symbol_F9_supply_filter_value"
-quantity_F9_supply_filter_value = "quantity_F9_supply_filter_value"
-symbol_G4_exhaust_filter_value = "symbol_G4_exhaust_filter_value"
-quantity_G4_exhaust_filter_value = "quantity_G4_exhaust_filter_value)"
-symbol_M5_exhaust_filter_value = "symbol_M5_exhaust_filter_value"
-quantity_M5_exhaust_filter_value = "quantity_M5_exhaust_filter_value"
-symbol_F7_exhaust_filter_value = "symbol_F7_exhaust_filter_value "
-quantity_F7_exhaust_filter_value ="quantity_F7_exhaust_filter_value"
-symbol_F9_exhaust_filter_value  = "symbol_F9_exhaust_filter_value"
-quantity_F9_exhaust_filter_value = "quantity_F9_exhaust_filter_value"
+symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
+power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
+voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
+frequency_EC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
+quantity_EC_supply_fan_value = 1
+symbol_EC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split()[1]
+power_EC_exhaust_fan_value =  data_cert['Pole tekstowe 9'].split()[1]
+voltage_EC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
+frequency_EC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
+quantity_EC_exhaust_fan_value = 1
+power_AC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
+symbol_AC_supply_fan_value = data_cert['Pole tekstowe 9'].split()[0]
+voltage_AC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
+frequency_AC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
+quantity_AC_supply_fan_value = 1
+symbol_AC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split()[1]
+power_AC_exhaust_fan_value = data_cert['Pole tekstowe 9'].split()[1]
+voltage_AC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
+frequency_AC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
+quantity_AC_exhaust_fan_value = 1
+
+
+symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+quantity_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+symbol_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+quantity_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+symbol_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+quantity_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+symbol_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+quantity_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+symbol_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+quantity_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+symbol_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+quantity_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+symbol_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+quantity_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+symbol_F9_exhaust_filter_value  = data_cert['Pole tekstowe 25'].split('/')[1]
+quantity_F9_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+
+
+
 symbol_supply_damper_value = "symbol_supply_damper_value"
 symbol_exaust_damper_value = "symbol_exaust_damper_value"
 symbol_heat_exchanger_value = "symbol_heat_exchanger_value"

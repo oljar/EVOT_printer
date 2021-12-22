@@ -1042,6 +1042,7 @@ app =Application(window)
 
 
 #check
+#check
 window.mainloop()
 
 

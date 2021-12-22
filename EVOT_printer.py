@@ -141,8 +141,9 @@ class Application (Frame):
         self.selected_exhaust_value_in = StringVar()
         self.selected_exhaust_value = selected_exhaust_value
         self.lbl_exhaust = ttk.Label(self.identity_frame, text="wywiew - wykonanie").grid(row=40, column=1, padx=10, pady=3)
-        self.entry_type_exhaust = ttk.Entry(self.identity_frame, textvariable= self.selected_exhaust_value_in)
-        self.entry_type_exhaust.insert(END,self.selected_exhaust_value)
+        self.entry_type_exhaust = ttk.Entry(self.identity_frame, textvariable= self.selected_exhaust_value_in )
+        self.entry_type_exhaust.insert(END, self.selected_exhaust_value)
+        self.entry_type_exhaust.config(state=DISABLED)
         self.entry_type_exhaust.grid(row=40, column=2 ,  pady=3, ipadx=10)
 
 
@@ -936,7 +937,38 @@ class Application (Frame):
 
 
 
+
+    def heater_choice(self):
+            self.lfradio = ttk.LabelFrame(tab7)
+            self.lfradio.pack( )
+            self.heater_choice_value = IntVar()
+
+            self.lackoff_heater = ttk.Radiobutton(self.lfradio, text="brak", variable=self.heater_choice_value, value=1, command=self.lackoff_heater_function).grid(row=0, column=0,padx=20, pady=5)
+
+
+
+            self.electric_heater = ttk.Radiobutton(self.lfradio,text = "tłumik nawiew + wywiew", variable = self.heater_choice_value, value = 2, command = self.electric_heater_function ).grid(row =0,column = 5,padx=20, pady = 5 )
+
+
+
+
+            self.water_heater = ttk.Radiobutton(self.lfradio,text = "tłumik nawiew", variable = self.heater_choice_value, value = 3, command = self.water_heater_function ).grid( row=0,column = 10,padx=20,pady = 5)
+
+
+
+            self.reverse_exchanger = ttk.Radiobutton(self.lfradio, text="tłumik wywiew", variable = self.heater_choice_value, value= 4,command = self.reverse_exchanger_function).grid(row = 0,column = 15 ,padx=20,pady = 5)
+
+
+
+
+
+
+
+
     def damper(self):
+
+
+
 
         self.damper_frame = ttk.LabelFrame(tab7)
 
@@ -967,8 +999,6 @@ class Application (Frame):
         self.entry_heat_exchanger = ttk.Entry(self.heat_exchanger_frame, textvariable=self.symbol_heat_exchanger_value , width=30)
         self.entry_heat_exchanger.insert(END, symbol_heat_exchanger_value )
         self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
-
-
 
 
 

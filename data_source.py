@@ -13,17 +13,27 @@ print(data_cert)
 
 selected_ahu_value = "EVO-T"
 
+#
+
+
+
 
 pos = re.search("R|L$", (data_plate['supply']))
 
+
+
+
 selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
+
+ahu_range = re.findall(r'\d+',selected_supply_value)[0] # wielkość centrali
+
+
 
 selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
 
 
-print (pos.span())
 
-print((data_cert['Pole tekstowe 27'].split())[1])
+
 
 
 symbol_electric_heater_value = data_cert['Pole tekstowe 8']
@@ -38,6 +48,7 @@ symbol_water_cooler_value = data_cert['Pole tekstowe 7']
 water_cooler_plate_value = data_plate['cooler s']
 symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
 refrageration_cooler_plate_value = data_plate['cooler s']
+
 symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
 power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
 voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
@@ -79,8 +90,8 @@ quantity_F9_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
 
 
 
-symbol_supply_damper_value = "symbol_supply_damper_value"
-symbol_exaust_damper_value = "symbol_exaust_damper_value"
-symbol_heat_exchanger_value = "symbol_heat_exchanger_value"
+symbol_supply_damper_value = f'Sekcja tłmik szumu- nawiew {ahu_range}'
+symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {ahu_range}'
+symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
 additional_exuipment_value = "additional_exuipment_value_1"
 s_and_p_value = "s_and_p_value_1"

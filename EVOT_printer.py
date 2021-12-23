@@ -22,7 +22,7 @@ class Application (Frame):
         self.fan_choice()
         self.supply_filter_choice()
         self.exhaust_filter_choice()
-        self.heat_exchanger()
+        self.heat_exchanger_choice()
         self.damper_choice()
         self.additional_exuipment()
         self.s_and_p()
@@ -939,19 +939,38 @@ class Application (Frame):
 
 
 
-
-    def heat_exchanger(self):
-
-        self.heat_exchanger_frame = ttk.LabelFrame(tab7)
-        self.heat_exchanger_frame.pack(anchor=W, padx=15)
-        self.symbol_heat_exchanger_value = StringVar()
-        self.lbl_symbol_heat_exchanger = ttk.Label(self.heat_exchanger_frame, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
-        self.entry_heat_exchanger = ttk.Entry(self.heat_exchanger_frame, textvariable=self.symbol_heat_exchanger_value , width=30)
-        self.entry_heat_exchanger.insert(END, symbol_heat_exchanger_value )
-        self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
+    def heat_exchanger_choice(self):
+        self.heat_exchanger_radio = ttk.LabelFrame(tab7)
+        self.heat_exchanger_radio.pack( )
+        self.filter_choice_value = IntVar()
+        self.G4_filter = ttk.Radiobutton(self.heat_exchanger_radio, text = "Wymiennik - zamontowany", variable = self.filter_choice_value, value = 1, command = self.heat_exchanger_in).grid(row =0, column = 0, padx=20, pady = 5)
+        self.lackoff_exhaust_fan = ttk.Radiobutton(self.heat_exchanger_radio, text="brak", variable = self.filter_choice_value, value= 5, command = self.lackoff_heat_exchanger).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
 
+    def heat_exchanger_in(self):
+
+        try:
+                self.lframe.destroy()
+
+        except:
+            pass
+
+        finally:
+                self.lframe = ttk.LabelFrame(tab7)
+                self.lframe.pack(anchor=W, padx=15)
+                self.symbol_heat_exchanger_value = StringVar()
+                self.lbl_symbol_heat_exchanger = ttk.Label(self.lframe, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
+                self.entry_heat_exchanger = ttk.Entry(self.lframe, textvariable=self.symbol_heat_exchanger_value , width=30)
+                self.entry_heat_exchanger.insert(END, symbol_heat_exchanger_value )
+                self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
+
+
+    def lackoff_heat_exchanger(self) :
+        try:
+            self.lframe.destroy()
+        except:
+            pass
 
 
 
@@ -1044,6 +1063,7 @@ class Application (Frame):
         finally:
 
                 pass
+
 
 
 

@@ -23,7 +23,7 @@ class Application (Frame):
         self.supply_filter_choice()
         self.exhaust_filter_choice()
         self.heat_exchanger()
-        self.damper()
+        self.damper_choice()
         self.additional_exuipment()
         self.s_and_p()
 
@@ -65,6 +65,7 @@ class Application (Frame):
 
 
         self.entry_data.grid(row =15 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+
 
     def identity(self):
 
@@ -955,34 +956,84 @@ class Application (Frame):
 
 
 
+    def damper_choice(self):
+            self.lfradio = ttk.LabelFrame(tab8)
+            self.lfradio.pack( )
+            self.heater_choice_value = IntVar()
+            self.electric_heater = ttk.Radiobutton(self.lfradio,text = "tłumik_nawiew", variable = self.heater_choice_value, value = 1,command = self.damper_supply).grid(row =0,
+                                                                                                                                                                   column = 0,padx=20, pady = 5 )
+            self.water_heater = ttk.Radiobutton(self.lfradio,text = "tłumik_wywiew", variable = self.heater_choice_value, value = 2, command = self.damper_exhaust ).grid(row=0,
+                                                                                                                                                                    column = 5,padx=20,pady = 5)
+            self.reverse_exchanger = ttk.Radiobutton(self.lfradio, text="oba", variable = self.heater_choice_value, value= 3,command = self.damper_both ).grid(row =0,column = 15 ,
+                                                                                                                                                         padx=20,pady = 5)
+            self. lackoff_heater = ttk.Radiobutton(self.lfradio, text="brak", variable = self.heater_choice_value , value= 4, command = self.lackoff_damper ).grid (row = 0,
+                                                                                                                                                               column = 20,padx=20, pady = 5)
 
 
 
-    def damper(self):
 
 
 
 
-        self.damper_frame = ttk.LabelFrame(tab8)
+    def damper_supply(self):
 
-        self.damper_frame.pack(anchor=W, padx=15)
-        self.symbol_supply_damper_value = StringVar()
-
-        self.lbl_supply_symbol_damper = ttk.Label(self.damper_frame, text="tłumik nawiew - typ").grid(row=5, column=10, padx=3, pady=10)
-        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_supply_damper_value , width=30)
-
-        self.entry_damper.insert(END, symbol_supply_damper_value)
-        self.entry_damper.grid(row=5, column=15, padx=1)
-
-
-        self.symbol_exaust_damper_value = StringVar()
-        self.lbl_symbol_exhaust_damper = ttk.Label(self.damper_frame, text="tłumik wywiew - typ").grid(row=10, column=10, padx=3, pady=10)
-        self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_exaust_damper_value , width=30)
-        self.entry_damper.insert(END, symbol_exaust_damper_value)
-        self.entry_damper.grid(row=10, column=15, padx=1)
+        try:
+            self.damper_frame.destroy()
+        except:
+            pass
+        finally:
 
 
 
+
+                self.damper_frame = ttk.LabelFrame(tab8)
+                self.damper_frame.pack(anchor=W, padx=15)
+
+                self.symbol_supply_damper_value = StringVar()
+                self.lbl_supply_symbol_damper = ttk.Label(self.damper_frame, text="tłumik nawiew - typ").grid(row=5, column=10, padx=3, pady=10)
+                self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_supply_damper_value , width=30)
+
+                self.entry_damper.insert(END, symbol_supply_damper_value)
+                self.entry_damper.grid(row=5, column=15, padx=1)
+
+    def damper_exhaust(self):
+
+        try:
+            self.damper_frame.destroy()
+        except:
+            pass
+        finally:
+
+                self.damper_frame = ttk.LabelFrame(tab8)
+                self.damper_frame.pack(anchor=W, padx=15)
+
+                self.symbol_exaust_damper_value = StringVar()
+                self.lbl_symbol_exhaust_damper = ttk.Label(self.damper_frame, text="tłumik wywiew - typ").grid(row=10, column=10, padx=3, pady=10)
+                self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_exaust_damper_value , width=30)
+                self.entry_damper.insert(END, symbol_exaust_damper_value)
+                self.entry_damper.grid(row=10, column=15, padx=1)
+
+    def damper_both(self):
+        try:
+               self.damper_frame.destroy()
+        except:
+            pass
+        finally:
+
+                self.damper_frame = ttk.LabelFrame(tab8)
+                self.damper_frame.pack(anchor=W, padx=15)
+
+                self.damper_exhaust()
+                self.damper_supply()
+
+    def lackoff_damper(self):
+        try:
+              self.damper_frame.destroy()
+        except:
+                pass
+        finally:
+
+                pass
 
 
     def additional_exuipment(self):

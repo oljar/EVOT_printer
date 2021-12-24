@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 import datetime
 from data_source import *
+from check_and_probe import *
 
 
 class Application (Frame):
@@ -26,6 +27,12 @@ class Application (Frame):
         self.damper_choice()
         self.additional_exuipment()
         self.s_and_p()
+        self.quantity_comment_water_heater = 0
+        self.quantity_comment_reverse_exchanger =0
+        self.quantity_comment_water_cooler = 0
+        self.quantity_comment_refrageration_cooler = 0
+
+
 
 
 
@@ -62,9 +69,8 @@ class Application (Frame):
 
         self.data_button=ttk.Button(self.settings_frame,text = "data").grid(row = 15, column = 20, padx=10 , pady=(10,3) )
 
-
-
         self.entry_data.grid(row =15 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+
 
 
     def identity(self):
@@ -266,7 +272,10 @@ class Application (Frame):
                 #explanation
                 self.explanation = ttk.Label(self.lframe, text="zasilanie-powrót [stC] / moc zima [kW]/ spadek ciśnienia [kPa]" ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
 
-
+                # commnet in check and probe
+                self.quantity_comment_water_heater +=1
+                if self.quantity_comment_water_heater == 1:
+                    self.txt_s_and_p.insert(END, check_probe_water_heater+'\n')
 
 
 
@@ -301,7 +310,10 @@ class Application (Frame):
                 #explanation
                 self.explanation = ttk.Label(self.lframe, text="moc lato [KW] / czynnik " ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
 
-
+                # commnet in check and probe
+                self.quantity_comment_reverse_exchanger +=1
+                if self.quantity_comment_reverse_exchanger == 1:
+                    self.txt_s_and_p.insert(END, check_probe_reverse_exchanger+'\n')
 
 
 
@@ -362,10 +374,14 @@ class Application (Frame):
             self.entry_plate_water_cooler.insert(END, water_cooler_plate_value)
             self.entry_plate_water_cooler.grid(row=10, column=5, padx=2, ipadx=4, pady=10)
 
-
             #explanation
             self.explanation = ttk.Label(self.lframe, text="[zasilanie - powrót [stC] / moc lato [kW]/ spadek ciśnienia [kPa]" ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
 
+
+            # commnet in check and probe
+            self.quantity_comment_water_cooler +=1
+            if self.quantity_comment_water_cooler == 1:
+                self.txt_s_and_p.insert(END, check_probe_water_cooler+'\n')
 
 
 
@@ -402,6 +418,15 @@ class Application (Frame):
 
             #explanation
             self.explanation = ttk.Label(self.lframe, text=" moc lato [kW]/ czynnik" ).grid(row=15, column=1,padx=1,pady = 10, columnspan = 5 )
+
+            # commnet in check and probe
+            self.quantity_comment_refrageration_cooler +=1
+            if self.quantity_comment_refrageration_cooler == 1:
+                self.txt_s_and_p.insert(END, check_probe_refrageration_cooler + '\n')
+
+
+
+
 
 
     def lackoff_cooler_function(self):
@@ -1082,12 +1107,12 @@ class Application (Frame):
 
     def s_and_p(self):
 
+
         self.s_and_p_frame = ttk.LabelFrame(tab10)
         self.s_and_p_frame.pack(anchor=W, padx=15)
-        self.s_and_p_value =  StringVar()
         self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text="sprawdzenie i próby" ).grid(row=5, column=10, padx=3, pady=10)
         self.txt_s_and_p = Text(self.s_and_p_frame , width=50, height = 20)
-        self.txt_s_and_p.insert("1.0", s_and_p_value)
+
         self.txt_s_and_p.grid(row=5, column=15, padx=1)
 
 

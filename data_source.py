@@ -96,3 +96,5 @@ symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {ahu_range}'
 symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
 additional_exuipment_value = "additional_exuipment_value_1"
 s_and_p_value = "s_and_p_value_1"
+
+

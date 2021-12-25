@@ -13,8 +13,6 @@ class Application (Frame):
         super(Application,self).__init__(master)
 
 
-
-
     #  heater
 
         self.settings()
@@ -36,48 +34,38 @@ class Application (Frame):
 
 
 
-
-
-
-
     def settings(self):
 
         self.settings_frame = ttk.LabelFrame(tab0)
         self.settings_frame.pack(anchor=W, ipadx=20, padx=20)
         self.inspector_name_value = StringVar()
         self.lbl_inspector_name = ttk.Label(self.settings_frame, text="konrtoler KJ").grid(row=1, column=1, padx=10, pady=(10,3))
-        self.inspector_name = ('a','b','c')
+        self.inspector_name = ('Jarosław Olszewski','Agnieszka Karnas','pole puste')
         self.combobox_suplly = ttk.Combobox(self.settings_frame, values=self.inspector_name, textvariable=self.inspector_name_value).grid(row=1, column=2,  padx=10, pady=(10,3))
 
 
 
         self.selected_ahu_value = selected_ahu_value
-
         self.lbl_type = ttk.Label(self.settings_frame, text="typ EVO-T").grid(row=5, column=1, padx=10, pady=3)
         self.entry_type = ttk.Entry(self.settings_frame, textvariable= self.selected_ahu_value)
         self.entry_type.insert(END,self.selected_ahu_value)
+        self.entry_type.config(state = DISABLED)
         self.entry_type.grid(row=5, column=2,padx=10,ipadx=10, pady=(10,3))
 
         self.data_value = StringVar()
         self.data_act = datetime.date.today()
         self.data=ttk.Label(self.settings_frame ,text = "data").grid(row =15,column = 1,padx=10,pady=(10,3))
         self.entry_data=ttk.Entry(self.settings_frame,textvariable = self.data_value)
-
-
-
-
         self.data_button=ttk.Button(self.settings_frame,text = "data").grid(row = 15, column = 20, padx=10 , pady=(10,3) )
-
         self.entry_data.grid(row =15 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
-
 
         # folder with pattern choice
         self.pattern_choice_frame = ttk.LabelFrame(tab0)
         self.pattern_choice_frame.pack(anchor=W, padx=15)
         self.text_folder = Label(self.pattern_choice_frame,text='Lokalizacja wzorców').grid(row = 1, column = 1, padx=20 , pady=(20,3))
-        self.save_button=ttk.Button(self.pattern_choice_frame,text = "wybierz folder", command = self.saveFile).grid(row = 1, column = 15, padx=20 , pady=(20,3) )
-        self.text_folder = Label(self.pattern_choice_frame,text='Pobierz z wybranej lokalizacji').grid(row = 15, column = 1 , padx=20 , pady=(30,20))
-        self.accept_button=ttk.Button(self.pattern_choice_frame,text = "pobierz").grid(row = 15, column = 15, padx=20 , pady=(30,20) )
+        self.open_button=ttk.Button(self.pattern_choice_frame,text = "folder", command = self.saveFile).grid(row = 1, column = 15, padx=(20,40) , pady=(20,3) )
+        self.text_folder = Label(self.pattern_choice_frame,text='Pobierz z wybranej lokalizacji').grid(row = 15, column = 1 , padx=(25,65) , pady=(30,20))
+        self.apply_button=ttk.Button(self.pattern_choice_frame,text = "pobierz").grid(row = 15, column = 15, padx=(22,40) , pady=(30,20) )
 
 
 
@@ -976,9 +964,9 @@ class Application (Frame):
     def heat_exchanger_choice(self):
         self.heat_exchanger_radio = ttk.LabelFrame(tab7)
         self.heat_exchanger_radio.pack( )
-        self.filter_choice_value = IntVar()
-        self.G4_filter = ttk.Radiobutton(self.heat_exchanger_radio, text = "Wymiennik - zamontowany", variable = self.filter_choice_value, value = 1, command = self.heat_exchanger_in).grid(row =0, column = 0, padx=20, pady = 5)
-        self.lackoff_exhaust_fan = ttk.Radiobutton(self.heat_exchanger_radio, text="brak", variable = self.filter_choice_value, value= 5, command = self.lackoff_heat_exchanger).grid (row = 0, column = 20, padx=20, pady = 5)
+        self.heat_exchanger_choice_value = IntVar()
+        self.heat_echanger_in_radio= ttk.Radiobutton(self.heat_exchanger_radio, text = "Wymiennik - zamontowany", variable = self.heat_exchanger_choice_value, value = 1, command = self.heat_exchanger_in).grid(row =0, column = 0, padx=20, pady = 5)
+        self.lackoff_heat_exchanger_radio = ttk.Radiobutton(self.heat_exchanger_radio, text="brak", variable = self.heat_exchanger_choice_value, value= 5, command = self.lackoff_heat_exchanger).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
 
@@ -1011,17 +999,14 @@ class Application (Frame):
 
 
     def damper_choice(self):
+
             self.lfradio = ttk.LabelFrame(tab8)
             self.lfradio.pack( )
-            self.heater_choice_value = IntVar()
-            self.electric_heater = ttk.Radiobutton(self.lfradio,text = "tłumik_nawiew", variable = self.heater_choice_value, value = 1,command = self.damper_supply).grid(row =0,column = 0,padx=20, pady = 5 )
-            self.water_heater = ttk.Radiobutton(self.lfradio,text = "tłumik_wywiew", variable = self.heater_choice_value, value = 2, command = self.damper_exhaust ).grid(row=0,column = 5,padx=20,pady = 5)
-            self.reverse_exchanger = ttk.Radiobutton(self.lfradio, text="oba", variable = self.heater_choice_value, value= 3,command = self.damper_both ).grid(row =0,column = 15 , padx=20,pady = 5)
-            self. lackoff_heater = ttk.Radiobutton(self.lfradio, text="brak", variable = self.heater_choice_value , value= 4, command = self.lackoff_damper ).grid (row = 0,column = 20,padx=20, pady = 5)
-
-
-
-
+            self.damper_choice_value = IntVar()
+            self.supply_damper_radio = ttk.Radiobutton(self.lfradio,text = "tłumik_nawiew", variable = self.damper_choice_value, value = 1,command = self.damper_supply).grid(row =0,column = 0,padx=20, pady = 5 )
+            self.exhaust_damper_radio = ttk.Radiobutton(self.lfradio,text = "tłumik_wywiew", variable = self.damper_choice_value, value = 2, command = self.damper_exhaust ).grid(row=0,column = 5,padx=20,pady = 5)
+            self.both_damper_radio = ttk.Radiobutton(self.lfradio, text="oba", variable = self.damper_choice_value, value= 3,command = self.damper_both ).grid(row =0,column = 15 , padx=20,pady = 5)
+            self.lackoff_damper_radio = ttk.Radiobutton(self.lfradio, text="brak", variable = self.damper_choice_value , value= 4, command = self.lackoff_damper ).grid (row = 0,column = 20,padx=20, pady = 5)
 
 
 
@@ -1032,7 +1017,6 @@ class Application (Frame):
         except:
             pass
         finally:
-
 
 
 

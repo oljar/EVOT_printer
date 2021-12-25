@@ -3,6 +3,7 @@ from tkinter import ttk
 import datetime
 from data_source import *
 from check_and_probe import *
+from tkinter import filedialog
 
 
 class Application (Frame):
@@ -27,6 +28,7 @@ class Application (Frame):
         self.damper_choice()
         self.additional_exuipment()
         self.s_and_p()
+        self.accept()
         self.quantity_comment_water_heater = 0
         self.quantity_comment_reverse_exchanger =0
         self.quantity_comment_water_cooler = 0
@@ -41,8 +43,7 @@ class Application (Frame):
     def settings(self):
 
         self.settings_frame = ttk.LabelFrame(tab0)
-        self.settings_frame.pack(anchor=W, padx=15)
-
+        self.settings_frame.pack(anchor=W, ipadx=20, padx=20)
         self.inspector_name_value = StringVar()
         self.lbl_inspector_name = ttk.Label(self.settings_frame, text="konrtoler KJ").grid(row=1, column=1, padx=10, pady=(10,3))
         self.inspector_name = ('a','b','c')
@@ -51,8 +52,6 @@ class Application (Frame):
 
 
         self.selected_ahu_value = selected_ahu_value
-
-
 
         self.lbl_type = ttk.Label(self.settings_frame, text="typ EVO-T").grid(row=5, column=1, padx=10, pady=3)
         self.entry_type = ttk.Entry(self.settings_frame, textvariable= self.selected_ahu_value)
@@ -70,6 +69,16 @@ class Application (Frame):
         self.data_button=ttk.Button(self.settings_frame,text = "data").grid(row = 15, column = 20, padx=10 , pady=(10,3) )
 
         self.entry_data.grid(row =15 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
+
+
+        # folder with pattern choice
+        self.pattern_choice_frame = ttk.LabelFrame(tab0)
+        self.pattern_choice_frame.pack(anchor=W, padx=15)
+        self.text_folder = Label(self.pattern_choice_frame,text='Lokalizacja wzorców').grid(row = 1, column = 1, padx=20 , pady=(20,3))
+        self.save_button=ttk.Button(self.pattern_choice_frame,text = "wybierz folder", command = self.saveFile).grid(row = 1, column = 15, padx=20 , pady=(20,3) )
+        self.text_folder = Label(self.pattern_choice_frame,text='Pobierz z wybranej lokalizacji').grid(row = 15, column = 1 , padx=20 , pady=(30,20))
+        self.accept_button=ttk.Button(self.pattern_choice_frame,text = "pobierz").grid(row = 15, column = 15, padx=20 , pady=(30,20) )
+
 
 
 
@@ -1103,8 +1112,6 @@ class Application (Frame):
         self.txt_additional_equipment.grid(row=5, column=15, padx=1)
 
 
-
-
     def s_and_p(self):
 
 
@@ -1116,18 +1123,28 @@ class Application (Frame):
         self.txt_s_and_p.grid(row=5, column=15, padx=1)
 
 
+    def saveFile(self):
+        file = filedialog.askdirectory()
+        print (file)
 
 
 
 
+    def accept(self):
 
+        self.accept_frame = ttk.LabelFrame(tab11)
+        self.accept_frame.pack()
+        self.text_folder = Label(self.accept_frame,text='Lokalizacja plików tabliczka i świadectwo KJ').grid(row = 1, column = 1, padx=20 , pady=(20,3))
+        self.save_button=ttk.Button(self.accept_frame,text = "wybierz folder", command = self.saveFile).grid(row = 1, column = 15, padx=20 , pady=(20,3) )
+        self.text_folder = Label(self.accept_frame,text='Zapisz w wybranej lokalizacji').grid(row = 15, column = 1 , padx=20 , pady=(30,20))
+        self.accept_button=ttk.Button(self.accept_frame,text = "zapisz").grid(row = 15, column = 15, padx=20 , pady=(30,20) )
 
 
 ########################################################################################################################
 
 window = Tk()
 window.title("EVOT_printer")
-window.geometry('650x400')
+window.geometry('660x400')
 
 tab_parent = ttk.Notebook(window)
 
@@ -1142,10 +1159,10 @@ tab7 = ttk.Frame(tab_parent)
 tab8 = ttk.Frame(tab_parent)
 tab9 = ttk.Frame(tab_parent)
 tab10 = ttk.Frame(tab_parent)
+tab11 = ttk.Frame(tab_parent)
 
 
 tab_parent.add(tab0,text = 'ustaw')
-
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')
 tab_parent.add(tab3,text = 'chłodnica')
@@ -1154,9 +1171,11 @@ tab_parent.add(tab5,text = 'flt-nawiew')
 tab_parent.add(tab6,text = 'flt-wywiew')
 tab_parent.add(tab7,text = 'odzysk')
 tab_parent.add(tab8,text = 'tłumik')
-tab_parent.add(tab9,text = 'wyp_dod')
+tab_parent.add(tab9,text = 'wypos')
 tab_parent.add(tab10,text = 's&p')
-tab_parent.pack(expand =1, fill = 'both')
+tab_parent.add(tab11,text = 'akcept')
+tab_parent.pack(expand = 1, fill = 'both')
+
 
 
 app =Application(window)

@@ -269,7 +269,11 @@ class Application (Frame):
                 self.water_heater_plate_value = StringVar()
                 self.lbl_plate_water_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
                 self.entry_plate_water_heater = ttk.Entry(self.lframe, textvariable=self.water_heater_plate_value, width=30)
+                #self.entry_plate_water_heater.insert(END, )
+
                 self.entry_plate_water_heater.insert(END, get_data.water_heater_plate_value)
+
+
 
                 self.entry_plate_water_heater.grid(row=10, column=5, padx=2, ipadx=4, pady=10)
 

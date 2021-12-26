@@ -122,7 +122,7 @@ except:
 
     data_plate = fillpdfs.get_form_fields('tabliczka.pdf')
     data_cert = fillpdfs.get_form_fields('atest.pdf')
-
+    get_data.water_heater_plate_value = "odśwież"
     print(data_plate)
     print('######')
     print(data_cert)

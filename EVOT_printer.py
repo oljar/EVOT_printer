@@ -34,6 +34,10 @@ class Application (Frame):
 
 
 
+
+
+
+
     def settings(self):
 
         self.settings_frame = ttk.LabelFrame(tab0)
@@ -63,9 +67,11 @@ class Application (Frame):
         self.pattern_choice_frame = ttk.LabelFrame(tab0)
         self.pattern_choice_frame.pack(anchor=W, padx=15)
         self.text_folder = Label(self.pattern_choice_frame,text='Lokalizacja wzorców').grid(row = 1, column = 1, padx=20 , pady=(20,3))
-        self.open_button=ttk.Button(self.pattern_choice_frame,text = "folder", command = self.saveFile).grid(row = 1, column = 15, padx=(20,40) , pady=(20,3) )
+        self.open_button=ttk.Button(self.pattern_choice_frame,text = "folder", command = open_pattern_File).grid(row = 1, column = 15, padx=(20,40) , pady=(20,3) )
         self.text_folder = Label(self.pattern_choice_frame,text='Pobierz z wybranej lokalizacji').grid(row = 15, column = 1 , padx=(25,65) , pady=(30,20))
         self.apply_button=ttk.Button(self.pattern_choice_frame,text = "pobierz").grid(row = 15, column = 15, padx=(22,40) , pady=(30,20) )
+
+
 
 
 

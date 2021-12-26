@@ -53,14 +53,14 @@ def get_data ():
     version_type=('jhj','kjkjhk','ccccc')
     get_data.symbol_water_heater_value = data_cert['Pole tekstowe 8']
     get_data.water_heater_plate_value = data_plate['heatre I s']
-    symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"
-    reverse_heater_plate_value = "reverse_heater_plate_value"
-    symbol_water_cooler_value = data_cert['Pole tekstowe 7']
-    water_cooler_plate_value = data_plate['cooler s']
+    get_data.symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"
+    get_data.reverse_heater_plate_value = "reverse_heater_plate_value"
+    get_data.symbol_water_cooler_value = data_cert['Pole tekstowe 7']
+    get_data.water_cooler_plate_value = data_plate['cooler s']
 
 
-    symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
-    refrageration_cooler_plate_value = data_plate['cooler s']
+    get_data.symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
+    get_data.refrageration_cooler_plate_value = data_plate['cooler s']
 
     symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
     power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
@@ -154,14 +154,14 @@ except:
     version_type=('jhj','kjkjhk','ccccc')
     get_data.symbol_water_heater_value = 'odśwież'
     get_data.water_heater_plate_value = 'odśwież'
-    symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"
-    reverse_heater_plate_value = "reverse_heater_plate_value"
-    symbol_water_cooler_value = data_cert['Pole tekstowe 7']
-    water_cooler_plate_value = data_plate['cooler s']
+    get_data.symbol_reverse_exchanger_value = 'odśwież'
+    get_data.reverse_heater_plate_value = 'odśwież'
+    get_data.symbol_water_cooler_value = 'odśwież'
+    get_data.water_cooler_plate_value = 'odśwież'
 
 
-    symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
-    refrageration_cooler_plate_value = data_plate['cooler s']
+    get_data.symbol_refrageration_cooler_value = 'odśwież'
+    get_data.refrageration_cooler_plate_value = 'odśwież'
 
     symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
     power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]

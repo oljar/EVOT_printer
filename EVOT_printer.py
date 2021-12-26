@@ -304,7 +304,7 @@ class Application (Frame):
                 self.symbol_reverse_exchanger_value = StringVar()
                 self.lbl_reverse_exchanger = ttk.Label(self.lframe, text=" typ RE").grid(row=5, column=1, padx =3)
                 self.entry_reverse_exchanger = ttk.Entry(self.lframe, textvariable=self.symbol_reverse_exchanger_value,width = 30)
-                self.entry_reverse_exchanger.insert(END, symbol_reverse_exchanger_value)
+                self.entry_reverse_exchanger.insert(END, get_data.symbol_reverse_exchanger_value)
                 self.entry_reverse_exchanger.grid(row=5, column=5,padx = 3)
 
 
@@ -313,7 +313,7 @@ class Application (Frame):
                 self.reverse_heater_plate_value = StringVar()
                 self.lbl_plate_reverse_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
                 self.entry_plate_reverse_heater = ttk.Entry(self.lframe, textvariable = self.reverse_heater_plate_value,width = 30)
-                self.entry_plate_reverse_heater.insert(END, reverse_heater_plate_value)
+                self.entry_plate_reverse_heater.insert(END, get_data.reverse_heater_plate_value)
                 self.entry_plate_reverse_heater.grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
 
                 #explanation
@@ -372,7 +372,7 @@ class Application (Frame):
             self.symbol_water_cooler_value = StringVar()
             self.lbl_symbol_water_cooler= ttk.Label(self.lframe, text="typ CHW" ).grid(row=5, column=1,padx = 3)
             self.entry_symbol_water_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_water_cooler_value,width = 30 )
-            self.entry_symbol_water_cooler.insert(END, symbol_water_cooler_value)
+            self.entry_symbol_water_cooler.insert(END, get_data.symbol_water_cooler_value)
             self.entry_symbol_water_cooler.grid(row=5, column=5, padx = 3)
 
 
@@ -380,7 +380,7 @@ class Application (Frame):
             self.water_cooler_plate_value = StringVar()
             self.lbl_plate_water_cooler = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1, padx=2, ipadx=4, pady=10)
             self.entry_plate_water_cooler = ttk.Entry(self.lframe, textvariable=self.water_cooler_plate_value, width=30)
-            self.entry_plate_water_cooler.insert(END, water_cooler_plate_value)
+            self.entry_plate_water_cooler.insert(END, get_data.water_cooler_plate_value)
             self.entry_plate_water_cooler.grid(row=10, column=5, padx=2, ipadx=4, pady=10)
 
             #explanation
@@ -413,7 +413,7 @@ class Application (Frame):
             self.symbol_refrageration_cooler_value = StringVar()
             self.lbl_symbol_refrageration_cooler = ttk.Label(self.lframe, text="typ CHF" ).grid(row=5, column=1,padx = 3)
             self.entry_symbol_refrageration_cooler = ttk.Entry(self.lframe, textvariable = self.symbol_refrageration_cooler_value,width = 30 )
-            self.entry_symbol_refrageration_cooler.insert(END, symbol_refrageration_cooler_value)
+            self.entry_symbol_refrageration_cooler.insert(END, get_data.symbol_refrageration_cooler_value)
             self.entry_symbol_refrageration_cooler.grid(row=5, column=5, padx = 3)
 
 
@@ -422,7 +422,7 @@ class Application (Frame):
             self.refrageration_cooler_plate_value = StringVar()
             self.lbl_plate_refrageration_cooler = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
             self.entry_plate_refrageration_cooler = ttk.Entry(self.lframe, textvariable=self.refrageration_cooler_plate_value, width=30)
-            self.entry_plate_refrageration_cooler.insert(END, refrageration_cooler_plate_value )
+            self.entry_plate_refrageration_cooler.insert(END, get_data.refrageration_cooler_plate_value )
             self.entry_plate_refrageration_cooler.grid(row=10, column=5, padx=2, ipadx=4, pady=10)
 
             #explanation

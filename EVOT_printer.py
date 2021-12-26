@@ -34,6 +34,7 @@ class Application (Frame):
 
 
 
+########################################################################################################################
 
 
 
@@ -268,7 +269,8 @@ class Application (Frame):
                 self.water_heater_plate_value = StringVar()
                 self.lbl_plate_water_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
                 self.entry_plate_water_heater = ttk.Entry(self.lframe, textvariable=self.water_heater_plate_value, width=30)
-                self.entry_plate_water_heater.insert(END, water_heater_plate_value)
+                self.entry_plate_water_heater.insert(END, get_data.water_heater_plate_value)
+
                 self.entry_plate_water_heater.grid(row=10, column=5, padx=2, ipadx=4, pady=10)
 
 
@@ -1127,6 +1129,10 @@ class Application (Frame):
         self.save_button=ttk.Button(self.accept_frame,text = "wybierz folder", command = self.saveFile).grid(row = 1, column = 15, padx=20 , pady=(20,3) )
         self.text_folder = Label(self.accept_frame,text='Zapisz w wybranej lokalizacji').grid(row = 15, column = 1 , padx=20 , pady=(30,20))
         self.accept_button=ttk.Button(self.accept_frame,text = "zapisz").grid(row = 15, column = 15, padx=20 , pady=(30,20) )
+
+########################################################################################################################
+
+
 
 
 ########################################################################################################################

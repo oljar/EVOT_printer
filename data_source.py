@@ -3,6 +3,10 @@ from fillpdf import fillpdfs
 import re
 from tkinter import filedialog
 import os
+from tkinter import *
+from tkinter import ttk
+
+
 
 
 
@@ -31,9 +35,6 @@ def get_data ():
 
     pos = re.search("R|L$", (data_plate['supply']))
 
-
-
-
     selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
 
     ahu_range = re.findall(r'\d+',selected_supply_value)[0] # wielkość centrali
@@ -51,7 +52,9 @@ def get_data ():
     mass_value= data_plate['weight t'] + ' ' + data_plate['weight u']
     version_type=('jhj','kjkjhk','ccccc')
     symbol_water_heater_value = data_cert['Pole tekstowe 8']
-    water_heater_plate_value = data_plate['heatre I s']
+   # water_heater_plate_value = data_plate['heatre I s']
+
+    get_data.water_heater_plate_value='działa'
     symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"
     reverse_heater_plate_value = "reverse_heater_plate_value"
     symbol_water_cooler_value = data_cert['Pole tekstowe 7']
@@ -106,6 +109,7 @@ def get_data ():
     additional_exuipment_value = "additional_exuipment_value_1"
     s_and_p_value = "s_and_p_value_1"
     print ('dane pobrane')
+    return get_data
 
 
 
@@ -209,5 +213,6 @@ except:
     symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
     additional_exuipment_value = "additional_exuipment_value_1"
     s_and_p_value = "s_and_p_value_1"
+
 
 

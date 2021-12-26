@@ -51,10 +51,8 @@ def get_data ():
     get_data.electric_heater_plate_value_in = data_plate['electric heater s']
     get_data.mass_value= data_plate['weight t'] + ' ' + data_plate['weight u']
     version_type=('jhj','kjkjhk','ccccc')
-    symbol_water_heater_value = data_cert['Pole tekstowe 8']
-   # water_heater_plate_value = data_plate['heatre I s']
-
-    get_data.water_heater_plate_value='działa'
+    get_data.symbol_water_heater_value = data_cert['Pole tekstowe 8']
+    get_data.water_heater_plate_value = data_plate['heatre I s']
     symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"
     reverse_heater_plate_value = "reverse_heater_plate_value"
     symbol_water_cooler_value = data_cert['Pole tekstowe 7']
@@ -154,8 +152,8 @@ except:
     get_data.electric_heater_plate_value_in = 'odśwież'
     get_data.mass_value= data_plate['weight t'] + ' ' + data_plate['weight u']
     version_type=('jhj','kjkjhk','ccccc')
-    symbol_water_heater_value = data_cert['Pole tekstowe 8']
-    water_heater_plate_value = data_plate['heatre I s']
+    get_data.symbol_water_heater_value = 'odśwież'
+    get_data.water_heater_plate_value = 'odśwież'
     symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"
     reverse_heater_plate_value = "reverse_heater_plate_value"
     symbol_water_cooler_value = data_cert['Pole tekstowe 7']

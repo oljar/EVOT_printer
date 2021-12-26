@@ -261,7 +261,7 @@ class Application (Frame):
                 self.symbol_water_heater_value = StringVar()
                 self.lbl_symbol_water_heater = ttk.Label(self.lframe, text="typ WN" ).grid(row=5, column=1,padx = 3)
                 self.entry_symbol_water_heater = ttk.Entry(self.lframe, textvariable = self.symbol_water_heater_value,width = 30 )
-                self.entry_symbol_water_heater.insert(END, symbol_water_heater_value)
+                self.entry_symbol_water_heater.insert(END, get_data.symbol_water_heater_value)
                 self.entry_symbol_water_heater.grid(row=5, column=5, padx = 3)
 
 

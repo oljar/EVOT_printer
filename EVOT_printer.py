@@ -50,7 +50,7 @@ class Application (Frame):
 
 
 
-        self.selected_ahu_value = selected_ahu_value
+        self.selected_ahu_value = get_data.selected_ahu_value
         self.lbl_type = ttk.Label(self.settings_frame, text="typ EVO-T").grid(row=5, column=1, padx=10, pady=3)
         self.entry_type = ttk.Entry(self.settings_frame, textvariable= self.selected_ahu_value)
         self.entry_type.insert(END,self.selected_ahu_value)
@@ -117,7 +117,7 @@ class Application (Frame):
 
     # supply
         self.selected_supply_value_in = StringVar
-        self.selected_supply_value = selected_supply_value
+        self.selected_supply_value = get_data.selected_supply_value
         self.lbl_supply = ttk.Label(self.identity_frame, text="nawiew - wykonanie").grid(row=25, column=1, padx=10, pady=3)
         self.entry_type_supply = ttk.Entry(self.identity_frame, textvariable=self.selected_supply_value_in)
         self.entry_type_supply.insert(END,self.selected_supply_value)
@@ -150,7 +150,7 @@ class Application (Frame):
 
     #exhaust
         self.selected_exhaust_value_in = StringVar()
-        self.selected_exhaust_value = selected_exhaust_value
+        self.selected_exhaust_value = get_data.selected_exhaust_value
         self.lbl_exhaust = ttk.Label(self.identity_frame, text="wywiew - wykonanie").grid(row=40, column=1, padx=10, pady=3)
         self.entry_type_exhaust = ttk.Entry(self.identity_frame, textvariable= self.selected_exhaust_value_in )
         self.entry_type_exhaust.insert(END, self.selected_exhaust_value)
@@ -185,7 +185,7 @@ class Application (Frame):
         self.mass_value = StringVar()
         self.mass=ttk.Label(self.identity_frame ,text = "masa urządzenia [kg]").grid(row = 55,column = 1,padx=10,pady=3)
         self.entry_mass=ttk.Entry(self.identity_frame,textvariable = self.mass_value)
-        self.entry_mass.insert(END,mass_value)
+        self.entry_mass.insert(END,get_data.mass_value)
         self.entry_mass.grid(row = 55 ,column = 2,padx=1,pady=3, ipadx=10 )
 
 
@@ -223,7 +223,7 @@ class Application (Frame):
                 self.symbol_electric_heater_value = StringVar()
                 self.lbl_symbol_electric_heater = ttk.Label(self.lframe, text="typ NE" ).grid(row=5, column=1,padx=1)
                 self.entry_symbol_electric_heater = ttk.Entry(self.lframe, textvariable = self.symbol_electric_heater_value, width = 30)
-                self.entry_symbol_electric_heater.insert(END,symbol_electric_heater_value )
+                self.entry_symbol_electric_heater.insert(END,get_data.symbol_electric_heater_value )
                 self.entry_symbol_electric_heater.grid(row=5, column=5, padx=2)
 
 
@@ -232,7 +232,7 @@ class Application (Frame):
                 self.electric_heater_plate_value = StringVar()
                 self.lbl_plate_electric_heater = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
                 self.entry_plate_electric_heater = ttk.Entry(self.lframe, textvariable = self.electric_heater_plate_value,width = 30)
-                self.entry_plate_electric_heater.insert(END, electric_heater_plate_value_in)
+                self.entry_plate_electric_heater.insert(END, get_data.electric_heater_plate_value_in)
                 self.entry_plate_electric_heater.grid(row=10, column=5, padx=2, ipadx=4,pady=10 )
 
 

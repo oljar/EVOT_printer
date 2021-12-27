@@ -3,8 +3,9 @@ from tkinter import ttk
 import datetime
 from data_source import *
 from check_and_probe import *
-from tkinter import filedialog
 from filter_source  import *
+from fillpdf import fillpdfs
+from write_pdf import *
 
 
 class Application (Frame):
@@ -1144,9 +1145,9 @@ class Application (Frame):
         self.txt_s_and_p.grid(row=5, column=15, padx=1)
 
 
-    def saveFile(self):
-        file = filedialog.askdirectory()
-        print (file)
+
+
+
 
 
 
@@ -1156,9 +1157,9 @@ class Application (Frame):
         self.accept_frame = ttk.LabelFrame(tab11)
         self.accept_frame.pack()
         self.text_folder = Label(self.accept_frame,text='Lokalizacja plików tabliczka i świadectwo KJ').grid(row = 1, column = 1, padx=20 , pady=(20,3))
-        self.save_button=ttk.Button(self.accept_frame,text = "wybierz folder", command = self.saveFile).grid(row = 1, column = 15, padx=20 , pady=(20,3) )
+        self.save_button=ttk.Button(self.accept_frame,text = "wybierz folder", command = choise_newdir).grid(row = 1, column = 15, padx=20 , pady=(20,3) )
         self.text_folder = Label(self.accept_frame,text='Zapisz w wybranej lokalizacji').grid(row = 15, column = 1 , padx=20 , pady=(30,20))
-        self.accept_button=ttk.Button(self.accept_frame,text = "zapisz").grid(row = 15, column = 15, padx=20 , pady=(30,20) )
+        self.accept_button=ttk.Button(self.accept_frame,text = "zapisz", command = save_newpdf ).grid(row = 15, column = 15, padx=20 , pady=(30,20) )
 
 ########################################################################################################################
 

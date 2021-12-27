@@ -16,15 +16,15 @@ from tkinter import ttk
 
 def open_pattern_File():
 
-    global path
-    path = filedialog.askdirectory()
+    global path_in
+    path_in = filedialog.askdirectory()
 
 
 
 def get_data ():
 
-    path_plate = os.path.join(path,'tabliczka.pdf')
-    path_cert = os.path.join(path,'atest.pdf')
+    path_plate = os.path.join(path_in, 'tabliczka.pdf')
+    path_cert = os.path.join(path_in, 'atest.pdf')
 
     data_plate = fillpdfs.get_form_fields(path_plate)
     data_cert = fillpdfs.get_form_fields(path_cert)

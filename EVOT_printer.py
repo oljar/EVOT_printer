@@ -24,7 +24,6 @@ class Application (Frame):
         self.exhaust_filter_choice()
         self.heat_exchanger_choice()
         self.damper_choice()
-        self.additional_exuipment()
         self.s_and_p()
         self.accept()
         self.additional_equip_choice()
@@ -1100,11 +1099,9 @@ class Application (Frame):
         self.lfradio = ttk.LabelFrame(tab9)
         self.lfradio.pack( side = TOP)
         self.add_equip_choice_value = IntVar()
-        self.add_equip_choice_value.set(1)
-        self.add_equip_radio = ttk.Radiobutton(self.lfradio, text="off", variable = self.add_equip_choice_value, value= 2, command = self.lackoff_additional ).grid (row = 0,column = 20,padx=20, pady = 5)
+        self.add_equip_choice_value.set(2)
+        self.add_equip_radio = ttk.Radiobutton(self.lfradio, text="off", variable = self.add_equip_choice_value, value = 2, command = self.lackoff_additional ).grid (row = 0,column = 20,padx=20, pady = 5)
         self.add_equip_radio = ttk.Radiobutton(self.lfradio,text = "on", variable = self.add_equip_choice_value, value = 1,command = self.additional_exuipment).grid(row =0,column = 0,padx=20, pady = 5 )
-
-
 
 
     def additional_exuipment(self):
@@ -1116,7 +1113,6 @@ class Application (Frame):
             self.additional_exuipment_frame = ttk.LabelFrame(tab9)
            # self.additional_exuipment_frame.pack(anchor=W, padx=15)
             self.additional_exuipment_frame.pack(side=BOTTOM)
-
             self.lbl_additional_equipment= ttk.Label(self.additional_exuipment_frame, text="wyposażenie dodatkowe").grid(row=5, column=10, padx=3, pady=10)
             self.txt_additional_equipment = Text(self.additional_exuipment_frame , width=50, height = 19, )
             self.txt_additional_equipment.insert("1.0", get_data.additional_exuipment_value)

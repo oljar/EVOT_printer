@@ -1129,8 +1129,6 @@ class Application (Frame):
 
 
 
-
-
     def s_and_p(self):
 
 

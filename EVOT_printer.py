@@ -4,6 +4,7 @@ import datetime
 from data_source import *
 from check_and_probe import *
 from tkinter import filedialog
+from filter_source  import *
 
 
 class Application (Frame):
@@ -683,15 +684,17 @@ class Application (Frame):
             self.symbol_G4_supply_filter_value = StringVar()
             self.lbl_symbol_G4_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_supply_filter_value, width=30)
-            self.entry_symbol_G4_supply_filter.insert(END, symbol_G4_supply_filter_value)
+            print(ahu_range)
+            self.entry_symbol_G4_supply_filter.insert(END, symbol_G4_supply_filter_value[str(ahu_range)])
             self.entry_symbol_G4_supply_filter.grid(row=10, column=1, padx=1)
+
 
 
             #  supply filter G4 quantity
             self.quantity_G4_supply_filter_value = StringVar()
             self.lbl_quantity_G4_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
             self.entry_quantity_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_G4_supply_filter_value, width=10)
-            self.entry_quantity_G4_supply_filter.insert(END, quantity_G4_supply_filter_value)
+            self.entry_quantity_G4_supply_filter.insert(END, quantity_G4_supply_filter_value )
             self.entry_quantity_G4_supply_filter.grid(row=10, column=5, padx=1)
 
 
@@ -715,7 +718,7 @@ class Application (Frame):
             self.symbol_M5_supply_filter_value = StringVar()
             self.lbl_symbol_M5_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_supply_filter_value, width=30)
-            self.entry_symbol_M5_supply_filter.insert(END, symbol_M5_supply_filter_value)
+            self.entry_symbol_M5_supply_filter.insert(END, symbol_M5_supply_filter_value[str(ahu_range)])
             self.entry_symbol_M5_supply_filter.grid(row=10, column=1, padx=1)
 
 
@@ -724,7 +727,7 @@ class Application (Frame):
             self.quantity_M5_supply_filter_value = StringVar()
             self.lbl_quantity_M5_supply_filter = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
             self.entry_quantity_M5_supply_filter = ttk.Entry(self.lframe, textvariable=self.quantity_M5_supply_filter_value, width=10)
-            self.entry_quantity_M5_supply_filter.insert(END, quantity_M5_supply_filter_value)
+            self.entry_quantity_M5_supply_filter.insert(END, quantity_M5_supply_filter_value )
             self.entry_quantity_M5_supply_filter.grid(row=10, column=5, padx=1)
 
 
@@ -746,7 +749,7 @@ class Application (Frame):
             self.symbol_F7_supply_filter_value = StringVar()
             self.lbl_symbol_F7_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_F7_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_supply_filter_value, width=30)
-            self.entry_symbol_F7_supply_filter.insert(END, symbol_F7_supply_filter_value)
+            self.entry_symbol_F7_supply_filter.insert(END, symbol_F7_supply_filter_value[str(ahu_range)])
             self.entry_symbol_F7_supply_filter.grid(row=10, column=1, padx=1)
 
 
@@ -780,7 +783,7 @@ class Application (Frame):
             self.symbol_F9_supply_filter_value = StringVar()
             self.lbl_symbol_F9_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_F9_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_supply_filter_value, width=30)
-            self.entry_symbol_F9_supply_filter.insert(END, symbol_F9_supply_filter_value )
+            self.entry_symbol_F9_supply_filter.insert(END, symbol_F9_supply_filter_value[str(ahu_range)] )
             self.entry_symbol_F9_supply_filter.grid(row=10, column=1, padx=1)
 
 
@@ -807,6 +810,7 @@ class Application (Frame):
 ##############################################################################################################################################
 
 
+
     def exhaust_filter_choice(self):
         self.lfradio = ttk.LabelFrame(tab6)
         self.lfradio.pack( )
@@ -831,12 +835,12 @@ class Application (Frame):
             self.lframe.pack(anchor=W)
             self.lframe.pack(anchor=W, padx=15)
 
+
             self.symbol_G4_exhaust_filter_value = StringVar()
             self.lbl_symbol_G4_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_G4_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_exhaust_filter_value, width=30)
-            self.entry_symbol_G4_exhaust_filter.insert(END, symbol_G4_exhaust_filter_value )
+            self.entry_symbol_G4_exhaust_filter.insert(END, symbol_G4_exhaust_filter_value[str(ahu_range)] )
             self.entry_symbol_G4_exhaust_filter .grid(row=10, column=1, padx=1)
-
 
 
 
@@ -872,7 +876,7 @@ class Application (Frame):
             self.symbol_M5_exhaust_filter_value = StringVar()
             self.lbl_symbol_M5_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_M5_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_M5_exhaust_filter_value, width=30)
-            self.entry_symbol_M5_exhaust_filter.insert(END, symbol_M5_exhaust_filter_value )
+            self.entry_symbol_M5_exhaust_filter.insert(END, symbol_M5_exhaust_filter_value[str(ahu_range)] )
             self.entry_symbol_M5_exhaust_filter.grid(row=10, column=1, padx=1)
 
 
@@ -908,7 +912,7 @@ class Application (Frame):
             self.symbol_F7_exhaust_filter_value = StringVar()
             self.lbl_symbol_F7_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_F7_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F7_exhaust_filter_value, width=30)
-            self.entry_symbol_F7_exhaust_filter.insert(END, symbol_F7_exhaust_filter_value )
+            self.entry_symbol_F7_exhaust_filter.insert(END, symbol_F7_exhaust_filter_value[str(ahu_range)] )
             self.entry_symbol_F7_exhaust_filter.grid(row=10, column=1, padx=1)
 
 
@@ -942,7 +946,7 @@ class Application (Frame):
             self.symbol_F9_exhaust_filter_value = StringVar()
             self.lbl_symbol_F9_exhaust_filter = ttk.Label(self.lframe, text="wywiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_F9_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.symbol_F9_exhaust_filter_value, width=30)
-            self.entry_symbol_F9_exhaust_filter.insert(END, symbol_F9_exhaust_filter_value)
+            self.entry_symbol_F9_exhaust_filter.insert(END, symbol_F9_exhaust_filter_value[str(ahu_range)])
             self.entry_symbol_F9_exhaust_filter.grid(row=10, column=1, padx=1)
 
 

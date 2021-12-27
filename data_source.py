@@ -84,22 +84,25 @@ def get_data ():
     get_data.quantity_AC_exhaust_fan_value = 1
 
 
-    symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    quantity_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    symbol_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    quantity_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    symbol_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    quantity_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    symbol_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    quantity_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    symbol_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    quantity_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    symbol_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    quantity_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    symbol_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    quantity_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    symbol_F9_exhaust_filter_value  = data_cert['Pole tekstowe 25'].split('/')[1]
-    quantity_F9_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+
+    # symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+    # quantity_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+    # symbol_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+    # quantity_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+    # symbol_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+    # quantity_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+    # symbol_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+    # quantity_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+    # symbol_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+    # quantity_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+    # symbol_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+    # quantity_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+    # symbol_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+    # quantity_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+    # symbol_F9_exhaust_filter_value  = data_cert['Pole tekstowe 25'].split('/')[1]
+    # quantity_F9_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+
+
 
     get_data.symbol_supply_damper_value = f'Sekcja tłmik szumu- nawiew {ahu_range}'
     get_data.symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {ahu_range}'
@@ -185,22 +188,22 @@ except:
     get_data.quantity_AC_exhaust_fan_value = 'odśwież'
 
 
-    symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    quantity_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    symbol_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    quantity_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    symbol_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    quantity_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    symbol_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    quantity_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    symbol_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    quantity_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    symbol_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    quantity_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    symbol_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    quantity_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    symbol_F9_exhaust_filter_value  = data_cert['Pole tekstowe 25'].split('/')[1]
-    quantity_F9_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+    # symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+    # quantity_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+    # symbol_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+    # quantity_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+    # symbol_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+    # quantity_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+    # symbol_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
+    # quantity_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
+    # symbol_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+    # quantity_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+    # symbol_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+    # quantity_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+    # symbol_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
+    # quantity_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
+    # symbol_F9_exhaust_filter_value  = data_cert['Pole tekstowe 25'].split('/')[1]
+    # quantity_F9_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
 
 
 

@@ -62,7 +62,8 @@ class Application (Frame):
         self.data_act = datetime.date.today()
         self.data=ttk.Label(self.settings_frame ,text = "data").grid(row =15,column = 1,padx=10,pady=(10,3))
         self.entry_data=ttk.Entry(self.settings_frame,textvariable = self.data_value)
-        self.data_button=ttk.Button(self.settings_frame,text = "data").grid(row = 15, column = 20, padx=10 , pady=(10,3) )
+        actual_date = datetime.datetime.today().strftime('%Y-%m-%d')
+        self.entry_data.insert(END,actual_date )
         self.entry_data.grid(row =15 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
 
         # folder with pattern choice

@@ -62,26 +62,26 @@ def get_data ():
     get_data.symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
     get_data.refrageration_cooler_plate_value = data_plate['cooler s']
 
-    symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
-    power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
-    voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
-    frequency_EC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
-    quantity_EC_supply_fan_value = 1
-    symbol_EC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split()[1]
-    power_EC_exhaust_fan_value =  data_cert['Pole tekstowe 9'].split()[1]
-    voltage_EC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
-    frequency_EC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
-    quantity_EC_exhaust_fan_value = 1
-    power_AC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
-    symbol_AC_supply_fan_value = data_cert['Pole tekstowe 9'].split()[0]
-    voltage_AC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
-    frequency_AC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
-    quantity_AC_supply_fan_value = 1
-    symbol_AC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split()[1]
-    power_AC_exhaust_fan_value = data_cert['Pole tekstowe 9'].split()[1]
-    voltage_AC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
-    frequency_AC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
-    quantity_AC_exhaust_fan_value = 1
+    get_data.symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split('\r')[0]
+    get_data.power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
+    get_data.voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
+    get_data.frequency_EC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
+    get_data.quantity_EC_supply_fan_value = 1
+    get_data.symbol_EC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split('\r')[1]
+    get_data.power_EC_exhaust_fan_value =  data_cert['Pole tekstowe 9'].split()[1]
+    get_data.voltage_EC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
+    get_data.frequency_EC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
+    get_data.quantity_EC_exhaust_fan_value = 1
+    get_data.power_AC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
+    get_data.symbol_AC_supply_fan_value = data_cert['Pole tekstowe 9'].split()[0]
+    get_data.voltage_AC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
+    get_data.frequency_AC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
+    get_data.quantity_AC_supply_fan_value = 1
+    get_data.symbol_AC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split()[1]
+    get_data.power_AC_exhaust_fan_value = data_cert['Pole tekstowe 9'].split()[1]
+    get_data.voltage_AC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
+    get_data.frequency_AC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
+    get_data.quantity_AC_exhaust_fan_value = 1
 
 
     symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
@@ -101,10 +101,10 @@ def get_data ():
     symbol_F9_exhaust_filter_value  = data_cert['Pole tekstowe 25'].split('/')[1]
     quantity_F9_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
 
-    symbol_supply_damper_value = f'Sekcja tłmik szumu- nawiew {ahu_range}'
-    symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {ahu_range}'
-    symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
-    additional_exuipment_value = "additional_exuipment_value_1"
+    get_data.symbol_supply_damper_value = f'Sekcja tłmik szumu- nawiew {ahu_range}'
+    get_data.symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {ahu_range}'
+    get_data.symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
+    get_data.additional_exuipment_value = "additional_exuipment_value_1"
     s_and_p_value = "s_and_p_value_1"
     print ('dane pobrane')
     return get_data
@@ -163,26 +163,26 @@ except:
     get_data.symbol_refrageration_cooler_value = 'odśwież'
     get_data.refrageration_cooler_plate_value = 'odśwież'
 
-    symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
-    power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
-    voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
-    frequency_EC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
-    quantity_EC_supply_fan_value = 1
-    symbol_EC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split()[1]
-    power_EC_exhaust_fan_value =  data_cert['Pole tekstowe 9'].split()[1]
-    voltage_EC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
-    frequency_EC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
-    quantity_EC_exhaust_fan_value = 1
-    power_AC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
-    symbol_AC_supply_fan_value = data_cert['Pole tekstowe 9'].split()[0]
-    voltage_AC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
-    frequency_AC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
-    quantity_AC_supply_fan_value = 1
-    symbol_AC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split()[1]
-    power_AC_exhaust_fan_value = data_cert['Pole tekstowe 9'].split()[1]
-    voltage_AC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
-    frequency_AC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
-    quantity_AC_exhaust_fan_value = 1
+    get_data.symbol_EC_supply_fan_value = 'odśwież'
+    get_data.power_EC_supply_fan_value  = 'odśwież'
+    get_data.voltage_EC_supply_fan_value = 'odśwież'
+    get_data.frequency_EC_supply_fan_value = 'odśwież'
+    get_data.quantity_EC_supply_fan_value = 'odśwież'
+    get_data.symbol_EC_exhaust_fan_value = 'odśwież'
+    get_data.power_EC_exhaust_fan_value =  'odśwież'
+    get_data.voltage_EC_exhaust_fan_value = 'odśwież'
+    get_data.frequency_EC_exhaust_fan_value = 'odśwież'
+    get_data.quantity_EC_exhaust_fan_value = 'odśwież'
+    get_data.power_AC_supply_fan_value = 'odśwież'
+    get_data.symbol_AC_supply_fan_value = 'odśwież'
+    get_data.voltage_AC_supply_fan_value = 'odśwież'
+    get_data.frequency_AC_supply_fan_value = 'odśwież'
+    get_data.quantity_AC_supply_fan_value = 'odśwież'
+    get_data.symbol_AC_exhaust_fan_value = 'odśwież'
+    get_data.power_AC_exhaust_fan_value = 'odśwież'
+    get_data.voltage_AC_exhaust_fan_value = 'odśwież'
+    get_data.frequency_AC_exhaust_fan_value = 'odśwież'
+    get_data.quantity_AC_exhaust_fan_value = 'odśwież'
 
 
     symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
@@ -204,10 +204,10 @@ except:
 
 
 
-    symbol_supply_damper_value = f'Sekcja tłmik szumu- nawiew {ahu_range}'
-    symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {ahu_range}'
-    symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
-    additional_exuipment_value = "additional_exuipment_value_1"
+    get_data.symbol_supply_damper_value = 'odśwież'
+    get_data.symbol_exaust_damper_value = 'odśwież'
+    get_data.symbol_heat_exchanger_value = 'odśwież'
+    get_data.additional_exuipment_value = 'odśwież'
     s_and_p_value = "s_and_p_value_1"
 
 

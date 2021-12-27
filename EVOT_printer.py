@@ -27,6 +27,7 @@ class Application (Frame):
         self.additional_exuipment()
         self.s_and_p()
         self.accept()
+        self.additional_equip_choice()
         self.quantity_comment_water_heater = 0
         self.quantity_comment_reverse_exchanger =0
         self.quantity_comment_water_cooler = 0
@@ -472,7 +473,7 @@ class Application (Frame):
             self.symbol_EC_supply_fan_value = StringVar()
             self.lbl_symbol_EC_supply_fan= ttk.Label(self.lframe, text="nawiew-typ-EC" ).grid(row=5, column=1,padx = 3,pady = 10)
             self.entry_symbol_EC_supply_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_supply_fan_value,width = 30 )
-            self.entry_symbol_EC_supply_fan.insert(END, symbol_EC_supply_fan_value)
+            self.entry_symbol_EC_supply_fan.insert(END, get_data.symbol_EC_supply_fan_value)
             self.entry_symbol_EC_supply_fan.grid(row=5, column=5, padx = 1)
 
 
@@ -481,7 +482,7 @@ class Application (Frame):
             self.power_EC_supply_fan_value = StringVar()
             self.lbl_power_plate_EC_supply_fan = ttk.Label(self.lframe, text="moc [kW]" ).grid(row=10, column=1,padx=1,pady = 10)
             self.entry_power_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_supply_fan_value , width=10)
-            self.entry_power_plate_EC_supply_fan.insert(END, power_EC_supply_fan_value )
+            self.entry_power_plate_EC_supply_fan.insert(END, get_data.power_EC_supply_fan_value )
             self.entry_power_plate_EC_supply_fan.grid(row=10, column=5, padx=(0,100))
 
             # Voltage - EC_supply_fan
@@ -489,7 +490,7 @@ class Application (Frame):
             self.voltage_EC_supply_fan_value = StringVar()
             self.lbl_voltage_plate_EC_supply_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]" ).grid(row=15, column=1,padx=1,pady = 10)
             self.entry_voltage_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_supply_fan_value, width=10)
-            self.entry_voltage_plate_EC_supply_fan.insert(END, voltage_EC_supply_fan_value)
+            self.entry_voltage_plate_EC_supply_fan.insert(END, get_data.voltage_EC_supply_fan_value)
             self.entry_voltage_plate_EC_supply_fan.grid(row=15, column=5, padx=(0,100))
 
             # frequency - EC_supply_fan
@@ -497,7 +498,7 @@ class Application (Frame):
             self.frequency_EC_supply_fan_value = StringVar()
             self.lbl_frequency_plate_EC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1,padx=1, pady=10)
             self.entry_frequency_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_supply_fan_value, width=10)
-            self.entry_frequency_plate_EC_supply_fan.insert(END, frequency_EC_supply_fan_value )
+            self.entry_frequency_plate_EC_supply_fan.insert(END, get_data.frequency_EC_supply_fan_value )
             self.entry_frequency_plate_EC_supply_fan.grid(row=20, column=5, padx=(0, 100))
 
             # quantity - EC_supply_fan
@@ -505,7 +506,7 @@ class Application (Frame):
             self.quantity_EC_supply_fan_value = StringVar()
             self.lbl_quantity_EC_supply_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=1, padx=1, pady=10)
             self.entry_quantity_plate_EC_supply_fan = ttk.Entry(self.lframe, textvariable=self.quantity_EC_supply_fan_value, width=10)
-            self.entry_quantity_plate_EC_supply_fan.insert(END, quantity_EC_supply_fan_value)
+            self.entry_quantity_plate_EC_supply_fan.insert(END, get_data.quantity_EC_supply_fan_value)
             self.entry_quantity_plate_EC_supply_fan.grid(row=25, column=5, padx=(0, 100))
 
             # Symbol - EC_exhaust_fan
@@ -513,33 +514,33 @@ class Application (Frame):
             self.symbol_EC_exhaust_fan_value = StringVar()
             self.lbl_symbol_EC_exhaust_fan= ttk.Label(self.lframe, text="wywiew-typ-EC" ).grid(row=5, column=10,padx = 3,pady = 10)
             self.entry_symbol_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable = self.symbol_EC_exhaust_fan_value, width = 30 )
-            self.entry_symbol_EC_exhaust_fan.insert(END, symbol_EC_exhaust_fan_value)
+            self.entry_symbol_EC_exhaust_fan.insert(END, get_data.symbol_EC_exhaust_fan_value)
             self.entry_symbol_EC_exhaust_fan.grid(row=5, column=15, padx = 1)
 
             # Power - EC_exhaust_fan
             self.power_EC_exhaust_fan_value = StringVar()
             self.lbl_power_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="moc [kW]" ).grid(row=10, column=10,padx=1,pady = 10)
             self.entry_power_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.power_EC_exhaust_fan_value, width=10)
-            self.entry_power_plate_EC_exhaust_fan.insert(END, power_EC_exhaust_fan_value)
+            self.entry_power_plate_EC_exhaust_fan.insert(END, get_data.power_EC_exhaust_fan_value)
             self.entry_power_plate_EC_exhaust_fan.grid(row=10, column=15, padx=(0,100))
 
             self.voltage_EC_exhaust_fan_value = StringVar()
             self.lbl_voltage_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]" ).grid(row=15, column=10,padx=1,pady = 10)
             self.entry_voltage_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.voltage_EC_exhaust_fan_value, width=10)
-            self.entry_voltage_plate_EC_exhaust_fan.insert(END, voltage_EC_exhaust_fan_value)
+            self.entry_voltage_plate_EC_exhaust_fan.insert(END, get_data.voltage_EC_exhaust_fan_value)
             self.entry_voltage_plate_EC_exhaust_fan.grid(row=15, column=15, padx=(0,100))
 
             self.frequency_EC_exhaust_fan_value = StringVar()
             self.lbl_frequency_plate_EC_exhaust_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=10,padx=1, pady=10)
             self.entry_frequency_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.frequency_EC_exhaust_fan_value, width=10)
-            self.entry_frequency_plate_EC_exhaust_fan .insert(END, frequency_EC_exhaust_fan_value)
+            self.entry_frequency_plate_EC_exhaust_fan .insert(END, get_data.frequency_EC_exhaust_fan_value)
             self.entry_frequency_plate_EC_exhaust_fan .grid(row=20, column=15, padx=(0, 100))
 
 
             self.quantity_EC_exhaust_fan_value = StringVar()
             self.lbl_quantity_EC_exhaust_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=10, padx=1, pady=10)
             self.entry_quantity_plate_EC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.quantity_EC_exhaust_fan_value, width=10)
-            self.entry_quantity_plate_EC_exhaust_fan.insert(END, quantity_EC_exhaust_fan_value)
+            self.entry_quantity_plate_EC_exhaust_fan.insert(END, get_data.quantity_EC_exhaust_fan_value)
             self.entry_quantity_plate_EC_exhaust_fan.grid(row=25, column=15, padx=(0, 100))
 
 
@@ -562,14 +563,14 @@ class Application (Frame):
                 self.symbol_AC_supply_fan_value = StringVar()
                 self.lbl_symbol_AC_supply_fan = ttk.Label(self.lframe, text="nawiew-typ-AC").grid(row=5, column=1, padx=3, pady=10)
                 self.entry_symbol_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_supply_fan_value, width=30)
-                self.entry_symbol_AC_supply_fan.insert(END, symbol_AC_supply_fan_value)
+                self.entry_symbol_AC_supply_fan.insert(END, get_data.symbol_AC_supply_fan_value)
                 self.entry_symbol_AC_supply_fan.grid(row=5, column=5, padx=1)
 
                 # Power - AC_supply_fan
                 self.power_AC_supply_fan_value = StringVar()
                 self.lbl_power_plate_AC_supply_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=1, padx=1, pady=10)
                 self.entry_power_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_supply_fan_value, width=10)
-                self.entry_power_plate_AC_supply_fan.insert(END, power_AC_supply_fan_value)
+                self.entry_power_plate_AC_supply_fan.insert(END, get_data.power_AC_supply_fan_value)
                 self.entry_power_plate_AC_supply_fan.grid(row=10, column=5, padx=(0, 100))
 
                 #Voltage - AC_supply_fan
@@ -577,7 +578,7 @@ class Application (Frame):
                 self.voltage_AC_supply_fan_value = StringVar()
                 self.lbl_voltage_plate_AC_supply_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=1, padx=1, pady=10)
                 self.entry_voltage_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_supply_fan_value, width=10)
-                self.entry_voltage_plate_AC_supply_fan.insert(END, voltage_AC_supply_fan_value)
+                self.entry_voltage_plate_AC_supply_fan.insert(END, get_data.voltage_AC_supply_fan_value)
                 self.entry_voltage_plate_AC_supply_fan.grid(row=15, column=5, padx=(0, 100))
 
                 # frequency- AC_supply_fan
@@ -585,7 +586,7 @@ class Application (Frame):
                 self.frequency_AC_supply_fan_value = StringVar()
                 self.lbl_frequency_plate_AC_supply_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=1, padx=1, pady=10)
                 self.entry_frequency_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_supply_fan_value, width=10)
-                self.entry_frequency_plate_AC_supply_fan.insert(END, frequency_AC_supply_fan_value)
+                self.entry_frequency_plate_AC_supply_fan.insert(END, get_data.frequency_AC_supply_fan_value)
                 self.entry_frequency_plate_AC_supply_fan.grid(row=20, column=5, padx=(0, 100))
 
                 # quantity- AC_supply_fan
@@ -593,7 +594,7 @@ class Application (Frame):
                 self.quantity_AC_supply_fan_value = StringVar()
                 self.lbl_quantity_AC_supply_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=1, padx=1, pady=10)
                 self.entry_quantity_plate_AC_supply_fan = ttk.Entry(self.lframe, textvariable=self.quantity_AC_supply_fan_value, width=10)
-                self.entry_quantity_plate_AC_supply_fan.insert(END, quantity_AC_supply_fan_value)
+                self.entry_quantity_plate_AC_supply_fan.insert(END, get_data.quantity_AC_supply_fan_value)
                 self.entry_quantity_plate_AC_supply_fan.grid(row=25, column=5, padx=(0, 100))
 
 
@@ -604,34 +605,34 @@ class Application (Frame):
                 self.symbol_AC_exhaust_fan_value = StringVar()
                 self.lbl_symbol_AC_exhaust_fan = ttk.Label(self.lframe, text="wywiew-typ-AC").grid(row=5, column=10, padx=3, pady=10)
                 self.entry_symbol_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.symbol_AC_exhaust_fan_value, width=30)
-                self.entry_symbol_AC_exhaust_fan.insert(END, symbol_AC_exhaust_fan_value)
+                self.entry_symbol_AC_exhaust_fan.insert(END, get_data.symbol_AC_exhaust_fan_value)
                 self.entry_symbol_AC_exhaust_fan.grid(row=5, column=15, padx=1)
 
                 # Power - AC_exhaust_fan
                 self.power_AC_exhaust_fan_value = StringVar()
                 self.lbl_power_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="moc [kW]").grid(row=10, column=10, padx=1, pady=10)
                 self.entry_power_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.power_AC_exhaust_fan_value, width=10)
-                self.entry_power_plate_AC_exhaust_fan.insert(END, power_AC_exhaust_fan_value)
+                self.entry_power_plate_AC_exhaust_fan.insert(END, get_data.power_AC_exhaust_fan_value)
                 self.entry_power_plate_AC_exhaust_fan.grid(row=10, column=15, padx=(0, 100))
 
                 self.voltage_AC_exhaust_fan_value = StringVar()
                 self.lbl_voltage_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="napięcie zasilania [V]").grid(row=15, column=10, padx=1, pady=10)
                 self.entry_voltage_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.voltage_AC_exhaust_fan_value, width=10)
-                self.entry_voltage_plate_AC_exhaust_fan.insert(END, voltage_AC_exhaust_fan_value)
+                self.entry_voltage_plate_AC_exhaust_fan.insert(END, get_data.voltage_AC_exhaust_fan_value)
                 self.entry_voltage_plate_AC_exhaust_fan.grid(row=15, column=15, padx=(0, 100))
 
 
                 self.frequency_AC_exhaust_fan_value = StringVar()
                 self.lbl_frequency_plate_AC_exhaust_fan = ttk.Label(self.lframe, text="częstotliwość [Hz]").grid(row=20, column=10, padx=1, pady=10)
                 self.entry_frequency_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.frequency_AC_exhaust_fan_value, width=10)
-                self.entry_frequency_plate_AC_exhaust_fan.insert(END, frequency_AC_exhaust_fan_value)
+                self.entry_frequency_plate_AC_exhaust_fan.insert(END, get_data.frequency_AC_exhaust_fan_value)
                 self.entry_frequency_plate_AC_exhaust_fan.grid(row=20, column=15, padx=(0, 100))
 
 
                 self.quantity_AC_exhaust_fan_value = StringVar()
                 self.lbl_quantity_AC_exhaust_fan = ttk.Label(self.lframe, text="ilość").grid(row=25, column=10, padx=1, pady=10)
                 self.entry_quantity_plate_AC_exhaust_fan = ttk.Entry(self.lframe, textvariable=self.quantity_AC_exhaust_fan_value, width=10)
-                self.entry_quantity_plate_AC_exhaust_fan.insert(END, quantity_AC_exhaust_fan_value)
+                self.entry_quantity_plate_AC_exhaust_fan.insert(END, get_data.quantity_AC_exhaust_fan_value)
                 self.entry_quantity_plate_AC_exhaust_fan.grid(row=25, column=15, padx=(0, 100))
 
 
@@ -996,7 +997,7 @@ class Application (Frame):
                 self.symbol_heat_exchanger_value = StringVar()
                 self.lbl_symbol_heat_exchanger = ttk.Label(self.lframe, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
                 self.entry_heat_exchanger = ttk.Entry(self.lframe, textvariable=self.symbol_heat_exchanger_value , width=30)
-                self.entry_heat_exchanger.insert(END, symbol_heat_exchanger_value )
+                self.entry_heat_exchanger.insert(END, get_data.symbol_heat_exchanger_value )
                 self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
 
 
@@ -1039,7 +1040,7 @@ class Application (Frame):
                 self.lbl_supply_symbol_damper = ttk.Label(self.damper_frame, text="tłumik nawiew - typ").grid(row=5, column=10, padx=3, pady=10)
                 self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_supply_damper_value , width=30)
 
-                self.entry_damper.insert(END, symbol_supply_damper_value)
+                self.entry_damper.insert(END, get_data.symbol_supply_damper_value)
                 self.entry_damper.grid(row=5, column=15, padx=1)
 
     def damper_exhaust(self):
@@ -1056,7 +1057,7 @@ class Application (Frame):
                 self.symbol_exaust_damper_value = StringVar()
                 self.lbl_symbol_exhaust_damper = ttk.Label(self.damper_frame, text="tłumik wywiew - typ").grid(row=10, column=10, padx=3, pady=10)
                 self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_exaust_damper_value , width=30)
-                self.entry_damper.insert(END, symbol_exaust_damper_value)
+                self.entry_damper.insert(END, get_data.symbol_exaust_damper_value)
                 self.entry_damper.grid(row=10, column=15, padx=1)
 
 
@@ -1074,13 +1075,13 @@ class Application (Frame):
                 self.symbol_supply_damper_value = StringVar()
                 self.lbl_supply_symbol_damper = ttk.Label(self.damper_frame, text="tłumik nawiew - typ").grid(row=5, column=10, padx=3, pady=10)
                 self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_supply_damper_value, width=30)
-                self.entry_damper.insert(END, symbol_supply_damper_value)
+                self.entry_damper.insert(END, get_data.symbol_supply_damper_value)
                 self.entry_damper.grid(row=5, column=15, padx=1)
 
                 self.symbol_exaust_damper_value = StringVar()
                 self.lbl_symbol_exhaust_damper = ttk.Label(self.damper_frame, text="tłumik wywiew - typ").grid(row=10, column=10, padx=3, pady=10)
                 self.entry_damper = ttk.Entry(self.damper_frame, textvariable=self.symbol_exaust_damper_value, width=30)
-                self.entry_damper.insert(END, symbol_exaust_damper_value)
+                self.entry_damper.insert(END, get_data.symbol_exaust_damper_value)
                 self.entry_damper.grid(row=10, column=15, padx=1)
 
 
@@ -1094,17 +1095,44 @@ class Application (Frame):
                 pass
 
 
+    def additional_equip_choice(self):
+
+        self.lfradio = ttk.LabelFrame(tab9)
+        self.lfradio.pack( side = TOP)
+        self.add_equip_choice_value = IntVar()
+        self.add_equip_choice_value.set(1)
+        self.add_equip_radio = ttk.Radiobutton(self.lfradio, text="off", variable = self.add_equip_choice_value, value= 2, command = self.lackoff_additional ).grid (row = 0,column = 20,padx=20, pady = 5)
+        self.add_equip_radio = ttk.Radiobutton(self.lfradio,text = "on", variable = self.add_equip_choice_value, value = 1,command = self.additional_exuipment).grid(row =0,column = 0,padx=20, pady = 5 )
+
+
 
 
     def additional_exuipment(self):
+        try:
+            self.additional_exuipment_frame.destroy()
+        except:
+            pass
+        finally:
+            self.additional_exuipment_frame = ttk.LabelFrame(tab9)
+           # self.additional_exuipment_frame.pack(anchor=W, padx=15)
+            self.additional_exuipment_frame.pack(side=BOTTOM)
 
-        self.additional_exuipment_frame = ttk.LabelFrame(tab9)
-        self.additional_exuipment_frame.pack(anchor=W, padx=15)
+            self.lbl_additional_equipment= ttk.Label(self.additional_exuipment_frame, text="wyposażenie dodatkowe").grid(row=5, column=10, padx=3, pady=10)
+            self.txt_additional_equipment = Text(self.additional_exuipment_frame , width=50, height = 19, )
+            self.txt_additional_equipment.insert("1.0", get_data.additional_exuipment_value)
+            self.txt_additional_equipment.grid(row=5, column=15, padx=1)
 
-        self.lbl_additional_equipment= ttk.Label(self.additional_exuipment_frame, text="wyposażenie dodatkowe").grid(row=5, column=10, padx=3, pady=10)
-        self.txt_additional_equipment = Text(self.additional_exuipment_frame , width=50, height = 20)
-        self.txt_additional_equipment.insert("1.0", additional_exuipment_value)
-        self.txt_additional_equipment.grid(row=5, column=15, padx=1)
+
+    def lackoff_additional(self):
+        try:
+            self.additional_exuipment_frame.destroy()
+        except:
+            pass
+        finally:
+            pass
+
+
+
 
 
     def s_and_p(self):
@@ -1114,7 +1142,6 @@ class Application (Frame):
         self.s_and_p_frame.pack(anchor=W, padx=15)
         self.lbl_s_and_p= ttk.Label(self.s_and_p_frame, text="sprawdzenie i próby" ).grid(row=5, column=10, padx=3, pady=10)
         self.txt_s_and_p = Text(self.s_and_p_frame , width=50, height = 20)
-
         self.txt_s_and_p.grid(row=5, column=15, padx=1)
 
 

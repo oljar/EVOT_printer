@@ -1170,14 +1170,35 @@ class Application (Frame):
 
     def save_newpdf(self):
     #a = fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False)
-        data_out = {}
-        data_out['aaa'] = self.entry_serial_value.get()
-        data_out['bbb'] = self.entry_order_value.get()
-        print(data_out['aaa'],data_out['bbb'])
+        data_atest_out = {}
+        data_atest_out['serial no'] = self.entry_serial_value.get()
+
+        data_plate_out = {}
+        data_plate_out['bbb'] = self.entry_order_value.get()
+
+        c= {'Pole tekstowe 1': 'aaaa', 'Pole tekstowe 2': '', 'Pole tekstowe 3': '', 'Pole tekstowe 4': '', 'Pole tekstowe 5': '', 'Pole tekstowe 6': '', 'Pole tekstowe 7': '',
+            'Pole tekstowe 8': '', 'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '', 'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
 
+        b={'supply': 'EVO-T + 5000 L', 'evo': 'EVO-T+', 'exhaust': 'EVO-T + 5000 L', 'year prod': '2021', 'serial no': '210262169573000003', 'prod order no': '9032213',
+         'air flow s': '800', 'fan set s': None, 'fan set e': None, 'air flow e': '800', 'external press s': '170', 'fan el mot s': 'typ_went_tab_naw',
+         'fan el mot e': 'typ_went_tab_wyw', 'external press e': '170', 'heatre I s': 'Nag_wod_tab ', 'comp un s': 'Pwn/230', 'comp un e': 'Pww/230', 'heatre I e': None,
+         'heatre II s': 'aaaa', 'pre filt 1 s': None, 'pre filt 1 e': None, 'heatre II e': None, 'electric heater s': 'Nag_ele_tab', 'pre filt 2 s': 'M5 /610x305x50/1',
+         'pre filt 2 e': 'M5 /610x305x50/1', 'sec filt 2 s': None, 'sec filt 2 e': None, 'electric heater e': None, 'cooler s': 'chłodnica_tab_dane', 'pre filt 3 s': None,
+         'pre filt 3 e': None, 'sec filt 3 s': None, 'sec filt 3 e': None, 'cooler e': '', 'Humidifier s': None, 'sec filt 1 s': None, 'sec filt 1 e': None, 'sec filt 4 s': None,
+         'sec filt 4 e': None, 'Humidifier e': None, 'pump el motor t': None, 'heat recovery t': 'Wym. przeciwprądowy  EVOT 8000 CPR H', 'weight t': '200',
+         'air flow': 'Wydatek powietrza', 'fan set': 'Silnik rotora/p-py gl.', 'external press': 'Ciśnienie dyspozycyjne', 'fan el mot': 'Wentylator',
+         'heatre I': 'Nagrzewnica I wodna', 'comp un': 'Silnik wentylatora', 'heatre II': 'Nagrzewnica II', 'pre filt 1': 'Agr. chłodniczy',
+         'electric heater': 'Nagrzewnica elektryczna', 'pre filt 2': 'Filtr wstępny', 'sec filt 2': 'Filtr II stopnia', 'cooler': 'Chłodnica', 'pre filt 3': 'Filtr wstępny',
+         'sec filt 3': 'Filtr III stopnia', 'Humidifier': 'Nawilżacz', 'sec filt 1': 'Filtr II stopnia', 'sec filt 4': 'Filtr III stopnia', 'pump el motor': 'Silnik p-py nawilż.',
+         'heat recovery': 'Odzysk ciepła', 'weight': 'Masa', 'air flow u': 'm³/h', 'fan set u': 'kW/V', 'external press u': 'Pa', 'fan el mot u': 'typ', 'heatre I u': 'typ',
+         'comp un u': 'kW/V', 'heatre II u': 'typ', 'pre filt 1 u': ' V/Arozr/Amax', 'electric heater u': 'typ', 'pre filt 2 u': 'typ/rozm/szt.', 'sec filt 2 u': 'typ/rozm/szt.',
+         'cooler u': '°C/kW/kPa ', 'pre filt 3 u': 'typ/rozm/szt.', 'sec filt 3 u': 'typ/rozm/szt.', 'Humidifier u': '[kg/h]/kW/V', 'sec filt 1 u': 'typ/rozm/szt.',
+         'sec filt 4 u': 'typ/rozm/szt.', 'pump el motor u': 'kW/V/A', 'heat recovery u': 'typ', 'weight u': 'kg', 'cooler e 1': ''}
+        ######
 
-
+        fillpdfs.write_fillable_pdf('tabliczka.pdf','Nowa_tabliczka.pdf', b, flatten=False)
+        fillpdfs.write_fillable_pdf('atest.pdf','Nowy_atest.pdf', c, flatten=False)
 
 
 ########################################################################################################################

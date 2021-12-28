@@ -7,46 +7,24 @@ from tkinter import *
 from tkinter import ttk
 
 
-
-
-
-
-
-
-
 def open_pattern_File():
 
     global path_in
     path_in = filedialog.askdirectory()
 
 
-
 def get_data ():
 
     path_plate = os.path.join(path_in, 'tabliczka.pdf')
     path_cert = os.path.join(path_in, 'atest.pdf')
-
     data_plate = fillpdfs.get_form_fields(path_plate)
     data_cert = fillpdfs.get_form_fields(path_cert)
-
     get_data.selected_ahu_value = "EVO-T"
-
     #
-
     pos = re.search("R|L$", (data_plate['supply']))
-
     get_data.selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
-
     ahu_range = re.findall(r'\d+',get_data.selected_supply_value)[0] # wielkość centrali
-
-
-
     get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
-
-
-
-
-
     get_data.symbol_electric_heater_value = data_cert['Pole tekstowe 8']
     get_data.electric_heater_plate_value_in = data_plate['electric heater s']
     get_data.mass_value= data_plate['weight t'] + ' ' + data_plate['weight u']
@@ -57,11 +35,8 @@ def get_data ():
     get_data.reverse_heater_plate_value = "reverse_heater_plate_value"
     get_data.symbol_water_cooler_value = data_cert['Pole tekstowe 7']
     get_data.water_cooler_plate_value = data_plate['cooler s']
-
-
     get_data.symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
     get_data.refrageration_cooler_plate_value = data_plate['cooler s']
-
     get_data.symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split('\r')[0]
     get_data.power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
     get_data.voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
@@ -82,28 +57,6 @@ def get_data ():
     get_data.voltage_AC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
     get_data.frequency_AC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
     get_data.quantity_AC_exhaust_fan_value = 1
-
-
-
-    # symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    # quantity_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    # symbol_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    # quantity_M5_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    # symbol_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    # quantity_F7_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    # symbol_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]
-    # quantity_F9_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[2]
-    # symbol_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    # quantity_G4_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    # symbol_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    # quantity_M5_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    # symbol_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[1]
-    # quantity_F7_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-    # symbol_F9_exhaust_filter_value  = data_cert['Pole tekstowe 25'].split('/')[1]
-    # quantity_F9_exhaust_filter_value = data_cert['Pole tekstowe 25'].split('/')[2]
-
-
-
     get_data.symbol_supply_damper_value = f'Sekcja tłmik szumu- nawiew {ahu_range}'
     get_data.symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {ahu_range}'
     get_data.symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'

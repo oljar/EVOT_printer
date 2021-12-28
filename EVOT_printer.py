@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import ttk
 import datetime
+
+import write_pdf
 from data_source import *
 from check_and_probe import *
 from filter_source  import *
@@ -37,8 +39,6 @@ class Application (Frame):
 
 
 ########################################################################################################################
-
-
 
 
     def settings(self):
@@ -1167,10 +1167,15 @@ class Application (Frame):
 
         self.path_out = filedialog.askdirectory()
 
+
     def save_newpdf(self):
     #a = fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False)
+        data_out = {}
+        data_out['aaa'] = self.entry_serial_value.get()
+        data_out['bbb'] = self.entry_order_value.get()
+        print(data_out['aaa'],data_out['bbb'])
 
-         print(str(self.path_out))
+
 
 
 

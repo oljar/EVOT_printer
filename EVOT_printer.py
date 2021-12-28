@@ -2,12 +2,12 @@ from tkinter import *
 from tkinter import ttk
 import datetime
 
-import write_pdf
+
 from data_source import *
 from check_and_probe import *
 from filter_source  import *
 from fillpdf import fillpdfs
-from write_pdf import *
+
 
 
 class Application (Frame):
@@ -1172,13 +1172,31 @@ class Application (Frame):
     #a = fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False)
         data_atest_out = {}
         data_atest_out['serial no'] = self.entry_serial_value.get()
-
-        data_plate_out = {}
-        data_plate_out['bbb'] = self.entry_order_value.get()
+        data_atest_out['serial no'] = self.entry_serial_value.get()
 
         c= {'Pole tekstowe 1': 'aaaa', 'Pole tekstowe 2': '', 'Pole tekstowe 3': '', 'Pole tekstowe 4': '', 'Pole tekstowe 5': '', 'Pole tekstowe 6': '', 'Pole tekstowe 7': '',
-            'Pole tekstowe 8': '', 'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '', 'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
+             'Pole tekstowe 8': '', 'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '', 'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
+        data_plate_out = {}
+        data_plate_out['supply'] = 'xxxx'
+        data_plate_out['exhaust'] = 'xxxx'
+        data_plate_out['evo'] = 'xxxx'
+        data_plate_out['year prod'] = 'xxxx'
+        data_plate_out['serial no'] = 'xxxx'
+        data_plate_out['prod order no'] = 'xxxx'
+        data_plate_out['air flow s'] = 'xxxx'
+        data_plate_out['fan set s'] = 'xxxx'
+        data_plate_out['fan set e'] = 'xxxx'
+        data_plate_out['air flow e'] = 'xxxx'
+        data_plate_out['external press s'] = 'xxxx'
+        data_plate_out['fan el mot s'] = 'xxxx'
+        data_plate_out['fan el mot e'] = 'xxxx'
+        data_plate_out['external press e'] = 'xxxx'
+        data_plate_out['heatre I s'] = 'xxxx'
+        data_plate_out['comp un s'] = 'xxxx'
+        data_plate_out['comp un e'] = 'xxxx'
+        data_plate_out['heatre I e'] = 'xxxx'
+        data_plate_out['heatre II s'] = 'xxxx'
 
         b={'supply': 'EVO-T + 5000 L', 'evo': 'EVO-T+', 'exhaust': 'EVO-T + 5000 L', 'year prod': '2021', 'serial no': '210262169573000003', 'prod order no': '9032213',
          'air flow s': '800', 'fan set s': None, 'fan set e': None, 'air flow e': '800', 'external press s': '170', 'fan el mot s': 'typ_went_tab_naw',

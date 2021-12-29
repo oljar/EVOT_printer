@@ -119,11 +119,10 @@ class Application (Frame):
 
 
     # supply
-        self.selected_supply_value_in = StringVar
-        self.selected_supply_value = get_data.selected_supply_value
+        self.selected_supply_value = StringVar()
         self.lbl_supply = ttk.Label(self.identity_frame, text="nawiew - wykonanie").grid(row=25, column=1, padx=10, pady=3)
-        self.entry_type_supply = ttk.Entry(self.identity_frame, textvariable=self.selected_supply_value_in)
-        self.entry_type_supply.insert(END,self.selected_supply_value)
+        self.entry_type_supply = ttk.Entry(self.identity_frame, textvariable = self.selected_supply_value)
+        self.entry_type_supply.insert(END,get_data.selected_supply_value)
         self.entry_type_supply.grid(row=25, column=2,  pady=3, ipadx=10)
 
 
@@ -133,7 +132,7 @@ class Application (Frame):
     # supply_execution
         self.selected_supply_execution_value = StringVar()
         self.version_supply_execution = ('L', 'R')
-        self.combobox_suplly_execution = ttk.Combobox(self.identity_frame, values=self.version_supply_execution,width = 5 ).grid(row=25, column=10)
+        self.combobox_suplly_execution = ttk.Combobox(self.identity_frame, values=self.version_supply_execution, width = 5 ,textvariable = self.selected_supply_execution_value ).grid(row=25, column=10)
 
 
     #supply_flow
@@ -511,7 +510,7 @@ class Application (Frame):
             self.entry_quantity_plate_EC_supply_fan.insert(END, get_data.quantity_EC_supply_fan_value)
             self.entry_quantity_plate_EC_supply_fan.grid(row=25, column=5, padx=(0, 100))
 
-            # Symbol - EC_exhaust_fan
+            # Symbol - EC_exhaust_fan-
 
             self.symbol_EC_exhaust_fan_value = StringVar()
             self.lbl_symbol_EC_exhaust_fan= ttk.Label(self.lframe, text="wywiew-typ-EC" ).grid(row=5, column=10,padx = 3,pady = 10)
@@ -1161,17 +1160,26 @@ class Application (Frame):
 
         self.path_out = filedialog.askdirectory()
 
+    #get_data.selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
+    #ahu_range = re.findall(r'\d+', get_data.selected_supply_value)[0]  # wielkość centrali
+
+
+
+
 
     def save_newpdf(self):
     #a = fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False)
 
-        data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': '', 'Pole tekstowe 4': '',
+        data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': self.selected_supply_value.get() + self.selected_supply_execution_value.get(),
+
+                         'Pole tekstowe 4': '',
                          'Pole tekstowe 5': '', 'Pole tekstowe 6': '', 'Pole tekstowe 7': '',
              'Pole tekstowe 8': '', 'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '',
             'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
 
-        data_tabliczka_out={'supply': '', 'evo': self.selected_ahu_value.get(), 'exhaust': 'EVO-T + 5000 L', 'year prod': '2021', 'serial no': self.entry_serial_value.get(),
+        data_tabliczka_out={'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get() , 'evo': self.selected_ahu_value.get(), 'exhaust': 'EVO-T + ''5000 L', 'year prod': '2021',
+                            'serial no': self.entry_serial_value.get(),
                             'prod order no': self.entry_order_value.get(),
            'air flow s': '800', 'fan set s': '', 'fan set e': None, 'air flow e': '800', 'external press s': '170', 'fan el mot s': 'typ_went_tab_naw',
            'fan el mot e': 'typ_went_tab_wyw', 'external press e': '170', 'heatre I s': 'Nag_wod_tab ', 'comp un s': 'Pwn/230', 'comp un e': 'Pww/230', 'heatre I e': None,

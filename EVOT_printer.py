@@ -60,11 +60,10 @@ class Application (Frame):
         self.entry_type.grid(row=5, column=2,padx=10,ipadx=10, pady=(10,3))
 
         self.data_value = StringVar()
-        self.data_act = datetime.date.today()
         self.data=ttk.Label(self.settings_frame ,text = "data").grid(row =15,column = 1,padx=10,pady=(10,3))
-        self.entry_data=ttk.Entry(self.settings_frame,textvariable = self.data_value)
-        actual_date = datetime.datetime.today().strftime('%Y-%m-%d')
-        self.entry_data.insert(END,actual_date )
+        self.entry_data=ttk.Entry(self.settings_frame,textvariable = self.data_value  )
+        self.actual_date = datetime.datetime.today().strftime('%Y-%m-%d')
+        self.entry_data.insert(END,self.actual_date )
         self.entry_data.grid(row =15 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
 
         # folder with pattern choice
@@ -151,11 +150,10 @@ class Application (Frame):
 
 
     #exhaust
-        self.selected_exhaust_value_in = StringVar()
-        self.selected_exhaust_value = get_data.selected_exhaust_value
+        self.selected_exhaust_value = StringVar()
         self.lbl_exhaust = ttk.Label(self.identity_frame, text="wywiew - wykonanie").grid(row=40, column=1, padx=10, pady=3)
-        self.entry_type_exhaust = ttk.Entry(self.identity_frame, textvariable= self.selected_exhaust_value_in )
-        self.entry_type_exhaust.insert(END, self.selected_exhaust_value)
+        self.entry_type_exhaust = ttk.Entry(self.identity_frame, textvariable = self.selected_exhaust_value)
+        self.entry_type_exhaust.insert(END, get_data.selected_exhaust_value)
         self.entry_type_exhaust.config(state=DISABLED)
         self.entry_type_exhaust.grid(row=40, column=2 ,  pady=3, ipadx=10)
 
@@ -1171,15 +1169,14 @@ class Application (Frame):
     #a = fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False)
 
         data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': self.selected_supply_value.get() + self.selected_supply_execution_value.get(),
-
-                         'Pole tekstowe 4': '',
-                         'Pole tekstowe 5': '', 'Pole tekstowe 6': '', 'Pole tekstowe 7': '',
+                        'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': 'rok', 'Pole tekstowe 6': '',
+                         'Pole tekstowe 7': '',
              'Pole tekstowe 8': '', 'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '',
             'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
 
-        data_tabliczka_out={'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get() , 'evo': self.selected_ahu_value.get(), 'exhaust': 'EVO-T + ''5000 L', 'year prod': '2021',
-                            'serial no': self.entry_serial_value.get(),
+        data_tabliczka_out={'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get() , 'evo': self.selected_ahu_value.get(),
+                            'exhaust': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'year prod':  re.findall(r'2\d\d\d',self.data_value.get())[0],'serial no': self.entry_serial_value.get(),
                             'prod order no': self.entry_order_value.get(),
            'air flow s': '800', 'fan set s': '', 'fan set e': None, 'air flow e': '800', 'external press s': '170', 'fan el mot s': 'typ_went_tab_naw',
            'fan el mot e': 'typ_went_tab_wyw', 'external press e': '170', 'heatre I s': 'Nag_wod_tab ', 'comp un s': 'Pwn/230', 'comp un e': 'Pww/230', 'heatre I e': None,

@@ -1163,8 +1163,6 @@ class Application (Frame):
 
 
 
-
-
     def save_newpdf(self):
     #a = fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False)
 

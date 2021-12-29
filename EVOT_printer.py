@@ -1165,12 +1165,12 @@ class Application (Frame):
     def save_newpdf(self):
     #a = fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False)
 
-        data_atest_out= {'Pole tekstowe 1': self.entry_serial_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': '', 'Pole tekstowe 4': '', 'Pole tekstowe 5': '', 'Pole tekstowe 6': '', 'Pole tekstowe 7': '',
+        data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value, 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': '', 'Pole tekstowe 4': '', 'Pole tekstowe 5': '', 'Pole tekstowe 6': '', 'Pole tekstowe 7': '',
              'Pole tekstowe 8': '', 'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '',
             'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
 
-        data_tabliczka_out={'supply': '', 'evo': 'EVO-T+', 'exhaust': 'EVO-T + 5000 L', 'year prod': '2021', 'serial no': self.entry_serial_value.get(), 'prod order no': '9032213',
+        data_tabliczka_out={'supply': '', 'evo': 'EVO-T+', 'exhaust': 'EVO-T + 5000 L', 'year prod': '2021', 'serial no': self.entry_serial_value.get(), 'prod order no': self.entry_order_value.get(),
            'air flow s': '800', 'fan set s': '', 'fan set e': None, 'air flow e': '800', 'external press s': '170', 'fan el mot s': 'typ_went_tab_naw',
            'fan el mot e': 'typ_went_tab_wyw', 'external press e': '170', 'heatre I s': 'Nag_wod_tab ', 'comp un s': 'Pwn/230', 'comp un e': 'Pww/230', 'heatre I e': None,
            'heatre II s': 'aaaa', 'pre filt 1 s': None, 'pre filt 1 e': None, 'heatre II e': None, 'electric heater s': 'Nag_ele_tab', 'pre filt 2 s': 'M5 /610x305x50/1',

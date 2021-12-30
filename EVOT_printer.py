@@ -1167,7 +1167,7 @@ class Application (Frame):
 
         data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': self.selected_supply_value.get() + self.selected_supply_execution_value.get(),
                         'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': self.entry_supply_flow_value.get() + '\r' + self.entry_exhaust_flow_value.get(),
-                        'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),'Pole tekstowe 7': 'chłodnica','Pole tekstowe 8': '',
+                        'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),'Pole tekstowe 7': '','Pole tekstowe 8': '',
                          'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '',
             'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
@@ -1177,10 +1177,10 @@ class Application (Frame):
                              'year prod': re.findall(r'2\d\d\d', self.data_value.get())[0], 'serial no': self.entry_serial_value.get(),
                              'prod order no': self.entry_order_value.get(), 'air flow s': self.entry_supply_flow_value.get(), 'fan set s': '', 'fan set e': None,
                              'air flow e': self.entry_exhaust_flow_value.get(), 'external press s': self.entry_supply_pressure_value.get(), 'fan el mot s': 'typ_went_tab_naw',
-                             'fan el mot e': 'typ_went_tab_wyw', 'external press e': self.entry_exhaust_pressure_value.get(), 'heatre I s': 'Nag_wod_tab ', 'comp un s': 'Pwn/230',
-                             'comp un e': 'Pww/230', 'heatre I e': None, 'heatre II s': 'aaaa', 'pre filt 1 s': None, 'pre filt 1 e': None, 'heatre II e': None,
-                             'electric heater s': 'Nag_ele_tab', 'pre filt 2 s': 'M5 /610x305x50/1', 'pre filt 2 e': 'M5 /610x305x50/1', 'sec filt 2 s': None, 'sec filt 2 e': None,
-                             'electric heater e': None, 'pre filt 3 s': None, 'pre filt 3 e': None, 'sec filt 3 s': None, 'sec filt 3 e': None, 'cooler e': '',
+                             'fan el mot e': 'typ_went_tab_wyw', 'external press e': self.entry_exhaust_pressure_value.get(), 'heatre I s': '', 'comp un s': 'Pwn/230',
+                             'comp un e': 'Pww/230', 'heatre I e': '', 'heatre II s': '', 'cooler s':'', 'pre filt 1 s': None, 'pre filt 1 e': None, 'heatre II e': '',
+                             'electric heater s': '', 'pre filt 2 s': 'M5 /610x305x50/1', 'pre filt 2 e': 'M5 /610x305x50/1', 'sec filt 2 s': None, 'sec filt 2 e': None,
+                             'electric heater e': '', 'pre filt 3 s': None, 'pre filt 3 e': None, 'sec filt 3 s': None, 'sec filt 3 e': None, 'cooler e': '',
                              'Humidifier s': None, 'sec filt 1 s': None, 'sec filt 1 e': None, 'sec filt 4 s': None, 'sec filt 4 e': None, 'Humidifier e': None,
                              'pump el motor t': None, 'heat recovery t': 'Wym. przeciwprądowy  EVOT 8000 CPR H', 'weight t': '200', 'air flow': 'Wydatek powietrza',
                              'fan set': 'Silnik rotora/p-py gl.', 'external press': 'Ciśnienie dyspozycyjne', 'fan el mot': 'Wentylator', 'heatre I': 'Nagrzewnica I wodna',
@@ -1192,7 +1192,29 @@ class Application (Frame):
                              'electric heater u': 'typ', 'pre filt 2 u': 'typ/rozm/szt.', 'sec filt 2 u': 'typ/rozm/szt.', 'cooler u': '°C/kW/kPa ',
                              'pre filt 3 u': 'typ/rozm/szt.', 'sec filt 3 u': 'typ/rozm/szt.', 'Humidifier u': '[kg/h]/kW/V', 'sec filt 1 u': 'typ/rozm/szt.',
                              'sec filt 4 u': 'typ/rozm/szt.', 'pump el motor u': 'kW/V/A', 'heat recovery u': 'typ', 'weight u': 'kg', 'cooler e 1': ''}
-#   chłodnica
+
+#   heater
+
+        if self.heater_choice_value.get() == 1:
+            data_tabliczka_out['electric heater s'] = self.electric_heater_plate_value.get()
+            data_atest_out['Pole tekstowe 8'] = self.symbol_electric_heater_value.get()
+        elif self.heater_choice_value.get() == 2:
+            data_tabliczka_out['heatre I s'] = self.water_heater_plate_value.get()
+            data_atest_out['Pole tekstowe 8'] = self.symbol_water_heater_value.get()
+        elif self.heater_choice_value.get() == 3:
+            data_tabliczka_out['cooler s'] = self.reverse_heater_plate_value.get()
+            data_atest_out['Pole tekstowe 7'] = self.symbol_reverse_exchanger_value.get()
+        elif self.heater_choice_value.get() == 4:
+            data_tabliczka_out['electric heater s'] =''
+            data_tabliczka_out['heatre I s'] = ''
+            data_atest_out['Pole tekstowe 8'] = ''
+
+        ######
+
+
+
+
+#   cooler
         if self.cooler_choice_value.get() == 1:
             data_tabliczka_out['cooler s'] = self.water_cooler_plate_value.get()
             data_atest_out['Pole tekstowe 7'] = self.symbol_water_cooler_value.get()

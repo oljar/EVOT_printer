@@ -417,7 +417,6 @@ class Application (Frame):
             self.entry_symbol_refrageration_cooler.grid(row=5, column=5, padx = 3)
 
 
-
             # water cooler data  for plate
             self.refrageration_cooler_plate_value = StringVar()
             self.lbl_plate_refrageration_cooler = ttk.Label(self.lframe, text="dane" ).grid(row=10, column=1,padx=1,pady = 10)
@@ -1168,10 +1167,8 @@ class Application (Frame):
 
         data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': self.selected_supply_value.get() + self.selected_supply_execution_value.get(),
                         'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': self.entry_supply_flow_value.get() + '\r' + self.entry_exhaust_flow_value.get(),
-                        'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),
-
-                         'Pole tekstowe 7': 'chłodnica',
-             'Pole tekstowe 8': '', 'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '',
+                        'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),'Pole tekstowe 7': 'chłodnica','Pole tekstowe 8': '',
+                         'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '',
             'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
 
@@ -1197,12 +1194,18 @@ class Application (Frame):
                              'sec filt 4 u': 'typ/rozm/szt.', 'pump el motor u': 'kW/V/A', 'heat recovery u': 'typ', 'weight u': 'kg', 'cooler e 1': ''}
 #   chłodnica
         if self.cooler_choice_value.get() == 1:
-            data_tabliczka_out['cooler s'] =  'chłodnica wodna'
+            data_tabliczka_out['cooler s'] = self.water_cooler_plate_value.get()
+            data_atest_out['Pole tekstowe 7'] = self.symbol_water_cooler_value.get()
         elif self.cooler_choice_value.get() == 2:
-            data_tabliczka_out['cooler s'] = 'chłodnica freon'
+            data_tabliczka_out['cooler s'] = self.refrageration_cooler_plate_value.get()
+            data_atest_out['Pole tekstowe 7'] = self.symbol_refrageration_cooler_value.get()
         elif self.cooler_choice_value.get() == 4:
-            data_tabliczka_out['cooler s'] = 'brak'
+            data_tabliczka_out['cooler s'] = ''
+            data_atest_out['Pole tekstowe 7'] = ''
         ######
+
+
+
 
         fillpdfs.write_fillable_pdf('tabliczka.pdf','Nowa_tabliczka.pdf', data_tabliczka_out, flatten=False)
         fillpdfs.write_fillable_pdf('atest.pdf','Nowy_atest.pdf', data_atest_out, flatten=False)

@@ -1228,37 +1228,75 @@ class Application (Frame):
         ######
 
 #   fan EC
-        if self.fan_choice_value.get() == 1:
-            data_tabliczka_out['fan el mot s'] = self.symbol_EC_supply_fan_value.get()
-            data_tabliczka_out['fan el mot e'] = self.symbol_EC_exhaust_fan_value.get()
 
-            data_atest_out['Pole tekstowe 27'] = self.symbol_EC_supply_fan_value.get() +'\r'+ self.symbol_EC_exhaust_fan_value.get()
-            data_atest_out['Pole tekstowe 9'] = self.power_EC_supply_fan_value.get() + '\r' + self.power_EC_exhaust_fan_value.get()
+        if self.fan_choice_value.get() == 1:
+            if int(self.quantity_EC_supply_fan_value.get()) > 1 :
+                qfan_sup_EC = ' x ' + self.quantity_EC_supply_fan_value.get()
+            elif int(self.quantity_EC_supply_fan_value.get()) == 1 :
+                qfan_sup_EC = ''
+            else :
+                qfan_sup_EC = ''
+
+            if int(self.quantity_EC_exhaust_fan_value.get()) > 1 :
+                qfan_exh_EC = ' x ' + self.quantity_EC_exhaust_fan_value.get()
+            elif int(self.quantity_EC_exhaust_fan_value.get()) == 1 :
+                qfan_exh_EC = ''
+            else :
+                qfan_exh_EC = ''
+
+
+
+
+            data_tabliczka_out['fan el mot s'] = self.symbol_EC_supply_fan_value.get() + qfan_sup_EC
+            data_tabliczka_out['fan el mot e'] = self.symbol_EC_exhaust_fan_value.get() + qfan_exh_EC
+
+
+
+            data_atest_out['Pole tekstowe 27'] = self.symbol_EC_supply_fan_value.get() + qfan_sup_EC +'\r'+ self.symbol_EC_exhaust_fan_value.get() + qfan_exh_EC
+            data_atest_out['Pole tekstowe 9'] = self.power_EC_supply_fan_value.get() + qfan_sup_EC + '\r' + self.power_EC_exhaust_fan_value.get() + qfan_exh_EC
             data_atest_out['Pole tekstowe 10'] = self.voltage_EC_supply_fan_value.get() + '\r' + self.voltage_EC_exhaust_fan_value.get()
             data_atest_out['Pole tekstowe 11'] = self.frequency_EC_supply_fan_value.get() + '\r' + self.frequency_EC_exhaust_fan_value.get()
 
-            data_tabliczka_out['comp un s'] = self.power_EC_supply_fan_value.get() + ' / ' + self.voltage_EC_supply_fan_value.get()
-            data_tabliczka_out['comp un e'] = self.power_EC_exhaust_fan_value.get() + ' / ' + self.voltage_EC_exhaust_fan_value.get()
+            data_tabliczka_out['comp un s'] = self.power_EC_supply_fan_value.get() + qfan_sup_EC + ' / ' + self.voltage_EC_supply_fan_value.get()
+            data_tabliczka_out['comp un e'] = self.power_EC_exhaust_fan_value.get() + qfan_exh_EC + ' / ' + self.voltage_EC_exhaust_fan_value.get()
 
 
-#    fan AC
+
+
+        #    fan AC
+
 
         elif self.fan_choice_value.get() == 2:
-            data_tabliczka_out['fan el mot s'] = self.symbol_AC_supply_fan_value.get()
 
-            data_tabliczka_out['fan el mot e'] = self.symbol_AC_exhaust_fan_value.get()
+            if int(self.quantity_AC_supply_fan_value.get()) > 1:
+                qfan_sup_AC = ' x ' + self.quantity_AC_supply_fan_value.get()
 
-            data_atest_out['Pole tekstowe 27'] = self.symbol_AC_supply_fan_value.get() + '\r' + self.symbol_AC_exhaust_fan_value.get()
-            data_atest_out['Pole tekstowe 9'] = self.power_AC_supply_fan_value.get() + '\r' + self.power_AC_exhaust_fan_value.get()
+            elif int(self.quantity_AC_supply_fan_value.get()) == 1:
+                qfan_sup_AC = ''
+            else:
+                qfan_sup_AC = ''
+
+            if int(self.quantity_AC_exhaust_fan_value.get()) > 1:
+                qfan_exh_AC = ' x ' + self.quantity_AC_exhaust_fan_value.get()
+            elif int(self.quantity_AC_exhaust_fan_value.get()) == 1:
+                qfan_exh_AC = ''
+            else:
+                qfan_exh_AC = ''
+
+            data_tabliczka_out['fan el mot s'] = self.symbol_AC_supply_fan_value.get() + qfan_sup_AC
+            data_tabliczka_out['fan el mot e'] = self.symbol_AC_exhaust_fan_value.get() + qfan_exh_AC
+
+            data_atest_out['Pole tekstowe 27'] = self.symbol_AC_supply_fan_value.get() + qfan_sup_AC + '\r' + self.symbol_AC_exhaust_fan_value.get() + qfan_exh_AC
+            data_atest_out['Pole tekstowe 9'] = self.power_AC_supply_fan_value.get() + qfan_sup_AC + '\r' + self.power_AC_exhaust_fan_value.get() + qfan_exh_AC
             data_atest_out['Pole tekstowe 10'] = self.voltage_AC_supply_fan_value.get() + '\r' + self.voltage_AC_exhaust_fan_value.get()
             data_atest_out['Pole tekstowe 11'] = self.frequency_AC_supply_fan_value.get() + '\r' + self.frequency_AC_exhaust_fan_value.get()
 
-            data_tabliczka_out['comp un s'] = self.power_AC_supply_fan_value.get() + ' / ' + self.voltage_AC_supply_fan_value.get()
-            data_tabliczka_out['comp un e'] = self.power_AC_exhaust_fan_value.get() + ' / ' + self.voltage_AC_exhaust_fan_value.get()
+            data_tabliczka_out['comp un s'] = self.power_AC_supply_fan_value.get() + qfan_sup_AC + ' / ' + self.voltage_AC_supply_fan_value.get()
+            data_tabliczka_out['comp un e'] = self.power_AC_exhaust_fan_value.get() + qfan_exh_AC + ' / ' + self.voltage_AC_exhaust_fan_value.get()
 
 
 
-# lack off
+    # lack off
         elif self.fan_choice_value.get() == 4:
 
             data_tabliczka_out['fan el mot s'] = ''
@@ -1281,21 +1319,6 @@ class Application (Frame):
        ######
 
 # filters
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -682,7 +682,6 @@ class Application (Frame):
             self.symbol_G4_supply_filter_value = StringVar()
             self.lbl_symbol_G4_supply_filter = ttk.Label(self.lframe, text="nawiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
             self.entry_symbol_G4_supply_filter = ttk.Entry(self.lframe, textvariable=self.symbol_G4_supply_filter_value, width=30)
-            print(ahu_range)
             self.entry_symbol_G4_supply_filter.insert(END, symbol_G4_supply_filter_value[str(ahu_range)])
             self.entry_symbol_G4_supply_filter.grid(row=10, column=1, padx=1)
 
@@ -1320,7 +1319,9 @@ class Application (Frame):
 
 # filters
 
-
+        if self.filter_choice_value.get() == 1 :
+            data_tabliczka_out['pre filt 1 s'] = self.symbol_G4_supply_filter_value.get()
+            data_atest_out['Pole tekstowe 12'] = self.symbol_G4_supply_filter_value.get()
 
 
 

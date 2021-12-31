@@ -123,22 +123,22 @@ except:
     get_data.power_EC_supply_fan_value  = 'odśwież'
     get_data.voltage_EC_supply_fan_value = 'odśwież'
     get_data.frequency_EC_supply_fan_value = 'odśwież'
-    get_data.quantity_EC_supply_fan_value = 'odśwież'
+    get_data.quantity_EC_supply_fan_value = 1
     get_data.symbol_EC_exhaust_fan_value = 'odśwież'
     get_data.power_EC_exhaust_fan_value =  'odśwież'
     get_data.voltage_EC_exhaust_fan_value = 'odśwież'
     get_data.frequency_EC_exhaust_fan_value = 'odśwież'
-    get_data.quantity_EC_exhaust_fan_value = 'odśwież'
+    get_data.quantity_EC_exhaust_fan_value = 1
     get_data.power_AC_supply_fan_value = 'odśwież'
     get_data.symbol_AC_supply_fan_value = 'odśwież'
     get_data.voltage_AC_supply_fan_value = 'odśwież'
     get_data.frequency_AC_supply_fan_value = 'odśwież'
-    get_data.quantity_AC_supply_fan_value = 'odśwież'
+    get_data.quantity_AC_supply_fan_value = 1
     get_data.symbol_AC_exhaust_fan_value = 'odśwież'
     get_data.power_AC_exhaust_fan_value = 'odśwież'
     get_data.voltage_AC_exhaust_fan_value = 'odśwież'
     get_data.frequency_AC_exhaust_fan_value = 'odśwież'
-    get_data.quantity_AC_exhaust_fan_value = 'odśwież'
+    get_data.quantity_AC_exhaust_fan_value = 1
 
 
     # symbol_G4_supply_filter_value = data_cert['Pole tekstowe 12'].split('/')[1]

@@ -1168,17 +1168,18 @@ class Application (Frame):
         data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': self.selected_supply_value.get() + self.selected_supply_execution_value.get(),
                         'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': self.entry_supply_flow_value.get() + '\r' + self.entry_exhaust_flow_value.get(),
                         'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),'Pole tekstowe 7': '','Pole tekstowe 8': '',
-                         'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '', 'Pole tekstowe 17': '',
-            'Pole tekstowe 18': '', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '', 'Pole tekstowe 26': '', 'Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
+                         'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': 'Filtr N', 'Pole tekstowe 16': 'wyp dod',
+                         'Pole tekstowe 17': 'S&P', 'Pole tekstowe 18': 'Data prod', 'Pole tekstowe 19': 'projekt', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': 'Filtr W',
+                         'Pole tekstowe 26': 'system AHU','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': 'Nazwisko kontrolera'}
 
 
         data_tabliczka_out= {'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get(), 'evo': self.selected_ahu_value.get(),
                              'exhaust': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(),
                              'year prod': re.findall(r'2\d\d\d', self.data_value.get())[0], 'serial no': self.entry_serial_value.get(),
                              'prod order no': self.entry_order_value.get(), 'air flow s': self.entry_supply_flow_value.get(), 'fan set s': '', 'fan set e': None,
-                             'air flow e': self.entry_exhaust_flow_value.get(), 'external press s': self.entry_supply_pressure_value.get(), 'fan el mot s': 'typ_went_tab_naw',
-                             'fan el mot e': 'typ_went_tab_wyw', 'external press e': self.entry_exhaust_pressure_value.get(), 'heatre I s': '', 'comp un s': 'Pwn/230',
-                             'comp un e': 'Pww/230', 'heatre I e': '', 'heatre II s': '', 'cooler s':'', 'pre filt 1 s': None, 'pre filt 1 e': None, 'heatre II e': '',
+                             'air flow e': self.entry_exhaust_flow_value.get(), 'external press s': self.entry_supply_pressure_value.get(), 'fan el mot s': '',
+                             'fan el mot e': '', 'external press e': self.entry_exhaust_pressure_value.get(), 'heatre I s': '', 'comp un s': '',
+                             'comp un e': '', 'heatre I e': '', 'heatre II s': '', 'cooler s':'', 'pre filt 1 s': None, 'pre filt 1 e': None, 'heatre II e': '',
                              'electric heater s': '', 'pre filt 2 s': 'M5 /610x305x50/1', 'pre filt 2 e': 'M5 /610x305x50/1', 'sec filt 2 s': None, 'sec filt 2 e': None,
                              'electric heater e': '', 'pre filt 3 s': None, 'pre filt 3 e': None, 'sec filt 3 s': None, 'sec filt 3 e': None, 'cooler e': '',
                              'Humidifier s': None, 'sec filt 1 s': None, 'sec filt 1 e': None, 'sec filt 4 s': None, 'sec filt 4 e': None, 'Humidifier e': None,
@@ -1226,11 +1227,95 @@ class Application (Frame):
             data_atest_out['Pole tekstowe 7'] = ''
         ######
 
+#   fan EC
+        if self.fan_choice_value.get() == 1:
+            data_tabliczka_out['fan el mot s'] = self.symbol_EC_supply_fan_value.get()
+            data_tabliczka_out['fan el mot e'] = self.symbol_EC_exhaust_fan_value.get()
+
+            data_atest_out['Pole tekstowe 27'] = self.symbol_EC_supply_fan_value.get() +'\r'+ self.symbol_EC_exhaust_fan_value.get()
+            data_atest_out['Pole tekstowe 9'] = self.power_EC_supply_fan_value.get() + '\r' + self.power_EC_exhaust_fan_value.get()
+            data_atest_out['Pole tekstowe 10'] = self.voltage_EC_supply_fan_value.get() + '\r' + self.voltage_EC_exhaust_fan_value.get()
+            data_atest_out['Pole tekstowe 11'] = self.frequency_EC_supply_fan_value.get() + '\r' + self.frequency_EC_exhaust_fan_value.get()
+
+            data_tabliczka_out['comp un s'] = self.power_EC_supply_fan_value.get() + ' / ' + self.voltage_EC_supply_fan_value.get()
+            data_tabliczka_out['comp un e'] = self.power_EC_exhaust_fan_value.get() + ' / ' + self.voltage_EC_exhaust_fan_value.get()
+
+
+#    fan AC
+
+        elif self.fan_choice_value.get() == 2:
+            data_tabliczka_out['fan el mot s'] = self.symbol_AC_supply_fan_value.get()
+
+            data_tabliczka_out['fan el mot e'] = self.symbol_AC_exhaust_fan_value.get()
+
+            data_atest_out['Pole tekstowe 27'] = self.symbol_AC_supply_fan_value.get() + '\r' + self.symbol_AC_exhaust_fan_value.get()
+            data_atest_out['Pole tekstowe 9'] = self.power_AC_supply_fan_value.get() + '\r' + self.power_AC_exhaust_fan_value.get()
+            data_atest_out['Pole tekstowe 10'] = self.voltage_AC_supply_fan_value.get() + '\r' + self.voltage_AC_exhaust_fan_value.get()
+            data_atest_out['Pole tekstowe 11'] = self.frequency_AC_supply_fan_value.get() + '\r' + self.frequency_AC_exhaust_fan_value.get()
+
+            data_tabliczka_out['comp un s'] = self.power_AC_supply_fan_value.get() + ' / ' + self.voltage_AC_supply_fan_value.get()
+            data_tabliczka_out['comp un e'] = self.power_AC_exhaust_fan_value.get() + ' / ' + self.voltage_AC_exhaust_fan_value.get()
+
+
+
+# lack off
+        elif self.fan_choice_value.get() == 4:
+
+            data_tabliczka_out['fan el mot s'] = ''
+
+            data_tabliczka_out['fan el mot e'] = ''
+
+            data_atest_out['Pole tekstowe 27'] = ''
+
+            data_atest_out['Pole tekstowe 9'] =  ''
+
+            data_atest_out['Pole tekstowe 10'] = ''
+
+            data_atest_out['Pole tekstowe 11'] = ''
+
+            data_tabliczka_out['comp un s'] = ''
+
+            data_tabliczka_out['comp un e'] = ''
+
+
+       ######
+
+# filters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
         fillpdfs.write_fillable_pdf('tabliczka.pdf','Nowa_tabliczka.pdf', data_tabliczka_out, flatten=False)
         fillpdfs.write_fillable_pdf('atest.pdf','Nowy_atest.pdf', data_atest_out, flatten=False)
+
+
+
+
+
 
 
 ########################################################################################################################

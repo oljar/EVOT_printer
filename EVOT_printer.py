@@ -658,12 +658,12 @@ class Application (Frame):
     def supply_filter_choice(self):
         self.lfradio = ttk.LabelFrame(tab5)
         self.lfradio.pack( )
-        self.filter_choice_value = IntVar()
-        self.G4_supply_filter = ttk.Radiobutton(self.lfradio, text = "G4", variable = self.filter_choice_value, value = 1, command = self.G4_supply_filter_function).grid(row =0, column = 0, padx=20, pady = 5)
-        self.M5_supply_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.filter_choice_value, value = 2, command = self.M5_supply_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
-        self.F7_supply_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.filter_choice_value, value = 3, command = self.F7_supply_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
-        self.F9_supply_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.filter_choice_value, value = 4, command = self.F9_supply_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
-        self.lackoff_supply_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.filter_choice_value, value= 5, command = self.lackoff_supply_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
+        self.supply_filter_choice_value = IntVar()
+        self.G4_supply_filter = ttk.Radiobutton(self.lfradio, text = "G4", variable = self.supply_filter_choice_value, value = 1, command = self.G4_supply_filter_function).grid(row =0, column = 0, padx=20, pady = 5)
+        self.M5_supply_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.supply_filter_choice_value, value = 2, command = self.M5_supply_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
+        self.F7_supply_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.supply_filter_choice_value, value = 3, command = self.F7_supply_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
+        self.F9_supply_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.supply_filter_choice_value, value = 4, command = self.F9_supply_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
+        self.lackoff_supply_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.supply_filter_choice_value, value= 5, command = self.lackoff_supply_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
 
@@ -1319,9 +1319,9 @@ class Application (Frame):
 
 # filters
 
-        if self.filter_choice_value.get() == 1 :
-            data_tabliczka_out['pre filt 1 s'] = self.symbol_G4_supply_filter_value.get()
-            data_atest_out['Pole tekstowe 12'] = self.symbol_G4_supply_filter_value.get()
+        if self.supply_filter_choice_value.get() == 1 :
+            data_tabliczka_out['pre filt 2 s'] = 'G4/'+ self.symbol_G4_supply_filter_value.get()+ '/'+ self.quantity_G4_supply_filter_value.get()
+            data_atest_out['Pole tekstowe 12'] = '\r'+' G4 / '+self.symbol_G4_supply_filter_value.get() + ' / ' +self.quantity_G4_supply_filter_value.get()
 
 
 

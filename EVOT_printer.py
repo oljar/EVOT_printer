@@ -811,12 +811,12 @@ class Application (Frame):
     def exhaust_filter_choice(self):
         self.lfradio = ttk.LabelFrame(tab6)
         self.lfradio.pack( )
-        self.filter_choice_value = IntVar()
-        self.G4_filter = ttk.Radiobutton(self.lfradio, text = "G4", variable = self.filter_choice_value, value = 1, command = self.G4_exhaust_filter_function).grid(row =0, column = 0, padx=20, pady = 5)
-        self.M5_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.filter_choice_value, value = 2, command = self.M5_exhaust_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
-        self.F7_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.filter_choice_value, value = 3, command = self.F7_exhaust_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
-        self.F9_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.filter_choice_value, value = 4, command = self.F9_exhaust_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
-        self.lackoff_exhaust_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.filter_choice_value, value= 5, command = self.lackoff_exhaust_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
+        self.exhaust_filter_choice_value = IntVar()
+        self.G4_filter = ttk.Radiobutton(self.lfradio, text = "G4", variable = self.exhaust_filter_choice_value, value = 1, command = self.G4_exhaust_filter_function).grid(row =0, column = 0, padx=20, pady = 5)
+        self.M5_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.exhaust_filter_choice_value, value = 2, command = self.M5_exhaust_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
+        self.F7_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.exhaust_filter_choice_value, value = 3, command = self.F7_exhaust_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
+        self.F9_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.exhaust_filter_choice_value, value = 4, command = self.F9_exhaust_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
+        self.lackoff_exhaust_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.exhaust_filter_choice, value= 5, command = self.lackoff_exhaust_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
 
@@ -1167,8 +1167,8 @@ class Application (Frame):
         data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': self.selected_supply_value.get() + self.selected_supply_execution_value.get(),
                         'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': self.entry_supply_flow_value.get() + '\r' + self.entry_exhaust_flow_value.get(),
                         'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),'Pole tekstowe 7': '','Pole tekstowe 8': '',
-                         'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': 'Filtr N', 'Pole tekstowe 16': 'wyp dod',
-                         'Pole tekstowe 17': 'S&P', 'Pole tekstowe 18': 'Data prod', 'Pole tekstowe 19': 'projekt', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': 'Filtr W',
+                         'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': 'wyp dod',
+                         'Pole tekstowe 17': 'S&P', 'Pole tekstowe 18': 'Data prod', 'Pole tekstowe 19': 'projekt', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '',
                          'Pole tekstowe 26': 'system AHU','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': 'Nazwisko kontrolera'}
 
 
@@ -1323,8 +1323,47 @@ class Application (Frame):
             data_tabliczka_out['pre filt 2 s'] = 'G4/'+ self.symbol_G4_supply_filter_value.get()+ '/'+ self.quantity_G4_supply_filter_value.get()
             data_atest_out['Pole tekstowe 12'] = '\r'+' G4 / '+self.symbol_G4_supply_filter_value.get() + ' / ' +self.quantity_G4_supply_filter_value.get()
 
+        if self.supply_filter_choice_value.get() == 2 :
+            data_tabliczka_out['pre filt 2 s'] = 'M5/'+ self.symbol_M5_supply_filter_value.get()+ '/'+ self.quantity_M5_supply_filter_value.get()
+            data_atest_out['Pole tekstowe 12'] = '\r'+' M5 / '+self.symbol_M5_supply_filter_value.get() + ' / ' +self.quantity_M5_supply_filter_value.get()
+
+        if self.supply_filter_choice_value.get() == 3 :
+            data_tabliczka_out['pre filt 2 s'] = 'F7/'+ self.symbol_F7_supply_filter_value.get()+ '/'+ self.quantity_F7_supply_filter_value.get()
+            data_atest_out['Pole tekstowe 12'] = '\r'+' F7 / '+self.symbol_F7_supply_filter_value.get() + ' / ' +self.quantity_F7_supply_filter_value.get()
+
+        if self.supply_filter_choice_value.get() == 4 :
+                    data_tabliczka_out['pre filt 2 s'] = 'F9/'+ self.symbol_F9_supply_filter_value.get()+ '/'+ self.quantity_F9_supply_filter_value.get()
+                    data_atest_out['Pole tekstowe 12'] = '\r'+' F9 / '+self.symbol_F9_supply_filter_value.get() + ' / ' +self.quantity_F9_supply_filter_value.get()
 
 
+        if self.supply_filter_choice_value.get() == 5 :
+                    data_tabliczka_out['pre filt 2 s'] = ''
+                    data_atest_out['Pole tekstowe 12'] = ''
+
+
+
+
+
+        if self.exhaust_filter_choice_value.get() == 1 :
+            data_tabliczka_out['pre filt 2 e'] = 'G4/'+ self.symbol_G4_exhaust_filter_value.get()+ '/'+ self.quantity_G4_exhaust_filter_value.get()
+            data_atest_out['Pole tekstowe 25'] = '\r'+' G4 / '+self.symbol_G4_exhaust_filter_value.get() + ' / ' +self.quantity_G4_exhaust_filter_value.get()
+
+        if self.exhaust_filter_choice_value.get() == 2 :
+            data_tabliczka_out['pre filt 2 e'] = 'M5/'+ self.symbol_M5_exhaust_filter_value.get()+ '/'+ self.quantity_M5_exhaust_filter_value.get()
+            data_atest_out['Pole tekstowe 25'] = '\r'+' M5 / '+self.symbol_M5_exhaust_filter_value.get() + ' / ' +self.quantity_M5_exhaust_filter_value.get()
+
+        if self.exhaust_filter_choice_value.get() == 3 :
+            data_tabliczka_out['pre filt 2 e'] = 'F7/'+ self.symbol_F7_exhaust_filter_value.get()+ '/'+ self.quantity_F7_exhaust_filter_value.get()
+            data_atest_out['Pole tekstowe 25'] = '\r'+' F7 / '+self.symbol_F7_exhaust_filter_value.get() + ' / ' +self.quantity_F7_exhaust_filter_value.get()
+
+        if self.exhaust_filter_choice_value.get() == 4 :
+            data_tabliczka_out['pre filt 2 e'] = 'F9/'+ self.symbol_F9_exhaust_filter_value.get()+ '/'+ self.quantity_F9_exhaust_filter_value.get()
+            data_atest_out['Pole tekstowe 25'] = '\r'+' F9 / '+self.symbol_F9_exhaust_filter_value.get() + ' / ' +self.quantity_F9_exhaust_filter_value.get()
+
+
+        if self.exhaust_filter_choice_value.get() == 5 :
+            data_tabliczka_out['pre filt 2 e'] = ''
+            data_atest_out['Pole tekstowe 25'] = ''
 
 
 

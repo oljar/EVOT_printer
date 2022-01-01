@@ -1375,6 +1375,9 @@ class Application (Frame):
             data_tabliczka_out['heat recovery t'] = '\r' + ' '+self.symbol_heat_exchanger_value.get()
             data_atest_out['Pole tekstowe 16'] = '\r' + ' ' + self.symbol_heat_exchanger_value.get()
 
+        elif self.heat_exchanger_choice_value.get() == 5 :
+            data_tabliczka_out['heat recovery t'] = ''
+            data_atest_out['Pole tekstowe 16'] = ''
 
 
 

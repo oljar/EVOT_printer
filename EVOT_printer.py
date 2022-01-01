@@ -36,7 +36,15 @@ class Application (Frame):
         self.quantity_comment_water_cooler = 0
         self.quantity_comment_refrageration_cooler = 0
 
-
+#   default choice
+        self.heater_choice_value.set(4)
+        self.cooler_choice_value.set(4)
+        self.fan_choice_value.set(4)
+        self.supply_filter_choice_value.set(5)
+        self.exhaust_filter_choice_value.set(5)
+        self.heat_exchanger_choice_value.set(5)
+        self.damper_choice_value.set(4)
+        self.add_equip_choice_value.set(2)
 
 ########################################################################################################################
 
@@ -816,7 +824,7 @@ class Application (Frame):
         self.M5_filter = ttk.Radiobutton(self.lfradio, text = "M5", variable = self.exhaust_filter_choice_value, value = 2, command = self.M5_exhaust_filter_function).grid(row =0, column = 5, padx=20, pady = 5)
         self.F7_filter = ttk.Radiobutton(self.lfradio, text = "F7", variable = self.exhaust_filter_choice_value, value = 3, command = self.F7_exhaust_filter_function).grid(row =0, column = 10, padx=20, pady = 5)
         self.F9_filter = ttk.Radiobutton(self.lfradio, text = "F9", variable = self.exhaust_filter_choice_value, value = 4, command = self.F9_exhaust_filter_function).grid(row =0, column = 15, padx=20, pady = 5)
-        self.lackoff_exhaust_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.exhaust_filter_choice, value= 5, command = self.lackoff_exhaust_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
+        self.lackoff_exhaust_fan = ttk.Radiobutton(self.lfradio, text="brak", variable = self.exhaust_filter_choice_value, value= 5, command = self.lackoff_exhaust_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
 
@@ -1100,7 +1108,6 @@ class Application (Frame):
         self.lfradio = ttk.LabelFrame(tab9)
         self.lfradio.pack( side = TOP)
         self.add_equip_choice_value = IntVar()
-        self.add_equip_choice_value.set(2)
         self.add_equip_radio = ttk.Radiobutton(self.lfradio, text="off", variable = self.add_equip_choice_value, value = 2, command = self.lackoff_additional ).grid (row = 0,column = 20,padx=20, pady = 5)
         self.add_equip_radio = ttk.Radiobutton(self.lfradio,text = "on", variable = self.add_equip_choice_value, value = 1,command = self.additional_exuipment).grid(row =0,column = 0,padx=20, pady = 5 )
 

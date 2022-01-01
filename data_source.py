@@ -163,7 +163,7 @@ except:
 
     get_data.symbol_supply_damper_value = 'odśwież'
     get_data.symbol_exaust_damper_value = 'odśwież'
-    get_data.symbol_heat_exchanger_value = 'odśwież'
+    get_data.symbol_heat_exchanger_value = f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
     get_data.additional_exuipment_value = 'odśwież'
     s_and_p_value = "s_and_p_value_1"
 

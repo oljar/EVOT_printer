@@ -1371,15 +1371,40 @@ class Application (Frame):
 #### heat_recovery
 
         if self.heat_exchanger_choice_value.get() == 1 :
+            if self.damper_choice_value.get() == 1 or self.damper_choice_value.get() == 2 or self.damper_choice_value.get() == 3:
+                self.add_line = ''
+            else:
+                self.add_line = '\r'
 
             data_tabliczka_out['heat recovery t'] = '\r' + ' '+self.symbol_heat_exchanger_value.get()
-            data_atest_out['Pole tekstowe 16'] = '\r' + ' ' + self.symbol_heat_exchanger_value.get()
+            data_atest_out['Pole tekstowe 16'] = self.add_line + ' ' + self.symbol_heat_exchanger_value.get()
 
         elif self.heat_exchanger_choice_value.get() == 5 :
             data_tabliczka_out['heat recovery t'] = ''
             data_atest_out['Pole tekstowe 16'] = ''
 
 
+
+# dampers
+
+        if  self.damper_choice_value.get() == 1 :
+            data_tabliczka_out['sec filt 4 s'] = ' ' + self.symbol_supply_damper_value.get()
+            data_tabliczka_out['sec filt 4 e'] = ''
+            data_tabliczka_out['sec filt 4'] = 'Tłumik'
+            data_atest_out['Pole tekstowe 16'] = data_atest_out['Pole tekstowe 16'] + '\r'+ ' ' + self.symbol_supply_damper_value.get()
+
+
+        if  self.damper_choice_value.get() == 2 :
+            data_tabliczka_out['sec filt 4 e'] = ' ' + self.symbol_exaust_damper_value.get()
+            data_tabliczka_out['sec filt 4 s'] = ''
+            data_tabliczka_out['sec filt 4'] = 'Tłumik'
+            data_atest_out['Pole tekstowe 16'] = data_atest_out['Pole tekstowe 16'] + '\r'+ ' ' + self.symbol_exaust_damper_value.get()
+
+        if  self.damper_choice_value.get() == 3 :
+            data_tabliczka_out['sec filt 4 e'] = ' ' + self.symbol_exaust_damper_value.get()
+            data_tabliczka_out['sec filt 4 s'] =  ' ' + self.symbol_supply_damper_value.get()
+            data_tabliczka_out['sec filt 4'] = 'Tłumik'
+            data_atest_out['Pole tekstowe 16'] = data_atest_out['Pole tekstowe 16'] + '\r'+ ' ' + self.symbol_supply_damper_value.get() + '\r'+ ' ' + self.symbol_exaust_damper_value.get()
 
 
 

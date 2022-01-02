@@ -1175,8 +1175,8 @@ class Application (Frame):
                         'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': self.entry_supply_flow_value.get() + '\r' + self.entry_exhaust_flow_value.get(),
                         'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),'Pole tekstowe 7': '','Pole tekstowe 8': '',
                          'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '',
-                         'Pole tekstowe 17': '', 'Pole tekstowe 18': 'Data prod', 'Pole tekstowe 19': 'projekt', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '',
-                         'Pole tekstowe 26': 'system AHU','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': 'Nazwisko kontrolera'}
+                         'Pole tekstowe 17': '', 'Pole tekstowe 18': 'Data prod', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '',
+                         'Pole tekstowe 26': '','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': 'Nazwisko kontrolera'}
 
 
         data_tabliczka_out= {'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get(), 'evo': self.selected_ahu_value.get(),
@@ -1426,6 +1426,19 @@ class Application (Frame):
         data_atest_out['Pole tekstowe 17'] = self.txt_s_and_p.get("1.0",END)
 
 
+#   Projekt
+
+
+#   AHU
+
+        data_atest_out['Pole tekstowe 26'] = self.entry_system_value.get()
+
+
+
+    # Projekt
+
+        data_atest_out['Pole tekstowe 19'] = self.entry_project_value.get()
+        data_tabliczka_out['project no'] = self.entry_project_value.get() +'  '+self.entry_system_value.get()
 
 
         fillpdfs.write_fillable_pdf('tabliczka.pdf','Nowa_tabliczka.pdf', data_tabliczka_out, flatten=False)

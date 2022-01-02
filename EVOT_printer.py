@@ -1170,7 +1170,7 @@ class Application (Frame):
 
     def choice_newdir(self):
         self.accept_button.config(text = 'zapisz')
-        self.path_out = filedialog.askdirectory()
+        self.path_out = filedialog.askdirectory(initialdir = 'C:\\Users\oljar\Desktop\CV')
 
 
 

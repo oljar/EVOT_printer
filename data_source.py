@@ -10,7 +10,7 @@ from tkinter import ttk
 def open_pattern_File():
 
     global path_in
-    path_in = filedialog.askdirectory()
+    path_in = filedialog.askdirectory(initialdir = 'C:\\Users\oljar\Desktop\EVOT_printer')
 
 
 def get_data ():

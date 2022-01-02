@@ -1151,17 +1151,25 @@ class Application (Frame):
 
     def accept(self):
 
+
         self.accept_frame = ttk.LabelFrame(tab11)
         self.accept_frame.pack()
         self.text_folder = Label(self.accept_frame,text='Lokalizacja plików tabliczka i świadectwo KJ').grid(row = 1, column = 1, padx=20 , pady=(20,3))
         self.save_button=ttk.Button(self.accept_frame, text = "wybierz folder", command = self.choice_newdir).grid(row = 1, column = 15, padx=20, pady=(20, 3))
         self.text_folder = Label(self.accept_frame,text='Zapisz w wybranej lokalizacji').grid(row = 15, column = 1 , padx=20 , pady=(30,20))
-        self.accept_button=ttk.Button(self.accept_frame,text = "zapisz", command = self.save_newpdf ).grid(row = 15, column = 15, padx=20 , pady=(30,20) )
+        self.accept_button=ttk.Button(self.accept_frame,text = "zapisz", command = self.save_newpdf )
+        self.accept_button.grid(row = 15, column = 15, padx=20 , pady=(30,20) )
+
+
+
+
+
+
 
 
 
     def choice_newdir(self):
-
+        self.accept_button.config(text = 'zapisz')
         self.path_out = filedialog.askdirectory()
 
 
@@ -1461,6 +1469,13 @@ class Application (Frame):
         path_atest_out = os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_atest.pdf')
         fillpdfs.write_fillable_pdf('tabliczka.pdf', path_plate_out , data_tabliczka_out, flatten=False)
         fillpdfs.write_fillable_pdf('atest.pdf',path_atest_out , data_atest_out, flatten=False)
+        self.accept_button.config(text = 'ok')
+
+      #
+
+
+
+
 
 
 
@@ -1497,7 +1512,6 @@ tab9 = ttk.Frame(tab_parent)
 tab10 = ttk.Frame(tab_parent)
 tab11 = ttk.Frame(tab_parent)
 
-
 tab_parent.add(tab0,text = 'ustaw')
 tab_parent.add(tab1,text = 'identyfikacja')
 tab_parent.add(tab2,text = 'nagrzewnica')
@@ -1511,6 +1525,7 @@ tab_parent.add(tab9,text = 'wypos')
 tab_parent.add(tab10,text = 's&p')
 tab_parent.add(tab11,text = 'akcept')
 tab_parent.pack(expand = 1, fill = 'both')
+
 
 
 

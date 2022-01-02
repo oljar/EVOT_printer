@@ -2,13 +2,11 @@ import time
 from tkinter import *
 from tkinter import ttk
 import datetime
-
-
 from data_source import *
 from check_and_probe import *
 from filter_source  import *
 from fillpdf import fillpdfs
-
+from default_value import *
 
 
 class Application (Frame):
@@ -1170,7 +1168,7 @@ class Application (Frame):
 
     def choice_newdir(self):
         self.accept_button.config(text = 'zapisz')
-        self.path_out = filedialog.askdirectory(initialdir = 'C:\\Users\oljar\Desktop\CV')
+        self.path_out = filedialog.askdirectory(initialdir = default_path_out)
 
 
 

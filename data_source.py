@@ -5,12 +5,14 @@ from tkinter import filedialog
 import os
 from tkinter import *
 from tkinter import ttk
+from default_value import *
+
 
 
 def open_pattern_File():
 
     global path_in
-    path_in = filedialog.askdirectory(initialdir = 'C:\\Users\oljar\Desktop\EVOT_printer')
+    path_in = filedialog.askdirectory(initialdir = default_path_in)
 
 
 def get_data ():

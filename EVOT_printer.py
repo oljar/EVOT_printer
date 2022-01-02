@@ -1,3 +1,4 @@
+import time
 from tkinter import *
 from tkinter import ttk
 import datetime
@@ -1454,13 +1455,17 @@ class Application (Frame):
 
         data_tabliczka_out['weight t'] = self.mass_value.get()
 
-        path_plate_out = os.path.join(self.path_out, 'new_tabliczka.pdf')
-        path_atest_out = os.path.join(self.path_out, 'new_atest.pdf')
+
+    #save
+        path_plate_out = os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_tabliczka.pdf')
+        path_atest_out = os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_atest.pdf')
         fillpdfs.write_fillable_pdf('tabliczka.pdf', path_plate_out , data_tabliczka_out, flatten=False)
         fillpdfs.write_fillable_pdf('atest.pdf',path_atest_out , data_atest_out, flatten=False)
 
 
-#    self.path_out = filedialog.askdirectory()
+
+
+    #    self.path_out = filedialog.askdirectory()
 
 
 

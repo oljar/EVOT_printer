@@ -55,7 +55,7 @@ class Application (Frame):
         self.settings_frame.pack(anchor=W, ipadx=20, padx=20)
         self.inspector_name_value = StringVar()
         self.lbl_inspector_name = ttk.Label(self.settings_frame, text="konrtoler KJ").grid(row=1, column=1, padx=10, pady=(10,3))
-        self.inspector_name = ('Jarosław Olszewski','Agnieszka Karnas','pole puste')
+        self.inspector_name = ('Agnieszka Karnas','Jarosław Olszewski','')
         self.combobox_suplly = ttk.Combobox(self.settings_frame, values=self.inspector_name, textvariable=self.inspector_name_value).grid(row=1, column=2,  padx=10, pady=(10,3))
 
 
@@ -1175,8 +1175,8 @@ class Application (Frame):
                         'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': self.entry_supply_flow_value.get() + '\r' + self.entry_exhaust_flow_value.get(),
                         'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),'Pole tekstowe 7': '','Pole tekstowe 8': '',
                          'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '',
-                         'Pole tekstowe 17': '', 'Pole tekstowe 18': 'Data prod', 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '',
-                         'Pole tekstowe 26': '','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': 'Nazwisko kontrolera'}
+                         'Pole tekstowe 17': '', 'Pole tekstowe 18': 'qqq' , 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '',
+                         'Pole tekstowe 26': '','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
 
         data_tabliczka_out= {'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get(), 'evo': self.selected_ahu_value.get(),
@@ -1189,7 +1189,7 @@ class Application (Frame):
                              'electric heater s': '', 'pre filt 2 s': '', 'pre filt 2 e': '', 'sec filt 2 s': '', 'sec filt 2 e': '',
                              'electric heater e': '', 'pre filt 3 s': '', 'pre filt 3 e': '', 'sec filt 3 s': '', 'sec filt 3 e': '', 'cooler e': '',
                              'Humidifier s': None, 'sec filt 1 s': '', 'sec filt 1 e': '', 'sec filt 4 s': '', 'sec filt 4 e': '', 'Humidifier e': None,
-                             'pump el motor t': None, 'heat recovery t': '', 'weight t': '200', 'air flow': 'Wydatek powietrza',
+                             'pump el motor t': None, 'heat recovery t': '', 'weight t': '', 'air flow': 'Wydatek powietrza',
                              'fan set': 'Silnik rotora/p-py gl.', 'external press': 'Ciśnienie dyspozycyjne', 'fan el mot': 'Wentylator', 'heatre I': 'Nagrzewnica I wodna',
                              'comp un': 'Silnik wentylatora', 'heatre II': 'Nagrzewnica II', 'pre filt 1': 'Agr. chłodniczy', 'electric heater': 'Nagrzewnica elektryczna',
                              'pre filt 2': 'Filtr wstępny', 'sec filt 2': 'Filtr II stopnia', 'cooler': 'Chłodnica', 'pre filt 3': 'Filtr wstępny',
@@ -1441,9 +1441,23 @@ class Application (Frame):
         data_tabliczka_out['project no'] = self.entry_project_value.get() +'  '+self.entry_system_value.get()
 
 
+    #Date
+        data_atest_out['Pole tekstowe 18'] = self.data_value.get()
+
+
+    # Inspector Name
+
+        data_atest_out['Pole tekstowe 29']  = 'Specjalista d/s kontroli jakości' + '\r'+  self.inspector_name_value.get()
+
+
+
+    # Mass
+
+        data_tabliczka_out['weight t'] = self.mass_value.get()
+
+
         fillpdfs.write_fillable_pdf('tabliczka.pdf','Nowa_tabliczka.pdf', data_tabliczka_out, flatten=False)
         fillpdfs.write_fillable_pdf('atest.pdf','Nowy_atest.pdf', data_atest_out, flatten=False)
-
 
 
 

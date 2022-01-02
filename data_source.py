@@ -27,7 +27,7 @@ def get_data ():
     get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
     get_data.symbol_electric_heater_value = data_cert['Pole tekstowe 8']
     get_data.electric_heater_plate_value_in = data_plate['electric heater s']
-    get_data.mass_value= data_plate['weight t'] + ' ' + data_plate['weight u']
+    get_data.mass_value= data_plate['weight t']
     version_type=('jhj','kjkjhk','ccccc')
     get_data.symbol_water_heater_value = data_cert['Pole tekstowe 8']
     get_data.water_heater_plate_value = data_plate['heatre I s']
@@ -107,7 +107,7 @@ except:
 
     get_data.symbol_electric_heater_value = 'odśwież'
     get_data.electric_heater_plate_value_in = 'odśwież'
-    get_data.mass_value= data_plate['weight t'] + ' ' + data_plate['weight u']
+    get_data.mass_value= data_plate['weight t']
     version_type=('jhj','kjkjhk','ccccc')
     get_data.symbol_water_heater_value = 'odśwież'
     get_data.water_heater_plate_value = 'odśwież'

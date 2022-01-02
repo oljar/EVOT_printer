@@ -1163,13 +1163,12 @@ class Application (Frame):
 
         self.path_out = filedialog.askdirectory()
 
-    #get_data.selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
-    #ahu_range = re.findall(r'\d+', get_data.selected_supply_value)[0]  # wielkość centrali
+
 
 
 
     def save_newpdf(self):
-    #a = fillpdfs.write_fillable_pdf(input_pdf_path, output_pdf_path, data_dict, flatten=False)
+
 
         data_atest_out= {'Pole tekstowe 1': self.selected_ahu_value.get(), 'Pole tekstowe 2': self.entry_serial_value.get(), 'Pole tekstowe 3': self.selected_supply_value.get() + self.selected_supply_execution_value.get(),
                         'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': self.entry_supply_flow_value.get() + '\r' + self.entry_exhaust_flow_value.get(),
@@ -1455,10 +1454,13 @@ class Application (Frame):
 
         data_tabliczka_out['weight t'] = self.mass_value.get()
 
+        path_plate_out = os.path.join(self.path_out, 'new_tabliczka.pdf')
+        path_atest_out = os.path.join(self.path_out, 'new_atest.pdf')
+        fillpdfs.write_fillable_pdf('tabliczka.pdf', path_plate_out , data_tabliczka_out, flatten=False)
+        fillpdfs.write_fillable_pdf('atest.pdf',path_atest_out , data_atest_out, flatten=False)
 
-        fillpdfs.write_fillable_pdf('tabliczka.pdf','Nowa_tabliczka.pdf', data_tabliczka_out, flatten=False)
-        fillpdfs.write_fillable_pdf('atest.pdf','Nowy_atest.pdf', data_atest_out, flatten=False)
 
+#    self.path_out = filedialog.askdirectory()
 
 
 

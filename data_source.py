@@ -15,6 +15,7 @@ def open_pattern_File():
     path_in = filedialog.askdirectory(initialdir = default_path_in)
 
 
+
 def get_data ():
 
     path_plate = os.path.join(path_in, 'tabliczka.pdf')
@@ -35,10 +36,10 @@ def get_data ():
     get_data.water_heater_plate_value = data_plate['heatre I s']
     get_data.symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"
     get_data.reverse_heater_plate_value = "reverse_heater_plate_value"
-    get_data.symbol_water_cooler_value = data_cert['Pole tekstowe 7']
-    get_data.water_cooler_plate_value = data_plate['cooler s']
-    get_data.symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7']
-    get_data.refrageration_cooler_plate_value = data_plate['cooler s']
+    get_data.symbol_water_cooler_value = data_cert['Pole tekstowe 7'].split('\r')[0]
+    get_data.water_cooler_plate_value = data_plate['cooler s'].split(';')[0]
+    get_data.symbol_refrageration_cooler_value = data_cert['Pole tekstowe 7'].split('\r')[1]
+    get_data.refrageration_cooler_plate_value = data_plate['cooler s'].split(';')[1]
     get_data.symbol_EC_supply_fan_value = data_cert['Pole tekstowe 27'].split('\r')[0]
     get_data.power_EC_supply_fan_value  = data_cert['Pole tekstowe 9'].split()[0]
     get_data.voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
@@ -64,10 +65,11 @@ def get_data ():
     get_data.symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
     get_data.additional_exuipment_value = "additional_exuipment_value_1"
 
+
     s_and_p_value = "s_and_p_value_1"
     print ('dane pobrane')
-    return get_data
 
+    return get_data
 
 
 try :

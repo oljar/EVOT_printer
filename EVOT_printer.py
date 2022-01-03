@@ -1313,7 +1313,6 @@ class Application (Frame):
             data_tabliczka_out['comp un e'] = self.power_AC_exhaust_fan_value.get() + qfan_exh_AC + ' / ' + self.voltage_AC_exhaust_fan_value.get()
 
 
-
     # lack off
         elif self.fan_choice_value.get() == 4:
 

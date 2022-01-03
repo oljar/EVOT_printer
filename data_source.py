@@ -64,6 +64,8 @@ def get_data ():
     get_data.symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {ahu_range}'
     get_data.symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {ahu_range} CPR H'
     get_data.additional_exuipment_value = "additional_exuipment_value_1"
+    get_data.unit_water_cooler = data_plate ['cooler u'].split(';')[0]
+    get_data.unit_refrageration_cooler = data_plate['cooler u'].split(';')[1]
 
 
     s_and_p_value = "s_and_p_value_1"

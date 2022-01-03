@@ -1235,9 +1235,11 @@ class Application (Frame):
         if self.cooler_choice_value.get() == 1:
             data_tabliczka_out['cooler s'] = self.water_cooler_plate_value.get()
             data_atest_out['Pole tekstowe 7'] = self.symbol_water_cooler_value.get()
+            data_tabliczka_out['cooler u'] = get_data.unit_water_cooler
         elif self.cooler_choice_value.get() == 2:
             data_tabliczka_out['cooler s'] = self.refrageration_cooler_plate_value.get()
             data_atest_out['Pole tekstowe 7'] = self.symbol_refrageration_cooler_value.get()
+            data_tabliczka_out['cooler u'] = get_data.unit_refrageration_cooler
         elif self.cooler_choice_value.get() == 4:
             data_tabliczka_out['cooler s'] = ''
             data_atest_out['Pole tekstowe 7'] = ''

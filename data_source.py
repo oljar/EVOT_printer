@@ -27,11 +27,11 @@ def get_data ():
     get_data.selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
     ahu_range = re.findall(r'\d+',get_data.selected_supply_value)[0] # wielkość centrali
     get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
-    get_data.symbol_electric_heater_value = data_cert['Pole tekstowe 8']
+    get_data.symbol_electric_heater_value = data_cert['Pole tekstowe 8'].split('\r')[1]
     get_data.electric_heater_plate_value_in = data_plate['electric heater s']
     get_data.mass_value= data_plate['weight t']
     version_type=('jhj','kjkjhk','ccccc')
-    get_data.symbol_water_heater_value = data_cert['Pole tekstowe 8']
+    get_data.symbol_water_heater_value = data_cert['Pole tekstowe 8'].split('\r')[0]
     get_data.water_heater_plate_value = data_plate['heatre I s']
     get_data.symbol_reverse_exchanger_value = "symbol_reverse_exchanger_value"
     get_data.reverse_heater_plate_value = "reverse_heater_plate_value"

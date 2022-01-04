@@ -295,7 +295,7 @@ class Application (Frame):
                 # commnet in check and probe
                 self.quantity_comment_water_heater +=1
                 if self.quantity_comment_water_heater == 1:
-                    self.txt_s_and_p.insert(END, check_probe_water_heater+'\n')
+                    self.txt_s_and_p.insert(END, check_probe_water_heater + '\n')
 
 
 
@@ -333,7 +333,7 @@ class Application (Frame):
                 # commnet in check and probe
                 self.quantity_comment_reverse_exchanger +=1
                 if self.quantity_comment_reverse_exchanger == 1:
-                    self.txt_s_and_p.insert(END, check_probe_reverse_exchanger+'\n')
+                    self.txt_s_and_p.insert(END, check_probe_reverse_exchanger +'\n')
 
 
 
@@ -401,7 +401,7 @@ class Application (Frame):
             # commnet in check and probe
             self.quantity_comment_water_cooler +=1
             if self.quantity_comment_water_cooler == 1:
-                self.txt_s_and_p.insert(END, check_probe_water_cooler+'\n')
+                self.txt_s_and_p.insert(END, check_probe_water_cooler)
 
 
 
@@ -441,7 +441,7 @@ class Application (Frame):
             # commnet in check and probe
             self.quantity_comment_refrageration_cooler +=1
             if self.quantity_comment_refrageration_cooler == 1:
-                self.txt_s_and_p.insert(END, check_probe_refrageration_cooler + '\n')
+                self.txt_s_and_p.insert(END, check_probe_refrageration_cooler )
 
 
 

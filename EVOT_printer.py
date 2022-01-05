@@ -64,7 +64,7 @@ class Application (Frame):
         self.lbl_type = ttk.Label(self.settings_frame, text="typ EVO-T").grid(row=5, column=1, padx=10, pady=3)
         self.entry_type = ttk.Entry(self.settings_frame, textvariable= self.selected_ahu_value)
         self.entry_type.insert(END,get_data.selected_ahu_value)
-        self.entry_type.config(state = DISABLED)
+        #self.entry_type.config(state = DISABLED)
         self.entry_type.grid(row=5, column=2,padx=10,ipadx=10, pady=(10,3))
 
         self.data_value = StringVar()
@@ -126,11 +126,11 @@ class Application (Frame):
 
 
    #   type
-
+        self.selected_ahu_value = StringVar()
         self.lbl_type = ttk.Label(self.identity_frame, text="typ EVO-T").grid(row=20, column=1, padx=10, pady=3)
 
         self.entry_type = ttk.Entry(self.identity_frame, textvariable = self.selected_ahu_value )
-        self.entry_type.config(state=DISABLED)
+        #self.entry_type.config(state=DISABLED)
         self.entry_type.insert(END,get_data.selected_ahu_value)
         self.entry_type.grid(row=20, column=2, padx=10, pady=3,ipadx=10)
 

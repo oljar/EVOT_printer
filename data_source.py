@@ -22,14 +22,22 @@ def get_data ():
     path_cert = os.path.join(path_in, 'atest.pdf')
     data_plate = fillpdfs.get_form_fields(path_plate)
     data_cert = fillpdfs.get_form_fields(path_cert)
-    get_data.selected_ahu_value = "EVO-T"
+    get_data.selected_ahu_value = data_plate['evo']
     #
-    pos = re.search("R|L$", (data_plate['supply']))
-    get_data.selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
+    try :
+        pos = re.search("R|L$", (data_plate['supply']))
+        get_data.selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
+
+    except :
+        get_data.selected_supply_value = data_plate['supply']
 
     get_data.ahu_range = re.findall(r'\d+',get_data.selected_supply_value)[0] # wielkość centrali
 
-    get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
+    try :
+        get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
+    except:
+        get_data.selected_exhaust_value = data_plate['exhaust']
+
     get_data.symbol_electric_heater_value = data_cert['Pole tekstowe 8'].split('\r')[1]
     get_data.electric_heater_plate_value_in = data_plate['electric heater s']
     get_data.mass_value= data_plate['weight t']
@@ -95,27 +103,26 @@ except:
     print(data_cert)
 
 
-    get_data.selected_ahu_value = "EVO-T"
+    get_data.selected_ahu_value = data_plate['evo']
 
     #
 
 
 
-
-    pos = re.search("R|L$", (data_plate['supply']))
-
-
-
-
-    get_data.selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
+    try :
+        pos = re.search("R|L$", (data_plate['supply']))
+        get_data.selected_supply_value = (data_plate['supply'])[:(pos.span())[0]]
+    except:
+        get_data.selected_supply_value = (data_plate['supply'])
 
 
     get_data.ahu_range = re.findall(r'\d+',get_data.selected_supply_value)[0] # wielkość centrali
 
 
-
-    get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
-
+    try :
+        get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
+    except:
+        get_data.selected_exhaust_value = (data_plate['exhaust'])
     get_data.symbol_electric_heater_value = 'odśwież'
     get_data.electric_heater_plate_value_in = 'odśwież'
     get_data.mass_value= data_plate['weight t']

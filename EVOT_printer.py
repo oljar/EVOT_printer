@@ -1197,7 +1197,7 @@ class Application (Frame):
                          'Pole tekstowe 26': '','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
 
-        data_tabliczka_out= {'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get(), 'evo': self.selected_ahu_value.get(),
+        data_tabliczka_out= {'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get(), 'evo': self.selected_ahu_value.get() ,
                              'exhaust': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(),
                              'year prod': re.findall(r'2\d\d\d', self.data_value.get())[0], 'serial no': self.entry_serial_value.get(),
                              'prod order no': self.entry_order_value.get(), 'air flow s': self.entry_supply_flow_value.get(), 'fan set s': '', 'fan set e': '',

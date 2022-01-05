@@ -50,12 +50,14 @@ def get_data ():
     get_data.voltage_EC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
     get_data.frequency_EC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
     get_data.quantity_EC_exhaust_fan_value = 1
-    get_data.power_AC_supply_fan_value = data_cert['Pole tekstowe 27'].split()[0]
-    get_data.symbol_AC_supply_fan_value = data_cert['Pole tekstowe 9'].split()[0]
+
+   #AC
+    get_data.symbol_AC_supply_fan_value = data_cert['Pole tekstowe 27'].split('\r')[0]
+    get_data.power_AC_supply_fan_value = data_cert['Pole tekstowe 9'].split()[0]
     get_data.voltage_AC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
     get_data.frequency_AC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
     get_data.quantity_AC_supply_fan_value = 1
-    get_data.symbol_AC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split()[1]
+    get_data.symbol_AC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split('\r')[1]
     get_data.power_AC_exhaust_fan_value = data_cert['Pole tekstowe 9'].split()[1]
     get_data.voltage_AC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
     get_data.frequency_AC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]

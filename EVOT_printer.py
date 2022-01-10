@@ -70,7 +70,7 @@ class Application (Frame):
         self.data_value = StringVar()
         self.data=ttk.Label(self.settings_frame ,text = "data").grid(row =15,column = 1,padx=10,pady=(10,3))
         self.entry_data=ttk.Entry(self.settings_frame,textvariable = self.data_value  )
-        self.actual_date = datetime.datetime.today().strftime('%Y-%m-%d')
+        self.actual_date = datetime.datetime.today().strftime('%d-%m-%Y')
         self.entry_data.insert(END,self.actual_date )
         self.entry_data.grid(row =15 ,column = 2,padx=1,pady=(10,3), ipadx=10 )
 

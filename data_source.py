@@ -38,6 +38,28 @@ def get_data ():
     except:
         get_data.selected_exhaust_value = data_plate['exhaust']
 
+    try:
+        get_data.entry_supply_flow_value = data_plate['air flow s']
+    except:
+        get_data.entry_supply_flow_value = ''
+
+
+    try:
+        get_data.entry_exhaust_flow_value = data_plate['air flow e']
+    except:
+        get_data.entry_exhaust_flow_value = ''
+
+    try:
+        get_data.entry_supply_pressure_value = data_plate['external press s']
+    except:
+        get_data.entry_supply_pressure_value = ''
+
+    try:
+        get_data.entry_exhaust_pressure_value = data_plate['external press e']
+    except:
+        get_data.entry_exhaust_pressure_value = ''
+
+
     get_data.symbol_electric_heater_value = data_cert['Pole tekstowe 8'].split('\r')[1]
     get_data.electric_heater_plate_value_in = data_plate['electric heater s']
     get_data.mass_value= data_plate['weight t']
@@ -55,7 +77,11 @@ def get_data ():
     get_data.voltage_EC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
     get_data.frequency_EC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
     get_data.quantity_EC_supply_fan_value = 1
-    get_data.symbol_EC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split('\r')[1]
+    try:
+        get_data.symbol_EC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split('\r')[1]
+    except:
+        get_data.symbol_EC_exhaust_fan_value =''
+
     get_data.power_EC_exhaust_fan_value =  data_cert['Pole tekstowe 9'].split()[1]
     get_data.voltage_EC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
     get_data.frequency_EC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
@@ -67,7 +93,10 @@ def get_data ():
     get_data.voltage_AC_supply_fan_value = data_cert['Pole tekstowe 10'].split()[0]
     get_data.frequency_AC_supply_fan_value = data_cert['Pole tekstowe 11'].split()[0]
     get_data.quantity_AC_supply_fan_value = 1
-    get_data.symbol_AC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split('\r')[1]
+    try:
+        get_data.symbol_AC_exhaust_fan_value = data_cert['Pole tekstowe 27'].split('\r')[1]
+    except :
+        get_data.symbol_AC_exhaust_fan_value = ''
     get_data.power_AC_exhaust_fan_value = data_cert['Pole tekstowe 9'].split()[1]
     get_data.voltage_AC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
     get_data.frequency_AC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
@@ -105,6 +134,29 @@ except:
 
     get_data.selected_ahu_value = data_plate['evo']
 
+    try:
+        get_data.entry_supply_flow_value = data_plate['air flow s']
+    except:
+        get_data.entry_supply_flow_value = ''
+
+    try:
+        get_data.entry_exhaust_flow_value = data_plate['air flow e']
+    except:
+        get_data.entry_exhaust_flow_value = ''
+
+    try:
+        get_data.entry_supply_pressure_value = data_plate['external press s']
+    except:
+        get_data.entry_supply_pressure_value = ''
+
+    try:
+        get_data.entry_exhaust_pressure_value = data_plate['external press e']
+    except:
+        get_data.entry_exhaust_pressure_value = ''
+
+
+
+
     #
 
 
@@ -123,6 +175,9 @@ except:
         get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
     except:
         get_data.selected_exhaust_value = (data_plate['exhaust'])
+
+
+
     get_data.symbol_electric_heater_value = 'odśwież'
     get_data.electric_heater_plate_value_in = 'odśwież'
     get_data.mass_value= data_plate['weight t']

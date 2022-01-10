@@ -157,14 +157,18 @@ class Application (Frame):
 
         self.entry_supply_flow_value = StringVar()
         self.lbl_supply_flow = ttk.Label(self.identity_frame, text="    N - wydatek powietrza [m3/h]").grid(row=30, column=1, padx=10, pady=3)
-        self.entry_supply_flow = ttk.Entry(self.identity_frame, textvariable = self.entry_supply_flow_value).grid(row=30, column=2, padx=1, pady=3, ipadx=10)
-
+        self.entry_supply_flow = ttk.Entry(self.identity_frame, textvariable = self.entry_supply_flow_value)
+        self.entry_supply_flow.insert(END, get_data.entry_supply_flow_value)
+        self.entry_supply_flow.grid(row=30, column=2, padx=1, pady=3, ipadx=10)
 
     # supply_pressure
 
         self.entry_supply_pressure_value = StringVar()
         self.lbl_supply_pressure = ttk.Label(self.identity_frame, text="   N - spręż dyspozycyjny [Pa]").grid(row=35, column=1, padx=10, pady=3)
-        self.entry_supply_pressure = ttk.Entry(self.identity_frame, textvariable = self.entry_supply_pressure_value ).grid(row=35, column=2, padx=1, pady=3, ipadx=10)
+        self.entry_supply_pressure = ttk.Entry(self.identity_frame, textvariable = self.entry_supply_pressure_value )
+        self.entry_supply_pressure.insert(END, get_data.entry_supply_pressure_value)
+        self.entry_supply_pressure.grid(row=35, column=2, padx=1, pady=3, ipadx=10)
+
 
 
 
@@ -189,14 +193,17 @@ class Application (Frame):
     # exhaust_flow
         self.entry_exhaust_flow_value  = StringVar()
         self.lbl_exhaust_flow = ttk.Label(self.identity_frame, text="    W - wydatek powietrza [m3/h]").grid(row=45, column=1, padx=10, pady=3)
-        self.entry_exhaust_flow = ttk.Entry(self.identity_frame, textvariable = self.entry_exhaust_flow_value ).grid(row=45, column=2, padx=1, pady=3, ipadx=10)
+        self.entry_exhaust_flow = ttk.Entry(self.identity_frame, textvariable = self.entry_exhaust_flow_value )
+        self.entry_exhaust_flow.insert(END, get_data.entry_exhaust_flow_value)
+        self.entry_exhaust_flow.grid(row=45, column=2, padx=1, pady=3, ipadx=10)
 
 
     # exhaust_pressure
         self.entry_exhaust_pressure_value = StringVar()
         self.lbl_exhaust_pressure = ttk.Label(self.identity_frame, text="   W - spręż dyspozycyjny [Pa]").grid(row=50, column=1, padx=10, pady=3)
-        self.entry_exhaust_pressure = ttk.Entry(self.identity_frame, textvariable = self.entry_exhaust_pressure_value ).grid(row=50, column=2, padx=1, pady=3, ipadx=10)
-
+        self.entry_exhaust_pressure = ttk.Entry(self.identity_frame, textvariable = self.entry_exhaust_pressure_value )
+        self.entry_exhaust_pressure.insert(END, get_data.entry_exhaust_pressure_value)
+        self.entry_exhaust_pressure.grid(row=50, column=2, padx=1, pady=3, ipadx=10)
 
 
 

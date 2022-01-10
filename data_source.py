@@ -18,8 +18,8 @@ def open_pattern_File():
 
 def get_data ():
 
-    path_plate = os.path.join(path_in, 'data/tabliczka.pdf')
-    path_cert = os.path.join(path_in, 'data/atest.pdf')
+    path_plate = os.path.join(path_in, 'tabliczka.pdf')
+    path_cert = os.path.join(path_in, 'atest.pdf')
     data_plate = fillpdfs.get_form_fields(path_plate)
     data_cert = fillpdfs.get_form_fields(path_cert)
     get_data.selected_ahu_value = data_plate['evo']

@@ -183,7 +183,6 @@ class Application (Frame):
 
 
 
-
     # exhaust_execution
         self.selected_exhaust_execution_value = StringVar()
         self.version_exhaust_execution = ('L', 'R')

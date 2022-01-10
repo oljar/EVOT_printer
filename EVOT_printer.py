@@ -1199,8 +1199,8 @@ class Application (Frame):
                         'Pole tekstowe 4': self.selected_exhaust_value.get() + self.selected_exhaust_execution_value.get(), 'Pole tekstowe 5': self.entry_supply_flow_value.get() + '\r' + self.entry_exhaust_flow_value.get(),
                         'Pole tekstowe 6': self.entry_supply_pressure_value.get()+'\r'+self.entry_exhaust_pressure_value.get(),'Pole tekstowe 7': '','Pole tekstowe 8': '',
                          'Pole tekstowe 9': '', 'Pole tekstowe 10': '', 'Pole tekstowe 11': '', 'Pole tekstowe 12': '', 'Pole tekstowe 16': '',
-                         'Pole tekstowe 17': '', 'Pole tekstowe 18': 'qqq' , 'Pole tekstowe 19': '', 'Pole tekstowe 23': '', 'Pole tekstowe 24': '', 'Pole tekstowe 25': '',
-                         'Pole tekstowe 26': '','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
+                         'Pole tekstowe 17': '', 'Pole tekstowe 18': 'qqq' , 'Pole tekstowe 19': '', 'Pole tekstowe 23':'Sprawdzenie i próby', 'Pole tekstowe 24':'Inspection and tests:',
+                         'Pole tekstowe 25': '', 'Pole tekstowe 26': '','Pole tekstowe 27': '', 'Pole tekstowe 28': '', 'Pole tekstowe 29': ''}
 
 
         data_tabliczka_out= {'supply': self.selected_supply_value.get() + self.selected_supply_execution_value.get(), 'evo': self.selected_ahu_value.get() ,

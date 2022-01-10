@@ -31,7 +31,10 @@ def get_data ():
     except :
         get_data.selected_supply_value = data_plate['supply']
 
-    get_data.ahu_range = re.findall(r'\d+',get_data.selected_supply_value)[0] # wielkość centrali
+    try :
+        get_data.ahu_range = re.findall(r'\d+',get_data.selected_supply_value)[0] # wielkość centrali
+    except :
+        get_data.ahu_range = ''
 
     try :
         get_data.selected_exhaust_value = (data_plate['exhaust'])[:(pos.span())[0]]
@@ -103,7 +106,7 @@ def get_data ():
     get_data.quantity_AC_exhaust_fan_value = 1
     get_data.symbol_supply_damper_value = f'Sekcja tłmik szumu- nawiew {get_data.ahu_range}'
     get_data.symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {get_data.ahu_range}'
-    get_data.symbol_heat_exchanger_value =f'wym. przeciwprądowy  EVOT {get_data.ahu_range} CPR H'
+    get_data.symbol_heat_exchanger_value =f'Wym. przeciwprądowy EVOT {get_data.ahu_range} CPR H'
     get_data.additional_exuipment_value = "additional_exuipment_value_1"
     get_data.unit_water_cooler = data_plate ['cooler u'].split(';')[0]
     get_data.unit_refrageration_cooler = data_plate['cooler u'].split(';')[1]
@@ -168,7 +171,10 @@ except:
         get_data.selected_supply_value = (data_plate['supply'])
 
 
-    get_data.ahu_range = re.findall(r'\d+',get_data.selected_supply_value)[0] # wielkość centrali
+    try :
+        get_data.ahu_range = re.findall(r'\d+',get_data.selected_supply_value)[0] # wielkość centrali
+    except:
+        get_data.ahu_range = ''
 
 
     try :
@@ -236,7 +242,7 @@ except:
 
     get_data.symbol_supply_damper_value = 'odśwież'
     get_data.symbol_exaust_damper_value = 'odśwież'
-    get_data.symbol_heat_exchanger_value = f'wym. przeciwprądowy  EVOT {get_data.ahu_range} CPR H'
+    get_data.symbol_heat_exchanger_value = f'Wym. przeciwprądowy EVOT {get_data.ahu_range} CPR H'
     get_data.additional_exuipment_value = 'odśwież'
     s_and_p_value = "s_and_p_value_1"
 

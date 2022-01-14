@@ -1003,12 +1003,13 @@ class Application (Frame):
         self.heat_exchanger_radio = ttk.LabelFrame(tab7)
         self.heat_exchanger_radio.pack( )
         self.heat_exchanger_choice_value = IntVar()
-        self.heat_echanger_in_radio= ttk.Radiobutton(self.heat_exchanger_radio, text = "Wymiennik - zamontowany", variable = self.heat_exchanger_choice_value, value = 1, command = self.heat_exchanger_in).grid(row =0, column = 0, padx=20, pady = 5)
+        self.cross_heat_echanger_in_radio= ttk.Radiobutton(self.heat_exchanger_radio, text = "Wymiennik - przeciwprądowy", variable = self.heat_exchanger_choice_value, value = 1, command = self.cross_heat_exchanger_in).grid(row =0, column = 0, padx=20, pady = 5)
+        self.rotor_heat_echanger_in_radio = ttk.Radiobutton(self.heat_exchanger_radio, text=  "Wymiennik - obrotowy", variable = self.heat_exchanger_choice_value, value=2, command=self.rotor_heat_exchanger_in).grid(row=0, column=10, padx=20, pady=5)
         self.lackoff_heat_exchanger_radio = ttk.Radiobutton(self.heat_exchanger_radio, text="brak", variable = self.heat_exchanger_choice_value, value= 5, command = self.lackoff_heat_exchanger).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
 
-    def heat_exchanger_in(self):
+    def cross_heat_exchanger_in(self):
 
         try:
                 self.lframe.destroy()
@@ -1021,8 +1022,25 @@ class Application (Frame):
                 self.lframe.pack(anchor=W, padx=15)
                 self.symbol_heat_exchanger_value = StringVar()
                 self.lbl_symbol_heat_exchanger = ttk.Label(self.lframe, text="wymiennik przeciwprądowy - typ").grid(row=5, column=10, padx=3, pady=10)
-                self.entry_heat_exchanger = ttk.Entry(self.lframe, textvariable=self.symbol_heat_exchanger_value , width=30)
-                self.entry_heat_exchanger.insert(END, get_data.symbol_heat_exchanger_value )
+                self.entry_heat_exchanger = ttk.Entry(self.lframe, textvariable=self.symbol_heat_exchanger_value , width=50)
+                self.entry_heat_exchanger.insert(END, get_data.symbol_cross_heat_exchanger_value )
+                self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
+
+    def rotor_heat_exchanger_in(self):
+
+        try:
+                self.lframe.destroy()
+
+        except:
+            pass
+
+        finally:
+                self.lframe = ttk.LabelFrame(tab7)
+                self.lframe.pack(anchor=W, padx=15)
+                self.symbol_heat_exchanger_value = StringVar()
+                self.lbl_symbol_heat_exchanger = ttk.Label(self.lframe, text="wymiennik obrotowy- typ").grid(row=5, column=10, padx=3, pady=10)
+                self.entry_heat_exchanger = ttk.Entry(self.lframe, textvariable=self.symbol_heat_exchanger_value, width=50)
+                self.entry_heat_exchanger.insert(END, get_data.symbol_rotor_heat_exchanger_value )
                 self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
 
 
@@ -1402,7 +1420,7 @@ class Application (Frame):
 
 #### heat_recovery
 
-        if self.heat_exchanger_choice_value.get() == 1 :
+        if self.heat_exchanger_choice_value.get() == 1 or self.heat_exchanger_choice_value.get() == 2 :
             if self.damper_choice_value.get() == 1 or self.damper_choice_value.get() == 2 or self.damper_choice_value.get() == 3 or self.add_equip_choice_value.get() == 1:
                 self.add_line = ''
             else:

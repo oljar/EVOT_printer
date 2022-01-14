@@ -106,7 +106,9 @@ def get_data ():
     get_data.quantity_AC_exhaust_fan_value = 1
     get_data.symbol_supply_damper_value = f'{get_data.ahu_range} STD_SLCR'
     get_data.symbol_exaust_damper_value = f'{get_data.ahu_range} STD_SLCR'
-    get_data.symbol_heat_exchanger_value =f'Wym. przeciwprądowy EVOT {get_data.ahu_range} CPR H'
+
+    get_data.symbol_cross_heat_exchanger_value = f'Wym. przeciwprądowy EVOT {get_data.ahu_range} CPR H'
+    get_data.symbol_rotor_heat_exchanger_value = f'Zespół wym. obrotowego EVOT {get_data.ahu_range} RR'
     get_data.additional_exuipment_value = "additional_exuipment_value_1"
     get_data.unit_water_cooler = data_plate ['cooler u'].split(';')[0]
     get_data.unit_refrageration_cooler = data_plate['cooler u'].split(';')[1]
@@ -157,12 +159,7 @@ except:
     except:
         get_data.entry_exhaust_pressure_value = ''
 
-
-
-
     #
-
-
 
     try :
         pos = re.search("R|L$", (data_plate['supply']))
@@ -242,7 +239,8 @@ except:
 
     get_data.symbol_supply_damper_value = 'odśwież'
     get_data.symbol_exaust_damper_value = 'odśwież'
-    get_data.symbol_heat_exchanger_value = f'Wym. przeciwprądowy EVOT {get_data.ahu_range} CPR H'
+    get_data.symbol_cross_heat_exchanger_value = f'Wym.przeciwprądowy EVOT {get_data.ahu_range} CPR H'
+    get_data.symbol_rotor_heat_exchanger_value = f'Zespół wym.obrotowego EVOT {get_data.ahu_range} RR'
     get_data.additional_exuipment_value = 'odśwież'
     s_and_p_value = "s_and_p_value_1"
 

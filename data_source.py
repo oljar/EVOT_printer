@@ -104,8 +104,8 @@ def get_data ():
     get_data.voltage_AC_exhaust_fan_value = data_cert['Pole tekstowe 10'].split()[1]
     get_data.frequency_AC_exhaust_fan_value = data_cert['Pole tekstowe 11'].split()[1]
     get_data.quantity_AC_exhaust_fan_value = 1
-    get_data.symbol_supply_damper_value = f'Sekcja tłmik szumu- nawiew {get_data.ahu_range}'
-    get_data.symbol_exaust_damper_value = f'Sekcja tłmik szumu- wywiew {get_data.ahu_range}'
+    get_data.symbol_supply_damper_value = f'{get_data.ahu_range} STD_SLCR'
+    get_data.symbol_exaust_damper_value = f'{get_data.ahu_range} STD_SLCR'
     get_data.symbol_heat_exchanger_value =f'Wym. przeciwprądowy EVOT {get_data.ahu_range} CPR H'
     get_data.additional_exuipment_value = "additional_exuipment_value_1"
     get_data.unit_water_cooler = data_plate ['cooler u'].split(';')[0]

@@ -7,6 +7,7 @@ from check_and_probe import *
 from filter_source  import *
 from fillpdf import fillpdfs
 from default_value import *
+from rotor_source import *
 
 
 class Application (Frame):
@@ -1040,7 +1041,7 @@ class Application (Frame):
                 self.symbol_heat_exchanger_value = StringVar()
                 self.lbl_symbol_heat_exchanger = ttk.Label(self.lframe, text="wymiennik obrotowy- typ").grid(row=5, column=10, padx=3, pady=10)
                 self.entry_heat_exchanger = ttk.Entry(self.lframe, textvariable=self.symbol_heat_exchanger_value, width=50)
-                self.entry_heat_exchanger.insert(END, get_data.symbol_rotor_heat_exchanger_value )
+                self.entry_heat_exchanger.insert(END, symbol_rotor_value[str(self.symbol_ahu_range.get())])
                 self.entry_heat_exchanger.grid(row=5, column=15, padx=1)
 
 

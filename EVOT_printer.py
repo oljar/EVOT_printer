@@ -1054,7 +1054,6 @@ class Application (Frame):
 
 
 
-
     def damper_choice(self):
 
             self.lfradio = ttk.LabelFrame(tab8)

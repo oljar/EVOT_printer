@@ -1238,7 +1238,7 @@ class Application (Frame):
                              'sec filt 3': 'Filtr III stopnia', 'Humidifier': 'Nawilżacz', 'sec filt 1': 'Filtr II stopnia', 'sec filt 4': 'Filtr III stopnia',
                              'pump el motor': 'Silnik p-py nawilż.', 'heat recovery': 'Odzysk ciepła', 'weight': 'Masa', 'air flow u': 'm³/h', 'fan set u': 'kW/V',
                              'external press u': 'Pa', 'fan el mot u': 'typ', 'heatre I u': 'typ', 'comp un u': 'kW/V', 'heatre II u': 'typ', 'pre filt 1 u': ' V/Arozr/Amax',
-                             'electric heater u': 'typ', 'pre filt 2 u': 'typ/rozm/szt.', 'sec filt 2 u': 'typ/rozm/szt.', 'cooler u': '°C/kW/kPa ',
+                             'pre filt 2 u': 'typ/rozm/szt.', 'sec filt 2 u': 'typ/rozm/szt.', 'cooler u': '°C/kW/kPa ',
                              'pre filt 3 u': 'typ/rozm/szt.', 'sec filt 3 u': 'typ/rozm/szt.', 'Humidifier u': '[kg/h]/kW/V', 'sec filt 1 u': 'typ/rozm/szt.',
                              'sec filt 4 u': 'typ/rozm/szt.', 'pump el motor u': 'kW/V/A', 'heat recovery u': 'typ', 'weight u': 'kg', 'cooler e 1': ''}
 
@@ -1260,10 +1260,17 @@ class Application (Frame):
 
         ######
 
+            # Unit heater plate
 
 
+            if self.selected_ahu_value.get() =='EVO-T+':
+                data_tabliczka_out['electric heater u'] = "typ"
+            else:
+                data_tabliczka_out['electric heater u'] = "kW[kW/V]"
 
-#   cooler
+            print(self.selected_ahu_value.get())
+
+        #   cooler
         if self.cooler_choice_value.get() == 1:
             data_tabliczka_out['cooler s'] = self.water_cooler_plate_value.get()
             data_atest_out['Pole tekstowe 7'] = self.symbol_water_cooler_value.get()
@@ -1497,6 +1504,9 @@ class Application (Frame):
     # Mass
 
         data_tabliczka_out['weight t'] = self.mass_value.get()
+
+
+
 
 
     #save

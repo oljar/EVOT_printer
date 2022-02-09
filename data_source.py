@@ -20,8 +20,13 @@ def get_data ():
 
     path_plate = os.path.join(path_in, 'tabliczka.pdf')
     path_cert = os.path.join(path_in, 'atest.pdf')
+    path_protocol = os.path.join(path_in, 'protocol.pdf')
+
     data_plate = fillpdfs.get_form_fields(path_plate)
     data_cert = fillpdfs.get_form_fields(path_cert)
+    data_protocol =  fillpdfs.get_form_fields(path_protocol)
+    print(f'asd{data_protocol}')
+
     get_data.selected_ahu_value = data_plate['evo']
     #
     try :

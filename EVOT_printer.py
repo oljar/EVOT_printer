@@ -1242,6 +1242,24 @@ class Application (Frame):
                              'pre filt 3 u': 'typ/rozm/szt.', 'sec filt 3 u': 'typ/rozm/szt.', 'Humidifier u': '[kg/h]/kW/V', 'sec filt 1 u': 'typ/rozm/szt.',
                              'sec filt 4 u': 'typ/rozm/szt.', 'pump el motor u': 'kW/V/A', 'heat recovery u': 'typ', 'weight u': 'kg', 'cooler e 1': ''}
 
+
+
+
+
+        data_protocol_out = {'nr centrali 1': '', 'typ centrali 2': '', 'typ centrali 3': 'Typ centrali', 'nr 2': '', 'nr centrali 2': '', '2': 'Zgodność wykonania z KDC i wytycznymi.',
+                             '3': 'Kompletność wyposażenia.', '4': 'Sprawdzenie silnika w ruchu.', '5': 'Sprawdzenie wymiennika obrotowego w ruchu.', '6': 'Próba szczelności instalacji:',
+                             '5a 2': 'chłodniczej  (2,8 MPa)', '5b 2': 'glikolowej (0,5 MPa)', '7': 'Etykiety i znaczniki.  ', '8': 'Oznaczenia kierunku przepływu przez wymienniki.',
+                             '9': 'Czystość wewnątrz i na zewnątrz centrali.      ', '10': 'Zgodność automatyki ze specyfikacją.', 'nr centrali 3': 'Nr centrali',
+                             'þÿ\x00u\x00k\x01B\x00 \x00c\x00h\x00l\x00o\x00d\x00n\x00i\x00c\x00z\x00y\x00 \x002': '----------------------',
+                             'þÿ\x00u\x00k\x01B\x00 \x00c\x00h\x00l\x00o\x00d\x00n\x00i\x00c\x00z\x00y\x00 \x003': 'Układ chłodniczy:', 'data 2': '',
+                             'þÿ\x00o\x00d\x00e\x00b\x00r\x00a\x01B\x00 \x002': '',
+                             'przeznaczenie 2': '', 'oznaczenie produktu 2': '', 'þÿ\x00u\x00k\x01B\x00 \x00g\x00l\x00i\x00k\x00o\x00w\x00y\x00 \x002': '----------------------',
+                             'þÿ\x00u\x00k\x01B\x00 \x00g\x00l\x00i\x00k\x00o\x00w\x00y\x00 \x003': 'Układ glikolowy:', 'uwaga 2': '----------------------', 'uwaga 3': 'Uwagi:',
+                             'Pole wyboru 21': 'Off', 'Pole wyboru 22': 'Off', 'Pole wyboru 23': 'Tak', 'Pole wyboru 24': 'Tak', 'Pole wyboru 25': 'Tak', 'Pole wyboru 26': 'Tak',
+                             'Pole wyboru 27': 'Off', 'Pole wyboru 28': 'Off', 'Pole wyboru 29': 'Off', 'Pole wyboru 30': 'Off', 'Pole wyboru 31': 'Tak', 'Pole wyboru 32': 'Tak',
+                             'Pole wyboru 33': 'Off', 'Pole wyboru 34': 'Off', 'Pole wyboru 35': 'Off', 'Pole wyboru 36': 'Off', 'Pole wyboru 37': 'Tak', 'Pole wyboru 38': 'Tak',
+                             'Pole wyboru 39': 'Tak', 'Pole wyboru 40': 'Tak', 'Head 2': '        PROTOKÓŁ ODBIORU CENTRALI'}
+
 #   heater
 
         if self.heater_choice_value.get() == 1:
@@ -1507,8 +1525,12 @@ class Application (Frame):
 
 
     #save
+
+        path_protocol_out =  os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_protokół_odbioru.pdf')
         path_plate_out = os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_tabliczka.pdf')
         path_atest_out = os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_atest.pdf')
+
+        fillpdfs.write_fillable_pdf('data/protocol.pdf', path_protocol_out, data_protocol_out, flatten=False)
         fillpdfs.write_fillable_pdf('data/tabliczka.pdf', path_plate_out, data_tabliczka_out, flatten=False)
         fillpdfs.write_fillable_pdf('data/atest.pdf', path_atest_out, data_atest_out, flatten=False)
         self.accept_button.config(text = 'ok')

@@ -1527,11 +1527,11 @@ class Application (Frame):
 
 
     #save
-
-        path_protocol_out =  os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_protokół_odbioru.pdf')
-        path_plate_out = os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_tabliczka.pdf')
-        path_atest_out = os.path.join(self.path_out, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_atest.pdf')
-
+        path_new_folder = os.path.join(self.path_out, 'Atest_tabliczka_protokół_ZP3')
+        os.makedirs(path_new_folder)
+        path_protocol_out = os.path.join(path_new_folder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_protokół_odbioru.pdf')
+        path_plate_out = os.path.join(path_new_folder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_tabliczka.pdf')
+        path_atest_out = os.path.join(path_new_folder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_atest.pdf')
         fillpdfs.write_fillable_pdf('data/protocol.pdf', path_protocol_out, data_protocol_out, flatten=False)
         fillpdfs.write_fillable_pdf('data/tabliczka.pdf', path_plate_out, data_tabliczka_out, flatten=False)
         fillpdfs.write_fillable_pdf('data/atest.pdf', path_atest_out, data_atest_out, flatten=False)

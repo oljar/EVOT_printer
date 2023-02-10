@@ -14,7 +14,7 @@ symbol_M5_supply_filter_value = {'1200_1':'915x305x50','9200_1':'915x425x50','80
 quantity_M5_supply_filter_value = 1
 
 symbol_F7_supply_filter_value = {'1200_1':'Nie dotyczy','9200_1':'Nie dotyczy','8000_1':'Nie dotyczy','5000_1':'Nie dotyczy','4100_1':'Nie dotyczy','3000_1':'Nie dotyczy',
-                                 '1200_2':'592x287x300  287x287x300','9200_2':'592x407x300','8000_2':'439x287x300','5000_2':'Nie dotyczy','4100_2':'592x287x300','3000_2':'Nie dotyczy',
+                                 '1200_2':'592x287x500  287x287x500','9200_2':'592x407x500','8000_2':'439x287x500','5000_2':'Nie dotyczy','4100_2':'592x287x500','3000_2':'Nie dotyczy',
                                  '1200_3':'897x287x75','9200_3':'897x407x75','8000_3':'437x287x75','5000_3':'Nie dotyczy','4100_3':'592x287x75','3000_3':'255x305x75'
 
                                  }

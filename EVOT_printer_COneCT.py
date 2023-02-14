@@ -2482,11 +2482,15 @@ class Application (Frame):
         try:
             path_new_folder = os.path.join(self.path_out, 'Atest_tabliczka_protokół_ZP3')
             os.makedirs(path_new_folder)
-            path_protocol_out = os.path.join(path_new_folder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_protokół_odbioru.pdf')
-            path_plate_out = os.path.join(path_new_folder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_tabliczka.pdf')
+
+            path_new_subfolder = os.path.join(path_new_folder, self.entry_project_value.get() + '_' + self.entry_system_value.get())
+            os.makedirs(path_new_subfolder)
+
+            path_protocol_out = os.path.join(path_new_subfolder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_protokół_odbioru.pdf')
+            path_plate_out = os.path.join(path_new_subfolder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_tabliczka.pdf')
             #path_atest_out = os.path.join(path_new_folder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_atest.pdf')
-            path_atest_out = os.path.join(path_new_folder, 'Atest ' + self.entry_serial_value.get() + ' ' + self.entry_system_value.get() + '.pdf')
-            path_filter_plate_out = os.path.join(path_new_folder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_tabliczka_filtra.pdf')
+            path_atest_out = os.path.join(path_new_subfolder, 'Atest ' + self.entry_serial_value.get() + ' ' + self.entry_system_value.get() + '.pdf')
+            path_filter_plate_out = os.path.join(path_new_subfolder, self.entry_project_value.get()+ '_' + self.entry_system_value.get()+'_tabliczka_filtra.pdf')
 
 
 

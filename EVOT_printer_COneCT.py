@@ -74,6 +74,7 @@ class Application (Frame):
         self.qfan_exh_EC = ''
         self.qfan_sup_AC = ''
         self.qfan_exh_AC = ''
+        self.main_folder_name = 'Atest_tabliczka_protokół_ZP3'
 
 
 
@@ -102,6 +103,7 @@ class Application (Frame):
         self.flow_type_choice_value.set(1)
 
         self.example_fan_number_value.set(1)
+
 
 
 
@@ -2477,11 +2479,18 @@ class Application (Frame):
 
 
     #save
+        if (os.path.split(self.path_out))[1] == self.main_folder_name:
+            path_new_folder = self.path_out
+        else :
+
+            path_new_folder = os.path.join(self.path_out, self.main_folder_name)
+            try:
+                os.makedirs(path_new_folder)
+            except:
+                messagebox.showinfo('Warning','Poszę wejść do folderu Atesty....')
 
 
         try:
-            path_new_folder = os.path.join(self.path_out, 'Atest_tabliczka_protokół_ZP3')
-            os.makedirs(path_new_folder)
 
             path_new_subfolder = os.path.join(path_new_folder, self.entry_project_value.get() + '_' + self.entry_system_value.get())
             os.makedirs(path_new_subfolder)

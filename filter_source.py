@@ -40,6 +40,12 @@ entry_supply_filter_plate_kind_value = {'1200_1':'działkowy','9200_1':'działko
 
                                         }
 
+entry_supply_filter_plate_kind_value_EN = {'1200_1': 'cassette', '9200_1': 'cassette', '8000_1': 'cassette', '5000_1': 'cassette', '4100_1': 'cassette', '3000_1': 'cassette',
+                                        '1200_2': 'bag', '9200_2': 'bag', '8000_2': 'bag', '5000_2': 'bag', '4100_2': 'bag', '3000_2': 'bag',
+                                        '1200_3': 'minipleat', '9200_3': 'minipleat', '8000_3': 'minipleat', '5000_3': 'minipleat', '4100_3': 'minipleat', '3000_3': 'minipleat'
+
+                                        }
+
 entry_supply_filter_plate_filter_class_value = {'G4_1':'Coarse 80%','M5_1':'ePM10 50%','F7_1':'ePM1 60%','F9_1':'ePM1 60%',
                                                 'G4_2':'Coarse 70%','M5_2':'ePM10 50%','F7_2':'ePM1 55%','F9_2':'ePM1 80%',
                                                 'G4_3':'' ,'M5_3':'','F7_3':'ePM1 60%','F9_3':'ePM1 60%'
@@ -87,6 +93,13 @@ entry_exhaust_filter_plate_kind_value = {'1200_1': 'działkowy', '9200_1': 'dzia
                                         '1200_3': 'minipleat', '9200_3': 'minipleat', '8000_3': 'minipleat', '5000_3': 'minipleat', '4100_3': 'minipleat', '3000_3': 'minipleat'
 
                                         }
+
+entry_exhaust_filter_plate_kind_value_EN = {'1200_1': 'cassette', '9200_1': 'cassette', '8000_1': 'cassette', '5000_1': 'cassette', '4100_1': 'cassette', '3000_1': 'cassette',
+                                        '1200_2': 'bag', '9200_2': 'bag', '8000_2': 'bag', '5000_2': 'bag', '4100_2': 'bag', '3000_2': 'bag',
+                                        '1200_3': 'minipleat', '9200_3': 'minipleat', '8000_3': 'minipleat', '5000_3': 'minipleat', '4100_3': 'minipleat', '3000_3': 'minipleat'
+
+                                        }
+
 
 entry_exhaust_filter_plate_filter_class_value = {'G4_1': 'Coarse 80%', 'M5_1': 'ePM10 50%', 'F7_1': 'ePM1 60%', 'F9_1': 'ePM1 60%',
                                                 'G4_2': 'Coarse 70%', 'M5_2': 'ePM10 50%', 'F7_2': 'ePM1 55%', 'F9_2': 'ePM1 80%',

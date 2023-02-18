@@ -1399,6 +1399,10 @@ class Application (Frame):
         self.entry_supply_filter_plate_kind_value = StringVar()
         self.entry_supply_filter_plate_kind = ttk.Entry(self.lframe, width=30, textvariable=self.entry_supply_filter_plate_kind_value )
         self.entry_supply_filter_plate_kind.insert(END, entry_supply_filter_plate_kind_value[str(self.symbol_ahu_range.get() + '_' +  str(self.supply_type_filter_choice_value.get()))])
+        if self.accept_english_switch.get() :
+            self.entry_supply_filter_plate_kind.delete(0, 'end')
+            self.entry_supply_filter_plate_kind.insert(END, entry_supply_filter_plate_kind_value_EN[str(self.symbol_ahu_range.get() + '_' + str(self.supply_type_filter_choice_value.get()))])
+
         self.entry_supply_filter_plate_kind.grid(row=25, column=1, padx=10)
         self.lbl = ttk.Label(self.lframe, text="Rodzaj").grid(row=25, column=5, padx=10, pady=10)
 
@@ -1700,9 +1704,10 @@ class Application (Frame):
         kind_of = 'rodzaj'
 
         self.entry_exhaust_filter_plate_kind = ttk.Entry(self.lframe, width=30, textvariable=self.entry_exhaust_filter_plate_kind_value)
-
-
         self.entry_exhaust_filter_plate_kind.insert(END, entry_exhaust_filter_plate_kind_value[str(self.symbol_ahu_range.get())+ '_' + str(self.exhaust_type_filter_choice_value.get())])
+        if self.accept_english_switch.get():
+            self.entry_exhaust_filter_plate_kind.delete(0, 'end')
+            self.entry_exhaust_filter_plate_kind.insert(END, entry_exhaust_filter_plate_kind_value_EN[str(self.symbol_ahu_range.get()) + '_' + str(self.exhaust_type_filter_choice_value.get())])
 
         self.entry_exhaust_filter_plate_kind.grid(row=25, column=1, padx=10)
         self.lbl = ttk.Label(self.lframe, text="Rodzaj").grid(row=25, column=5, padx=10, pady=10)
@@ -2392,6 +2397,7 @@ class Application (Frame):
 
         try:
             data_filter_plate_out['Rfilt'] = self.entry_supply_filter_plate_kind_value.get()
+
         except:
             data_filter_plate_out['Rfilt'] = ''
 

@@ -142,6 +142,9 @@ def get_data ():
 
 
 data_filter_plate= fillpdfs.get_form_fields('data/filtr_tabliczka.pdf')
+data_filter_02_plate= fillpdfs.get_form_fields('data/filtr_tabliczka.pdf')
+
+
 
 
 try :
@@ -167,7 +170,7 @@ except:
     print('######')
     print(protocol)
     print('######')
-    print(data_filter_plate)
+
 
 
 

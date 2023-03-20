@@ -57,9 +57,17 @@ class Application (Frame):
         self.cooler_choice()
         self.fan_choice()
         self.supply_type_filter_choice()
+        self.supply_type_filter_02_choice()
+
         self.exhaust_type_filter_choice()
+        self.exhaust_type_filter_02_choice()
+
         self.supply_filter_choice()
+        self.supply_filter_02_choice()
+
         self.exhaust_filter_choice()
+        self.exhaust_filter_02_choice()
+
         self.heat_exchanger_choice()
         self.damper_choice()
         self.s_and_p()
@@ -92,14 +100,25 @@ class Application (Frame):
         self.heater_choice_value.set(4)
         self.cooler_choice_value.set(4)
         self.fan_choice_value.set(4)
+
         self.supply_filter_choice_value.set(5)
+        self.supply_filter_02_choice_value.set(5)
+
+
         self.exhaust_filter_choice_value.set(5)
+        self.exhaust_filter_02_choice_value.set(5)
+
+
         self.heat_exchanger_choice_value.set(5)
         self.damper_choice_value.set(4)
         self.add_equip_choice_value.set(2)
 
         self.supply_type_filter_choice_value.set(1)
+        self.supply_type_filter_02_choice_value.set(1)
+
         self.exhaust_type_filter_choice_value.set(1)
+        self.exhaust_type_filter_02_choice_value.set(1)
+
         self.flow_type_choice_value.set(1)
 
         self.example_fan_number_value.set(1)
@@ -134,7 +153,7 @@ class Application (Frame):
         self.settings_frame.pack(anchor=SW, ipadx=20, padx=20)
         self.inspector_name_value = StringVar()
         self.lbl_inspector_name = ttk.Label(self.settings_frame, text="kontroler KJ").grid(row=1, column=1, padx=10, pady=(10,3))
-        self.inspector_name = ('Jarosław Olszewski','Dominik Tański','Monika Roman')
+        self.inspector_name = ('Jarosław Olszewski','Dominik Tański','Marcin Elmanowski')
         self.combobox_suplly = ttk.Combobox(self.settings_frame, values=self.inspector_name, textvariable=self.inspector_name_value).grid(row=1, column=2,  padx=10, pady=(10,3))
 
         self.aproval_switch = BooleanVar(value=0)
@@ -425,8 +444,6 @@ class Application (Frame):
         self.voltage_AC_exhaust_fan_value.set('')
         self.frequency_AC_exhaust_fan_value.set('')
         self.quantity_AC_exhaust_fan_value.set(' ')
-
-
 
 
 
@@ -1162,9 +1179,8 @@ class Application (Frame):
         self.lackoff_supply_filter_function = ttk.Radiobutton(self.lfradio, text="brak", variable = self.supply_filter_choice_value, value= 5, command = self.lackoff_supply_filter_function).grid (row = 0, column = 20, padx=20, pady = 5)
 
 
+
     def supply_type_filter_choice(self):
-
-
 
         self.lfradio = ttk.LabelFrame(tab5)
         self.lfradio.pack( )
@@ -1432,11 +1448,261 @@ class Application (Frame):
 
 
 
+#############################################################################################################################################
 
+        ###################################################################################################################################
+        ###################################################################################################################################
 
+    def supply_filter_02_choice(self):
 
+        self.lfradio = ttk.LabelFrame(tab12)
+        self.lfradio.pack()
+        self.supply_filter_02_choice_value = IntVar()
+        self.supply_filter_02_choice_name_value = StringVar()
+        self.symbol_supply_filter_02_value = ''
 
-##############################################################################################################################################
+        self.G4_supply_filter_02 = ttk.Radiobutton(self.lfradio, text="G4", variable=self.supply_filter_02_choice_value, value=1, command=self.G4_supply_filter_02_function)
+        self.G4_supply_filter_02.grid(row=0, column=0, padx=20, pady=5)
+        self.M5_supply_filter_02 = ttk.Radiobutton(self.lfradio, text="M5", variable=self.supply_filter_02_choice_value, value=2, command=self.M5_supply_filter_02_function)
+        self.M5_supply_filter_02.grid(row=0, column=5, padx=20, pady=5)
+        self.F7_supply_filter_02 = ttk.Radiobutton(self.lfradio, text="F7", variable=self.supply_filter_02_choice_value, value=3, command=self.F7_supply_filter_02_function)
+        self.F7_supply_filter_02.grid(row=0, column=10, padx=20, pady=5)
+        self.F9_supply_filter_02 = ttk.Radiobutton(self.lfradio, text="F9", variable=self.supply_filter_02_choice_value, value=4, command=self.F9_supply_filter_02_function)
+        self.F9_supply_filter_02.grid(row=0, column=15, padx=20, pady=5)
+        self.lackoff_supply_filter_02_function = ttk.Radiobutton(self.lfradio, text="brak", variable=self.supply_filter_02_choice_value, value=5, command=self.lackoff_supply_filter_02_function).grid(row=0, column=20, padx=20, pady=5)
+
+    def supply_type_filter_02_choice(self):
+
+        self.lfradio = ttk.LabelFrame(tab12)
+        self.lfradio.pack()
+        self.supply_type_filter_02_choice_value = IntVar()
+        self.supply_filter_02_casette = ttk.Radiobutton(self.lfradio, text="działkowy", variable=self.supply_type_filter_02_choice_value, value=1, comman=self.supply_filter_02_plate_data)
+        self.supply_filter_02_casette.grid(row=0, column=0, padx=20, pady=5)
+        self.supply_filter_02_pocket = ttk.Radiobutton(self.lfradio, text="kieszeniowy", variable=self.supply_type_filter_02_choice_value, value=2, comman=self.supply_filter_02_plate_data)
+        self.supply_filter_02_pocket.grid(row=0, column=5, padx=20, pady=5)
+        self.supply_filter_02_minipleat = ttk.Radiobutton(self.lfradio, text="minipleat", variable=self.supply_type_filter_02_choice_value, value=3, comman=self.supply_filter_02_plate_data)
+        self.supply_filter_02_minipleat.grid(row=0, column=10, padx=20, pady=5)
+
+    def G4_supply_filter_02_function(self):
+
+        try:
+            self.lframe.destroy()
+
+        except:
+            pass
+        finally:
+
+            # supply filter_02 G4  symbol
+            self.lframe = ttk.LabelFrame(tab12)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_G4_supply_filter_02_value = StringVar()
+            self.lbl_symbol_G4_supply_filter_02 = ttk.Label(self.lframe, text="nawiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_G4_supply_filter_02 = ttk.Entry(self.lframe, textvariable=self.symbol_G4_supply_filter_02_value, width=30)
+            self.entry_symbol_G4_supply_filter_02.insert(END, symbol_G4_supply_filter_value[str(self.symbol_ahu_range.get()) + '_' + str(self.supply_type_filter_02_choice_value.get())])
+            self.entry_symbol_G4_supply_filter_02.grid(row=10, column=1, padx=1)
+            self.supply_filter_02_choice_name_value.set('G4')
+            self.symbol_supply_filter_02_value = self.symbol_G4_supply_filter_02_value
+
+            #  supply filter_02 G4 quantity
+            self.quantity_G4_supply_filter_02_value = StringVar()
+            self.lbl_quantity_G4_supply_filter_02 = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_G4_supply_filter_02 = ttk.Entry(self.lframe, textvariable=self.quantity_G4_supply_filter_02_value, width=10)
+
+            self.entry_quantity_G4_supply_filter_02.insert(END, quantity_G4_supply_filter_value)
+            self.entry_quantity_G4_supply_filter_02.grid(row=10, column=5, padx=1)
+            self.quantity_supply_filter_02_value = self.quantity_G4_supply_filter_02_value
+
+            #   explanation
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+            self.supply_filter_02_casette.configure(state=DISABLED)
+            self.supply_filter_02_pocket.configure(state=DISABLED)
+            self.supply_filter_02_minipleat.configure(state=DISABLED)
+
+            if self.supply_type_filter_02_choice_value.get() == 1 or self.supply_type_filter_02_choice_value.get() == 2:
+                self.supply_filter_02_plate_data()
+
+    def M5_supply_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # supply filter_02 M5  symbol
+            self.lframe = ttk.LabelFrame(tab12)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_M5_supply_filter_02_value = StringVar()
+            self.lbl_symbol_M5_supply_filter_02 = ttk.Label(self.lframe, text="nawiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_M5_supply_filter_02 = ttk.Entry(self.lframe, textvariable=self.symbol_M5_supply_filter_02_value, width=30)
+            self.entry_symbol_M5_supply_filter_02.insert(END, symbol_M5_supply_filter_value[str(self.symbol_ahu_range.get()) + '_' + str(self.supply_type_filter_02_choice_value.get())])
+            self.entry_symbol_M5_supply_filter_02.grid(row=10, column=1, padx=1)
+            self.supply_filter_02_choice_name_value.set('M5')
+            self.symbol_supply_filter_02_value = self.symbol_M5_supply_filter_02_value
+
+            #  supply filter_02 M5 quantity
+            self.quantity_M5_supply_filter_02_value = StringVar()
+            self.lbl_quantity_M5_supply_filter_02 = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_M5_supply_filter_02 = ttk.Entry(self.lframe, textvariable=self.quantity_M5_supply_filter_02_value, width=10)
+            self.entry_quantity_M5_supply_filter_02.insert(END, quantity_M5_supply_filter_value)
+            self.entry_quantity_M5_supply_filter_02.grid(row=10, column=5, padx=1)
+            self.quantity_supply_filter_02_value = self.quantity_M5_supply_filter_02_value
+
+            #   explanation
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+            self.supply_filter_02_casette.configure(state=DISABLED)
+            self.supply_filter_02_pocket.configure(state=DISABLED)
+            self.supply_filter_02_minipleat.configure(state=DISABLED)
+
+            if self.supply_type_filter_02_choice_value.get() == 1 or self.supply_type_filter_02_choice_value.get() == 2:
+                self.supply_filter_02_plate_data()
+
+    def F7_supply_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # supply filter_02 F7  symbol
+            self.lframe = ttk.LabelFrame(tab12)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_F7_supply_filter_02_value = StringVar()
+            self.lbl_symbol_F7_supply_filter_02 = ttk.Label(self.lframe, text="nawiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F7_supply_filter_02 = ttk.Entry(self.lframe, textvariable=self.symbol_F7_supply_filter_02_value, width=30)
+            self.entry_symbol_F7_supply_filter_02.insert(END, symbol_F7_supply_filter_value[str(self.symbol_ahu_range.get()) + '_' + str(self.supply_type_filter_02_choice_value.get())])
+            self.entry_symbol_F7_supply_filter_02.grid(row=10, column=1, padx=1)
+            self.supply_filter_02_choice_name_value.set('F7')
+            self.symbol_supply_filter_02_value = self.symbol_F7_supply_filter_02_value
+
+            #  supply filter_02 F7 quantity
+            self.quantity_F7_supply_filter_02_value = StringVar()
+            self.lbl_quantity_F7_supply_filter_02 = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_F7_supply_filter_02 = ttk.Entry(self.lframe, textvariable=self.quantity_F7_supply_filter_02_value, width=10)
+            self.entry_quantity_F7_supply_filter_02.insert(END, quantity_F7_supply_filter_value)
+            self.entry_quantity_F7_supply_filter_02.grid(row=10, column=5, padx=1)
+            self.quantity_supply_filter_02_value = self.quantity_F7_supply_filter_02_value
+
+            #   explanation
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+            self.supply_filter_02_casette.configure(state=DISABLED)
+            self.supply_filter_02_pocket.configure(state=DISABLED)
+            self.supply_filter_02_minipleat.configure(state=DISABLED)
+
+            if self.supply_type_filter_02_choice_value.get() == 3 or self.supply_type_filter_02_choice_value.get() == 2:
+                self.supply_filter_02_plate_data()
+
+    def F9_supply_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # supply filter_02 F9  symbol
+            self.lframe = ttk.LabelFrame(tab12)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+
+            self.symbol_F9_supply_filter_02_value = StringVar()
+            self.lbl_symbol_F9_supply_filter_02 = ttk.Label(self.lframe, text="nawiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F9_supply_filter_02 = ttk.Entry(self.lframe, textvariable=self.symbol_F9_supply_filter_02_value, width=30)
+            self.entry_symbol_F9_supply_filter_02.insert(END, symbol_F9_supply_filter_value[str(self.symbol_ahu_range.get()) + '_' + str(self.supply_type_filter_02_choice_value.get())])
+            self.entry_symbol_F9_supply_filter_02.grid(row=10, column=1, padx=1)
+            self.supply_filter_02_choice_name_value.set('F9')
+
+            #  supply filter_02 F9 quantity
+            self.quantity_F9_supply_filter_02_value = StringVar()
+            self.lbl_quantity_F9_supply_filter_02 = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_F9_supply_filter_02 = ttk.Entry(self.lframe, textvariable=self.quantity_F9_supply_filter_02_value, width=10)
+            self.entry_quantity_F9_supply_filter_02.insert(END, quantity_F9_supply_filter_value)
+            self.entry_quantity_F9_supply_filter_02.grid(row=10, column=5, padx=1)
+            self.symbol_supply_filter_02_value = self.symbol_F9_supply_filter_02_value
+            self.quantity_supply_filter_02_value = self.quantity_F9_supply_filter_02_value
+
+            #   explanation
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+            self.supply_filter_02_casette.configure(state=DISABLED)
+            self.supply_filter_02_pocket.configure(state=DISABLED)
+            self.supply_filter_02_minipleat.configure(state=DISABLED)
+
+            if self.supply_type_filter_02_choice_value.get() == 3 or self.supply_type_filter_02_choice_value.get() == 2:
+                self.supply_filter_02_plate_data()
+
+    def lackoff_supply_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+
+        except:
+            pass
+        try:
+            self.supply_filter_02_casette.configure(state=ACTIVE)
+            self.supply_filter_02_pocket.configure(state=ACTIVE)
+            self.supply_filter_02_minipleat.configure(state=ACTIVE)
+        except:
+            pass
+
+    ####
+
+    def supply_filter_02_plate_data(self):
+
+        supply_filter_02_class = self.supply_filter_02_choice_name_value.get()
+
+        self.entry_supply_filter_02_plate_type_value = StringVar()
+
+        self.entry_supply_filter_02_plate_type = ttk.Entry(self.lframe, width=30, textvariable=self.entry_supply_filter_02_plate_type_value)
+        self.supply_filter_02_type = entry_supply_filter_plate_type_value[str(self.symbol_ahu_range.get() + '_' + str(self.supply_type_filter_02_choice_value.get()))] + ' ' + supply_filter_02_class
+        self.entry_supply_filter_02_plate_type.insert(END, self.supply_filter_02_type)
+        self.entry_supply_filter_02_plate_type.grid(row=20, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="Typ").grid(row=20, column=5, padx=10, pady=10)
+
+        #  filter_02_class
+
+        self.entry_supply_filter_02_plate_filter_02_class_value = StringVar()
+        self.entry_supply_filter_02_plate_filter_02_class = ttk.Entry(self.lframe, width=30, textvariable=self.entry_supply_filter_02_plate_filter_02_class_value)
+        self.entry_supply_filter_02_plate_filter_02_class.insert(END, supply_filter_02_class + ' / ' + entry_supply_filter_plate_filter_class_value[str(supply_filter_02_class) + '_' + str(self.supply_type_filter_02_choice_value.get())])
+        self.entry_supply_filter_02_plate_filter_02_class.grid(row=35, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="klasa filtra").grid(row=35, column=5, padx=10, pady=10)
+
+        #  Kind of filter_02
+
+        self.entry_supply_filter_02_plate_kind_value = StringVar()
+        self.entry_supply_filter_02_plate_kind = ttk.Entry(self.lframe, width=30, textvariable=self.entry_supply_filter_02_plate_kind_value)
+        self.entry_supply_filter_02_plate_kind.insert(END, entry_supply_filter_plate_kind_value[str(self.symbol_ahu_range.get() + '_' + str(self.supply_type_filter_02_choice_value.get()))])
+        if self.accept_english_switch.get():
+            self.entry_supply_filter_02_plate_kind.delete(0, 'end')
+            self.entry_supply_filter_02_plate_kind.insert(END, entry_supply_filter_plate_kind_value_EN[str(self.symbol_ahu_range.get() + '_' + str(self.supply_type_filter_02_choice_value.get()))])
+
+        self.entry_supply_filter_02_plate_kind.grid(row=25, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="Rodzaj").grid(row=25, column=5, padx=10, pady=10)
+
+        #  initial pressure drop
+
+        self.entry_supply_filter_02_plate_initial_pressure_drop_value = StringVar()
+
+        self.entry_supply_filter_02_plate_initial_pressure_drop = ttk.Entry(self.lframe, width=30, textvariable=self.entry_supply_filter_02_plate_initial_pressure_drop_value)
+        self.entry_supply_filter_02_plate_initial_pressure_drop.grid(row=40, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="Opór początkowy").grid(row=40, column=5, padx=10, pady=10)
+
+        #  Recomended_final_pressure_drop
+
+        self.entry_supply_filter_02_plate_recom_final_pressure_drop_value = StringVar()
+
+        self.entry_supply_filter_02_plate_recom_final_pressure_drop = ttk.Entry(self.lframe, width=30, textvariable=self.entry_supply_filter_02_plate_recom_final_pressure_drop_value)
+        self.entry_supply_filter_02_plate_recom_final_pressure_drop.grid(row=45, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="Zal. opór końcowy ").grid(row=45, column=5, padx=10, pady=10)
+
+    ##############################################################################################################################################
 
 
 
@@ -1637,7 +1903,7 @@ class Application (Frame):
             self.entry_quantity_F9_exhaust_filter = ttk.Entry(self.lframe, textvariable=self.quantity_F9_exhaust_filter_value, width=10)
             self.entry_quantity_F9_exhaust_filter.insert(END, quantity_F9_exhaust_filter_value)
             self.entry_quantity_F9_exhaust_filter.grid(row=10, column=5, padx=1)
-            self.symbol_exhaust_filter_value = self.symbol_F9_exhaust_filter_value
+            self.quantity_exhaust_filter_value = self.quantity_F9_exhaust_filter_value
 
 
 
@@ -1680,7 +1946,7 @@ class Application (Frame):
 
         self.entry_exhaust_filter_plate_type = ttk.Entry(self.lframe, width=30, textvariable=self.entry_exhaust_filter_plate_type_value)
 
-        self.exhaust_filter_type = entry_exhaust_filter_plate_type_value[str(self.symbol_ahu_range.get() + '_' + str(self.supply_type_filter_choice_value.get()))] + ' ' + exhaust_filter_class
+        self.exhaust_filter_type = entry_exhaust_filter_plate_type_value[str(self.symbol_ahu_range.get()) + '_' + str(self.exhaust_type_filter_choice_value.get())] + ' ' + exhaust_filter_class
         self.entry_exhaust_filter_plate_type.insert(END, self.exhaust_filter_type)
         self.entry_exhaust_filter_plate_type.grid(row=20, column=1, padx=10)
         self.lbl = ttk.Label(self.lframe, text="Typ").grid(row=20, column=5, padx=10, pady=10)
@@ -1730,6 +1996,262 @@ class Application (Frame):
 
     ####################################################################
 
+    def exhaust_filter_02_choice(self):
+        self.lfradio = ttk.LabelFrame(tab13)
+        self.lfradio.pack()
+        self.exhaust_filter_02_choice_name_value = StringVar()
+        self.exhaust_filter_02_choice_value = IntVar()
+        self.symbol_exhaust_filter_02_value = ''
+
+        self.G4_filter_02 = ttk.Radiobutton(self.lfradio, text="G4", variable=self.exhaust_filter_02_choice_value, value=1, command=self.G4_exhaust_filter_02_function)
+        self.G4_filter_02.grid(row=0, column=0, padx=20, pady=5)
+        self.M5_filter_02 = ttk.Radiobutton(self.lfradio, text="M5", variable=self.exhaust_filter_02_choice_value, value=2, command=self.M5_exhaust_filter_02_function)
+        self.M5_filter_02.grid(row=0, column=5, padx=20, pady=5)
+        self.F7_filter_02 = ttk.Radiobutton(self.lfradio, text="F7", variable=self.exhaust_filter_02_choice_value, value=3, command=self.F7_exhaust_filter_02_function)
+        self.F7_filter_02.grid(row=0, column=10, padx=20, pady=5)
+        self.F9_filter_02 = ttk.Radiobutton(self.lfradio, text="F9", variable=self.exhaust_filter_02_choice_value, value=4, command=self.F9_exhaust_filter_02_function)
+        self.F9_filter_02.grid(row=0, column=15, padx=20, pady=5)
+        self.lackoff_exhaust_fan = ttk.Radiobutton(self.lfradio, text="brak", variable=self.exhaust_filter_02_choice_value, value=5, command=self.lackoff_exhaust_filter_02_function).grid(row=0, column=20, padx=20, pady=5)
+
+    def exhaust_type_filter_02_choice(self):
+        self.lfradio = ttk.LabelFrame(tab13)
+        self.lfradio.pack()
+        self.exhaust_type_filter_02_choice_value = IntVar()
+        self.exhaust_filter_02_casette = ttk.Radiobutton(self.lfradio, text="działkowy", variable=self.exhaust_type_filter_02_choice_value, value=1, comman=self.exhaust_filter_02_plate_data)
+        self.exhaust_filter_02_casette.grid(row=0, column=0, padx=20, pady=5)
+        self.exhaust_filter_02_packet = ttk.Radiobutton(self.lfradio, text="kieszeniowy", variable=self.exhaust_type_filter_02_choice_value, value=2, comman=self.exhaust_filter_02_plate_data)
+        self.exhaust_filter_02_packet.grid(row=0, column=5, padx=20, pady=5)
+        self.exhaust_filter_02_minipleat = ttk.Radiobutton(self.lfradio, text="minipleat", variable=self.exhaust_type_filter_02_choice_value, value=3, comman=self.exhaust_filter_02_plate_data)
+        self.exhaust_filter_02_minipleat.grid(row=0, column=15, padx=20, pady=5)
+
+    def G4_exhaust_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # exhaust filter_02 G4  symbol
+            self.lframe = ttk.LabelFrame(tab13)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_G4_exhaust_filter_02_value = StringVar()
+            self.lbl_symbol_G4_exhaust_filter_02 = ttk.Label(self.lframe, text="wywiew - wymiar filtru G4").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_G4_exhaust_filter_02 = ttk.Entry(self.lframe, textvariable=self.symbol_G4_exhaust_filter_02_value, width=30)
+            self.entry_symbol_G4_exhaust_filter_02.insert(END, symbol_G4_exhaust_filter_value[str(self.symbol_ahu_range.get() + '_' + str(self.exhaust_type_filter_02_choice_value.get()))])
+            self.entry_symbol_G4_exhaust_filter_02.grid(row=10, column=1, padx=1)
+            self.exhaust_filter_02_choice_name_value.set('G4')
+            self.symbol_exhaust_filter_02_value = self.symbol_G4_exhaust_filter_02_value
+
+            #  exhaust filter_02 G4 quantity
+            self.quantity_G4_exhaust_filter_02_value = StringVar()
+            self.lbl_quantity_G4_exhaust_filter_02 = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_G4_exhaust_filter_02 = ttk.Entry(self.lframe, textvariable=self.quantity_G4_exhaust_filter_02_value, width=10)
+            self.entry_quantity_G4_exhaust_filter_02.insert(END, quantity_G4_exhaust_filter_value)
+            self.entry_quantity_G4_exhaust_filter_02.grid(row=10, column=5, padx=1)
+            self.quantity_exhaust_filter_02_value = self.quantity_G4_exhaust_filter_02_value
+
+            #   explanation
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+            self.exhaust_filter_02_casette.configure(state=DISABLED)
+            self.exhaust_filter_02_packet.configure(state=DISABLED)
+            self.exhaust_filter_02_minipleat.configure(state=DISABLED)
+
+            if self.exhaust_type_filter_02_choice_value.get() == 1 or self.exhaust_type_filter_02_choice_value.get() == 2:
+                self.exhaust_filter_02_plate_data()
+
+    def M5_exhaust_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # exhaust filter_02 M5  symbol
+            self.lframe = ttk.LabelFrame(tab13)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_M5_exhaust_filter_02_value = StringVar()
+            self.lbl_symbol_M5_exhaust_filter_02 = ttk.Label(self.lframe, text="wywiew - wymiar filtru M5").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_M5_exhaust_filter_02 = ttk.Entry(self.lframe, textvariable=self.symbol_M5_exhaust_filter_02_value, width=30)
+            self.entry_symbol_M5_exhaust_filter_02.insert(END, symbol_M5_exhaust_filter_value[str(self.symbol_ahu_range.get() + '_' + str(self.exhaust_type_filter_02_choice_value.get()))])
+            self.entry_symbol_M5_exhaust_filter_02.grid(row=10, column=1, padx=1)
+            self.exhaust_filter_02_choice_name_value.set('M5')
+            self.symbol_exhaust_filter_02_value = self.symbol_M5_exhaust_filter_02_value
+
+            #  exhaust filter_02 M5 quantity
+            self.quantity_M5_exhaust_filter_02_value = StringVar()
+            self.lbl_quantity_M5_exhaust_filter_02 = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_M5_exhaust_filter_02 = ttk.Entry(self.lframe, textvariable=self.quantity_M5_exhaust_filter_02_value, width=10)
+            self.entry_quantity_M5_exhaust_filter_02.insert(END, quantity_M5_exhaust_filter_value)
+            self.entry_quantity_M5_exhaust_filter_02.grid(row=10, column=5, padx=1)
+            self.quantity_exhaust_filter_02_value = self.quantity_M5_exhaust_filter_02_value
+
+            #   explanation
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+            self.exhaust_filter_02_casette.configure(state=DISABLED)
+            self.exhaust_filter_02_packet.configure(state=DISABLED)
+            self.exhaust_filter_02_minipleat.configure(state=DISABLED)
+
+            if self.exhaust_type_filter_02_choice_value.get() == 1 or self.exhaust_type_filter_02_choice_value.get() == 2:
+                self.exhaust_filter_02_plate_data()
+
+    def F7_exhaust_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # exhaust filter_02 F7  symbol
+            self.lframe = ttk.LabelFrame(tab13)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_F7_exhaust_filter_02_value = StringVar()
+            self.lbl_symbol_F7_exhaust_filter_02 = ttk.Label(self.lframe, text="wywiew - wymiar filtru F7").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F7_exhaust_filter_02 = ttk.Entry(self.lframe, textvariable=self.symbol_F7_exhaust_filter_02_value, width=30)
+            self.entry_symbol_F7_exhaust_filter_02.insert(END, symbol_F7_exhaust_filter_value[str(self.symbol_ahu_range.get() + '_' + str(self.exhaust_type_filter_02_choice_value.get()))])
+            self.entry_symbol_F7_exhaust_filter_02.grid(row=10, column=1, padx=1)
+            self.exhaust_filter_02_choice_name_value.set('F7')
+            self.symbol_exhaust_filter_02_value = self.symbol_F7_exhaust_filter_02_value
+
+            #  exhaust filter_02 F7 quantity
+            self.quantity_F7_exhaust_filter_02_value = StringVar()
+            self.lbl_quantity_F7_exhaust_filter_02 = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_F7_exhaust_filter_02 = ttk.Entry(self.lframe, textvariable=self.quantity_F7_exhaust_filter_02_value, width=10)
+            self.entry_quantity_F7_exhaust_filter_02.insert(END, quantity_F7_exhaust_filter_value)
+            self.entry_quantity_F7_exhaust_filter_02.grid(row=10, column=5, padx=1)
+            self.quantity_exhaust_filter_02_value = self.quantity_F7_exhaust_filter_02_value
+
+            #   explanation
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+            self.exhaust_filter_02_casette.configure(state=DISABLED)
+            self.exhaust_filter_02_packet.configure(state=DISABLED)
+            self.exhaust_filter_02_minipleat.configure(state=DISABLED)
+
+            if self.exhaust_type_filter_02_choice_value.get() == 3 or self.exhaust_type_filter_02_choice_value.get() == 2:
+                self.exhaust_filter_02_plate_data()
+
+    def F9_exhaust_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+        except:
+            pass
+        finally:
+
+            # exhaust filter_02 F9  symbol
+            self.lframe = ttk.LabelFrame(tab13)
+            self.lframe.pack(anchor=W)
+            self.lframe.pack(anchor=W, padx=15)
+            self.symbol_F9_exhaust_filter_02_value = StringVar()
+            self.lbl_symbol_F9_exhaust_filter_02 = ttk.Label(self.lframe, text="wywiew - wymiar filtru F9").grid(row=5, column=1, padx=3, pady=10)
+            self.entry_symbol_F9_exhaust_filter_02 = ttk.Entry(self.lframe, textvariable=self.symbol_F9_exhaust_filter_02_value, width=30)
+            self.entry_symbol_F9_exhaust_filter_02.insert(END, symbol_F9_exhaust_filter_value[str(self.symbol_ahu_range.get() + '_' + str(self.exhaust_type_filter_02_choice_value.get()))])
+            self.entry_symbol_F9_exhaust_filter_02.grid(row=10, column=1, padx=1)
+            self.exhaust_filter_02_choice_name_value.set('F9')
+            self.symbol_exhaust_filter_02_value = self.symbol_F9_exhaust_filter_02_value
+
+            #  exhaust filter_02 F9 quantity
+            self.quantity_F9_exhaust_filter_02_value = StringVar()
+            self.lbl_quantity_F9_exhaust_filter_02 = ttk.Label(self.lframe, text="ilość").grid(row=5, column=5, padx=3, pady=10)
+            self.entry_quantity_F9_exhaust_filter_02 = ttk.Entry(self.lframe, textvariable=self.quantity_F9_exhaust_filter_02_value, width=10)
+            self.entry_quantity_F9_exhaust_filter_02.insert(END, quantity_F9_exhaust_filter_value)
+            self.entry_quantity_F9_exhaust_filter_02.grid(row=10, column=5, padx=1)
+            self.quantity_exhaust_filter_02_value =  self.quantity_F9_exhaust_filter_02_value
+
+            #   explanation
+            self.lbl = ttk.Label(self.lframe, text="[szer. x wys. x gł.]").grid(row=15, column=1, padx=3, pady=10)
+            self.lbl = ttk.Label(self.lframe, text="[sztuk]").grid(row=15, column=5, padx=3, pady=10)
+
+            self.exhaust_filter_02_casette.configure(state=DISABLED)
+            self.exhaust_filter_02_packet.configure(state=DISABLED)
+            self.exhaust_filter_02_minipleat.configure(state=DISABLED)
+
+            if self.exhaust_type_filter_02_choice_value.get() == 3 or self.exhaust_type_filter_02_choice_value.get() == 2:
+                self.exhaust_filter_02_plate_data()
+
+    def lackoff_exhaust_filter_02_function(self):
+        try:
+            self.lframe.destroy()
+
+        except:
+            pass
+
+        try:
+            self.exhaust_filter_02_casette.configure(state=NORMAL)
+            self.exhaust_filter_02_packet.configure(state=NORMAL)
+            self.exhaust_filter_02_minipleat.configure(state=NORMAL)
+        except:
+            pass
+
+
+
+    def exhaust_filter_02_plate_data(self):
+        exhaust_filter_02_class = self.exhaust_filter_02_choice_name_value.get()
+
+        self.entry_exhaust_filter_02_plate_type_value = StringVar()
+
+        self.entry_exhaust_filter_02_plate_type = ttk.Entry(self.lframe, width=30, textvariable=self.entry_exhaust_filter_02_plate_type_value)
+
+        self.exhaust_filter_02_type = entry_exhaust_filter_plate_type_value[str(self.symbol_ahu_range.get()) + '_' + str(self.exhaust_type_filter_02_choice_value.get())] + ' ' + exhaust_filter_02_class
+        self.entry_exhaust_filter_02_plate_type.insert(END, self.exhaust_filter_02_type)
+        self.entry_exhaust_filter_02_plate_type.grid(row=20, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="Typ").grid(row=20, column=5, padx=10, pady=10)
+
+        #  filter_02_class
+
+        self.entry_exhaust_filter_02_plate_filter_02_class_value = StringVar()
+
+        self.entry_exhaust_filter_02_plate_filter_02_class = ttk.Entry(self.lframe, width=30, textvariable=self.entry_exhaust_filter_02_plate_filter_02_class_value)
+
+        self.entry_exhaust_filter_02_plate_filter_02_class.insert(END, exhaust_filter_02_class + ' / ' + entry_exhaust_filter_plate_filter_class_value[str(exhaust_filter_02_class)+ '_' + str(self.exhaust_type_filter_02_choice_value.get())])
+        self.entry_exhaust_filter_02_plate_filter_02_class.grid(row=35, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="klasa filtra").grid(row=35, column=5, padx=10, pady=10)
+
+        #  Kind of filter_02
+
+        self.entry_exhaust_filter_02_plate_kind_value = StringVar()
+        kind_of = 'rodzaj'
+
+        self.entry_exhaust_filter_02_plate_kind = ttk.Entry(self.lframe, width=30, textvariable=self.entry_exhaust_filter_02_plate_kind_value)
+        self.entry_exhaust_filter_02_plate_kind.insert(END, entry_exhaust_filter_plate_kind_value[str(self.symbol_ahu_range.get()) + '_' + str(self.exhaust_type_filter_02_choice_value.get())])
+        if self.accept_english_switch.get():
+            self.entry_exhaust_filter_02_plate_kind.delete(0, 'end')
+            self.entry_exhaust_filter_02_plate_kind.insert(END, entry_exhaust_filter_plate_kind_value_EN[str(self.symbol_ahu_range.get()) + '_' + str(self.exhaust_type_filter_02_choice_value.get())])
+
+        self.entry_exhaust_filter_02_plate_kind.grid(row=25, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="Rodzaj").grid(row=25, column=5, padx=10, pady=10)
+
+        #  initial pressure drop
+
+        self.entry_exhaust_filter_02_plate_initial_pressure_drop_value = StringVar()
+
+        self.entry_exhaust_filter_02_plate_initial_pressure_drop = ttk.Entry(self.lframe, width=30, textvariable=self.entry_exhaust_filter_02_plate_initial_pressure_drop_value)
+        self.entry_exhaust_filter_02_plate_initial_pressure_drop.grid(row=40, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="Opór początkowy").grid(row=40, column=5, padx=10, pady=10)
+
+        #  Recomended_final_pressure_drop
+
+        self.entry_exhaust_filter_02_plate_recom_final_pressure_drop_value = StringVar()
+
+        self.entry_exhaust_filter_02_plate_recom_final_pressure_drop = ttk.Entry(self.lframe, width=30, textvariable=self.entry_exhaust_filter_02_plate_recom_final_pressure_drop_value)
+        self.entry_exhaust_filter_02_plate_recom_final_pressure_drop.grid(row=45, column=1, padx=10)
+        self.lbl = ttk.Label(self.lframe, text="Zal. opór końcowy ").grid(row=45, column=5, padx=10, pady=10)
+
+
+
+
+
+
+
+
+#########################################################################################################################################
     def heat_exchanger_choice(self):
         self.heat_exchanger_radio = ttk.LabelFrame(tab7)
         self.heat_exchanger_radio.pack( )
@@ -1943,7 +2465,7 @@ class Application (Frame):
 
 
     def save_newpdf(self):
-
+        space = '  ;  '
         self.accept_button.config(text='zapisz')
 
         try:
@@ -2264,6 +2786,29 @@ class Application (Frame):
 
 
 
+        if self.supply_filter_02_choice_value.get() == 1 and self.supply_filter_02_choice_value!=0:
+
+
+            data_tabliczka_out['sec filt 1 s'] = 'G4/' + self.symbol_G4_supply_filter_02_value.get() + '/' + self.quantity_G4_supply_filter_02_value.get()
+            data_atest_out['Pole tekstowe 12'] = data_atest_out['Pole tekstowe 12'] + space + ' G4 / ' + self.symbol_G4_supply_filter_02_value.get() + ' / ' + self.quantity_G4_supply_filter_02_value.get()
+
+        if self.supply_filter_02_choice_value.get() == 2 and self.supply_filter_02_choice_value!=0:
+            data_tabliczka_out['sec filt 1 s'] = 'M5/' + self.symbol_M5_supply_filter_02_value.get() + '/' + self.quantity_M5_supply_filter_02_value.get()
+            data_atest_out['Pole tekstowe 12'] = data_atest_out['Pole tekstowe 12'] + space + ' M5 / ' + self.symbol_M5_supply_filter_02_value.get() + ' / ' + self.quantity_M5_supply_filter_02_value.get()
+
+        if self.supply_filter_02_choice_value.get() == 3 and self.supply_filter_02_choice_value!=0:
+            data_tabliczka_out['sec filt 1 s'] = 'F7/' + self.symbol_F7_supply_filter_02_value.get() + '/' + self.quantity_F7_supply_filter_02_value.get()
+            data_atest_out['Pole tekstowe 12'] = data_atest_out['Pole tekstowe 12'] + space + ' F7 / ' + self.symbol_F7_supply_filter_02_value.get() + ' / ' + self.quantity_F7_supply_filter_02_value.get()
+
+        if self.supply_filter_02_choice_value.get() == 4 and self.supply_filter_02_choice_value!=0:
+            data_tabliczka_out['sec filt 1 s'] = 'F9/' + self.symbol_F9_supply_filter_02_value.get() + '/' + self.quantity_F9_supply_filter_02_value.get()
+            data_atest_out['Pole tekstowe 12'] = data_atest_out['Pole tekstowe 12']  + space + ' F9 / ' + self.symbol_F9_supply_filter_02_value.get() + ' / ' + self.quantity_F9_supply_filter_02_value.get()
+
+        if self.supply_filter_02_choice_value.get() == 5 and self.supply_filter_02_choice_value!=0:
+            data_tabliczka_out['sec filt 1 s'] = ''
+            data_atest_out['Pole tekstowe 12'] = data_atest_out['Pole tekstowe 12']
+
+
 
 
         if self.exhaust_filter_choice_value.get() == 1 :
@@ -2285,6 +2830,30 @@ class Application (Frame):
 
         if self.exhaust_filter_choice_value.get() == 5 :
             data_tabliczka_out['pre filt 2 e'] = ''
+            data_atest_out['Pole tekstowe 25'] = ''
+
+
+
+
+
+        if self.exhaust_filter_02_choice_value.get() == 1 and self.exhaust_filter_02_choice_value != 0:
+            data_tabliczka_out['sec filt 1 e'] = 'G4/' + self.symbol_G4_exhaust_filter_02_value.get() + '/' + self.quantity_G4_exhaust_filter_02_value.get()
+            data_atest_out['Pole tekstowe 25'] = data_atest_out['Pole tekstowe 25']  + space + ' G4 / ' + self.symbol_G4_exhaust_filter_02_value.get() + ' / ' + self.quantity_G4_exhaust_filter_02_value.get()
+
+        if self.exhaust_filter_02_choice_value.get() == 2 and self.exhaust_filter_02_choice_value != 0:
+            data_tabliczka_out['sec filt 1 e'] = 'M5/' + self.symbol_M5_exhaust_filter_02_value.get() + '/' + self.quantity_M5_exhaust_filter_02_value.get()
+            data_atest_out['Pole tekstowe 25'] = data_atest_out['Pole tekstowe 25']  + space + ' M5 / ' + self.symbol_M5_exhaust_filter_02_value.get() + ' / ' + self.quantity_M5_exhaust_filter_02_value.get()
+
+        if self.exhaust_filter_02_choice_value.get() == 3 and self.exhaust_filter_02_choice_value != 0:
+            data_tabliczka_out['sec filt 1 e'] = 'F7/' + self.symbol_F7_exhaust_filter_02_value.get() + '/' + self.quantity_F7_exhaust_filter_02_value.get()
+            data_atest_out['Pole tekstowe 25'] = data_atest_out['Pole tekstowe 25']  + space  + ' F7 / ' + self.symbol_F7_exhaust_filter_02_value.get() + ' / ' + self.quantity_F7_exhaust_filter_02_value.get()
+
+        if self.exhaust_filter_02_choice_value.get() == 4 and self.exhaust_filter_02_choice_value != 0:
+            data_tabliczka_out['sec filt 1 e'] = 'F9/' + self.symbol_F9_exhaust_filter_02_value.get() + '/' + self.quantity_F9_exhaust_filter_02_value.get()
+            data_atest_out['Pole tekstowe 25'] = data_atest_out['Pole tekstowe 25']  + space   + ' F9 / ' + self.symbol_F9_exhaust_filter_02_value.get() + ' / ' + self.quantity_F9_exhaust_filter_02_value.get()
+
+        if self.exhaust_filter_02_choice_value.get() == 5 and self.exhaust_filter_02_choice_value != 0:
+            data_tabliczka_out['sec filt 1 e'] = ''
             data_atest_out['Pole tekstowe 25'] = ''
 
 
@@ -2434,7 +3003,6 @@ class Application (Frame):
 
 
 
-
         try:
             data_filter_plate_out['Typ1'] = self.exhaust_filter_type
         except:
@@ -2481,10 +3049,107 @@ class Application (Frame):
             data_filter_plate_out['Proj1'] = ''
 
 
+        ###################  filter plate 02
+
+
+        data_filter_02_plate_out = data_filter_02_plate
+
+        try:
+            data_filter_02_plate_out['Typ'] = self.supply_filter_02_type
+        except:
+            data_filter_02_plate_out['Typ'] = ''
+
+        try:
+            data_filter_02_plate_out['Rfilt'] = self.entry_supply_filter_02_plate_kind_value.get()
+
+        except:
+            data_filter_02_plate_out['Rfilt'] = ''
+
+        try:
+            data_filter_02_plate_out['Max P'] = self.entry_supply_flow_value.get()
+        except:
+            data_filter_02_plate_out['Max P'] = ''
+
+        try:
+            data_filter_02_plate_out['Wymiar'] = self.symbol_supply_filter_02_value.get() + ' / ' + self.quantity_supply_filter_02_value.get()
+        except:
+            data_filter_02_plate_out['Wymiar'] = ''
+
+        try:
+            data_filter_02_plate_out['Klasa'] = self.entry_supply_filter_02_plate_filter_02_class_value.get()
+        except:
+            data_filter_02_plate_out['Klasa'] = ''
+
+        try:
+            data_filter_02_plate_out['Opor'] = self.entry_supply_filter_02_plate_initial_pressure_drop_value.get()
+        except:
+            data_filter_02_plate_out['Opor'] = ''
+
+        try:
+            data_filter_02_plate_out['Zalec'] = self.entry_supply_filter_02_plate_recom_final_pressure_drop_value.get()
+        except:
+            data_filter_02_plate_out['Zalec'] = ''
+
+        try:
+            data_filter_02_plate_out['Proj'] = self.entry_project_value.get()
+        except:
+            data_filter_02_plate_out['Proj'] = ''
+
+############################################################################################################################################
 
 
 
-    #save
+
+        try:
+            data_filter_02_plate_out['Typ1'] = self.exhaust_filter_02_type
+        except:
+            data_filter_02_plate_out['Typ1'] = ''
+
+        try:
+            data_filter_02_plate_out['Rfilt1'] = self.entry_exhaust_filter_02_plate_kind_value.get()
+        except:
+            data_filter_02_plate_out['Rfilt1'] = ''
+
+
+        try:
+            data_filter_02_plate_out['Max P1'] = self.entry_exhaust_flow_value.get()
+        except:
+            data_filter_02_plate_out['Max P1'] = ''
+
+        try:
+            data_filter_02_plate_out['Wymiar1'] = self.symbol_exhaust_filter_02_value.get() + ' / ' + self.quantity_exhaust_filter_02_value.get()
+        except:
+            data_filter_02_plate_out['Wymiar1'] = ''
+
+
+        try :
+            data_filter_02_plate_out['Klasa1'] = self.entry_exhaust_filter_02_plate_filter_02_class_value.get()
+        except:
+            data_filter_02_plate_out['Klasa1'] = ''
+
+
+        try:
+            data_filter_02_plate_out['Opor1'] = self.entry_exhaust_filter_02_plate_initial_pressure_drop_value.get()
+        except:
+            data_filter_02_plate_out['Opor1'] = ''
+
+        try:
+
+            data_filter_02_plate_out['Zalec1'] = self.entry_exhaust_filter_02_plate_recom_final_pressure_drop_value.get()
+        except:
+            data_filter_02_plate_out['Zalec1'] = ''
+
+
+        try:
+            data_filter_02_plate_out['Proj1'] = self.entry_project_value.get()
+        except:
+            data_filter_02_plate_out['Proj1'] = ''
+
+
+
+
+
+        #save
         if (os.path.split(self.path_out))[1] == self.main_folder_name:
             path_new_folder = self.path_out
         else :
@@ -2509,6 +3174,9 @@ class Application (Frame):
 
 
 
+            path_filter_02_plate_out = os.path.join(path_new_subfolder, self.entry_project_value.get() + '_' + self.entry_system_value.get() + '_tabliczka_filtra_02.pdf')
+
+
             fillpdfs.write_fillable_pdf('data/protocol.pdf', path_protocol_out, data_protocol_out, flatten=False)
             if self.accept_english_switch.get() :
                 if self.selected_ahu_value.get() == 'EVO-T+':
@@ -2530,6 +3198,9 @@ class Application (Frame):
             fillpdfs.write_fillable_pdf('data/filtr_tabliczka.pdf', path_filter_plate_out, data_filter_plate_out, flatten=False)
 
 
+            if self.supply_filter_02_choice_value.get() != 5 or self.exhaust_filter_02_choice_value.get() != 5:
+                fillpdfs.write_fillable_pdf('data/filtr_tabliczka.pdf', path_filter_02_plate_out, data_filter_02_plate_out, flatten=False)
+
 
 
             self.accept_button.config(text = 'ok')
@@ -2537,10 +3208,6 @@ class Application (Frame):
         except:
             messagebox.showerror('error', 'Coś poszło nie tak !')
       #
-
-
-
-
 
 
 
@@ -2563,8 +3230,8 @@ class Application (Frame):
             username = 'jolszewski'
         elif self.inspector_name_value.get()  =='Dominik Tański':
             username = 'dtanski'
-        elif self.inspector_name_value.get()  =='Monika Roman':
-            username = 'mroman'
+        elif self.inspector_name_value.get()  =='Marcin Elmanowski':
+            username = 'melmanowski'
 
 
         if self.myToken ==0:
@@ -2573,8 +3240,6 @@ class Application (Frame):
         if self.myToken.status_code ==200 or self.myToken.status_code ==201  :
             self.entry_pass.grid_remove()
             self.data_getter()
-
-
 
 
 
@@ -2633,7 +3298,7 @@ class Application (Frame):
 
 window = Tk()
 window.title("EVOT_printer")
-window.geometry('660x480')
+window.geometry('810x480')
 
 tab_parent = ttk.Notebook(window)
 
@@ -2649,6 +3314,8 @@ tab8 = ttk.Frame(tab_parent)
 tab9 = ttk.Frame(tab_parent)
 tab10 = ttk.Frame(tab_parent)
 tab11 = ttk.Frame(tab_parent)
+tab12 = ttk.Frame(tab_parent)
+tab13 = ttk.Frame(tab_parent)
 
 tab_parent.add(tab0,text = 'ustaw')
 tab_parent.add(tab1,text = 'identyfikacja')
@@ -2656,12 +3323,16 @@ tab_parent.add(tab2,text = 'nagrzewnica')
 tab_parent.add(tab3,text = 'chłodnica')
 tab_parent.add(tab4,text = 'wentylatory')
 tab_parent.add(tab5,text = 'flt-nawiew')
+tab_parent.add(tab12,text = 'flt-naw_02')
 tab_parent.add(tab6,text = 'flt-wywiew')
+tab_parent.add(tab13,text = 'flt-wyw_02')
 tab_parent.add(tab7,text = 'odzysk')
 tab_parent.add(tab8,text = 'tłumik')
 tab_parent.add(tab9,text = 'wypos')
 tab_parent.add(tab10,text = 's&p')
 tab_parent.add(tab11,text = 'akcept')
+
+
 tab_parent.pack(expand = 1, fill = 'both')
 
 

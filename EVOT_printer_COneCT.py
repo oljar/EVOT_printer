@@ -2764,8 +2764,11 @@ class Application (Frame):
 # filters
 
         if self.supply_filter_choice_value.get() == 1 :
+
             data_tabliczka_out['pre filt 2 s'] = 'G4/'+ self.symbol_G4_supply_filter_value.get()+ '/'+ self.quantity_G4_supply_filter_value.get()
             data_atest_out['Pole tekstowe 12'] = '\r'+' G4 / '+self.symbol_G4_supply_filter_value.get() + ' / ' +self.quantity_G4_supply_filter_value.get()
+
+
 
         if self.supply_filter_choice_value.get() == 2 :
             data_tabliczka_out['pre filt 2 s'] = 'M5/'+ self.symbol_M5_supply_filter_value.get()+ '/'+ self.quantity_M5_supply_filter_value.get()
